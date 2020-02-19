@@ -191,11 +191,22 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype_Models\CAKE_FINISHINGS.cs" />
+    <Compile Include="Prototype_Models\CUSTOMER.cs" />
+    <Compile Include="Prototype_Models\EMPLOYEE.cs" />
+    <Compile Include="Prototype_Models\INGREDIENT.cs" />
+    <Compile Include="Prototype_Models\ORDER.cs" />
+    <Compile Include="Prototype_Models\ORDER_HISTORY.cs" />
+    <Compile Include="Prototype_Models\ORDER_SIZES.cs" />
+    <Compile Include="Prototype_Models\PRODUCT.cs" />
+    <Compile Include="Prototype_Models\sysdiagram.cs" />
+    <Compile Include="Prototype_Models\TYHB_Prototype_Models.cs" />
+    <Compile Include="Prototype_Models\VENDOR.cs" />
+    <Compile Include="Prototype_Models\WEDDING_TASTING_BOX_ORDERS.cs" />
+    <Compile Include="Prototype_Models\WTBO_HISTORY.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -260,8 +271,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
