@@ -235,6 +235,7 @@
     <Content Include="Assets\Bootstrap\bootstrap.bundle.min.js.map" />
     <Content Include="Assets\Bootstrap\bootstrap.js.map" />
     <Content Include="Assets\Bootstrap\bootstrap.min.js.map" />
+    <Content Include="Private.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
