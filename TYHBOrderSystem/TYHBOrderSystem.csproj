@@ -281,6 +281,15 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Demo.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\ManageUsers.cshtml" />
+    <Content Include="Views\Home\DevDashboard.cshtml" />
+    <Content Include="Views\Home\BugTracker.cshtml" />
+    <Content Include="Views\Home\ProjectManagerDash.cshtml" />
+    <Content Include="Views\Home\SubmissionDash.cshtml" />
+    <Content Include="Views\ProjectManager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
