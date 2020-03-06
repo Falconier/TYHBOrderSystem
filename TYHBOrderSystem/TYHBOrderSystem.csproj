@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -188,23 +190,23 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BakeryModels.cs" />
+    <Compile Include="Models\CUSTOMER.cs" />
+    <Compile Include="Models\EMPLOYEE.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\INGREDIENT.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ORDER.cs" />
+    <Compile Include="Models\ORDER_HISTORY.cs" />
+    <Compile Include="Models\ORDER_SIZES.cs" />
+    <Compile Include="Models\PRODUCT.cs" />
+    <Compile Include="Models\PRODUCT_FINISHINGS.cs" />
+    <Compile Include="Models\VENDOR.cs" />
+    <Compile Include="Models\WEDDING_TASTING_BOX_ORDERS.cs" />
+    <Compile Include="Models\WTBO_HISTORY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prototype_Models\CAKE_FINISHINGS.cs" />
-    <Compile Include="Prototype_Models\CUSTOMER.cs" />
-    <Compile Include="Prototype_Models\EMPLOYEE.cs" />
-    <Compile Include="Prototype_Models\INGREDIENT.cs" />
-    <Compile Include="Prototype_Models\ORDER.cs" />
-    <Compile Include="Prototype_Models\ORDER_HISTORY.cs" />
-    <Compile Include="Prototype_Models\ORDER_SIZES.cs" />
-    <Compile Include="Prototype_Models\PRODUCT.cs" />
-    <Compile Include="Prototype_Models\sysdiagram.cs" />
-    <Compile Include="Prototype_Models\TYHB_Prototype_Models.cs" />
-    <Compile Include="Prototype_Models\VENDOR.cs" />
-    <Compile Include="Prototype_Models\WEDDING_TASTING_BOX_ORDERS.cs" />
-    <Compile Include="Prototype_Models\WTBO_HISTORY.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Edit\ProductsController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Bootstrap\bootstrap-grid.css" />
@@ -281,10 +283,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Edit\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
