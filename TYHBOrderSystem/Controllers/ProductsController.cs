@@ -41,7 +41,8 @@ namespace TYHBOrderSystem.Views.Edit
 								//[Authorize(Roles = "Admin, Owner")]
         public ActionResult Create()
         {
-												var items = db.PRODUCTS.Select(product => product.Product_Type).Distinct().ToList();
+												IEnumerable<String> items = db.PRODUCTS.Select(product => product.Product_Type).Distinct().ToList();
+												//ViewBag.ProductType = items;
 												ViewBag.ProductType = new SelectList(items);
 												//ViewBag.Product
             return View();
