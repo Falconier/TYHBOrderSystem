@@ -15,14 +15,14 @@ namespace TYHBOrderSystem.Views.Edit
         private BakeryModels db = new BakeryModels();
 
         // GET: Products
-								[Authorize]
+								//[Authorize]
         public ActionResult Index()
         {
             return View(db.PRODUCTS.ToList());
         }
 
         // GET: Products/Details/5
-								[Authorize]
+								//[Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,9 +38,12 @@ namespace TYHBOrderSystem.Views.Edit
         }
 
         // GET: Products/Create
-								[Authorize(Roles = "Admin, Owner")]
+								//[Authorize(Roles = "Admin, Owner")]
         public ActionResult Create()
         {
+												var items = db.PRODUCTS.Select(product => product.Product_Type).Distinct().ToList();
+												ViewBag.ProductType = new SelectList(items);
+												//ViewBag.Product
             return View();
         }
 
@@ -49,7 +52,7 @@ namespace TYHBOrderSystem.Views.Edit
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-								[Authorize(Roles = "Admin, Owner")]
+								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult Create([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] PRODUCT pRODUCT)
         {
             if (ModelState.IsValid)
@@ -63,7 +66,7 @@ namespace TYHBOrderSystem.Views.Edit
         }
 
 								// GET: Products/Edit/5
-								[Authorize(Roles = "Admin, Owner")]
+								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,7 +86,7 @@ namespace TYHBOrderSystem.Views.Edit
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-								[Authorize(Roles = "Admin, Owner")]
+								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult Edit([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] PRODUCT pRODUCT)
         {
             if (ModelState.IsValid)
@@ -96,7 +99,7 @@ namespace TYHBOrderSystem.Views.Edit
         }
 
 								// GET: Products/Delete/5
-								[Authorize(Roles = "Admin, Owner")]
+								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,7 +117,7 @@ namespace TYHBOrderSystem.Views.Edit
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-								[Authorize(Roles = "Admin, Owner")]
+								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult DeleteConfirmed(int id)
         {
             PRODUCT pRODUCT = db.PRODUCTS.Find(id);
