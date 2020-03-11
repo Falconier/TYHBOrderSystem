@@ -6,15 +6,15 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class ORDER_SIZES
+    public partial class OrderSizes
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ORDER_SIZES()
+        public OrderSizes()
         {
-            ORDERS = new HashSet<Order>();
+            
         }
 
         //PK
+								[Key]
         public int Order_Size_ID { get; set; }
 
         /*Comment:Seems to be working as product ID_type "FK" Current Database == 'Order_Size_Type'*/

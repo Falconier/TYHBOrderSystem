@@ -192,21 +192,19 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CUSTOMER.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DietaryRestriction.cs" />
-    <Compile Include="Models\EMPLOYEE.cs" />
+    <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\INGREDIENT.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\ORDER.cs" />
-    <Compile Include="Models\ORDER_HISTORY.cs" />
-    <Compile Include="Models\ORDER_SIZES.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderSizes.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\ProductFinishings.cs" />
-    <Compile Include="Models\VENDOR.cs" />
+    <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\WEDDING_TASTING_BOX_ORDERS.cs" />
-    <Compile Include="Models\WTBO_HISTORY.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\ProductsController.cs" />

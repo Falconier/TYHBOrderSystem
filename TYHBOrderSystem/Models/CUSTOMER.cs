@@ -6,14 +6,14 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("CUSTOMERS")]
-    public partial class CUSTOMER
+    public partial class Customer
     {
-        public CUSTOMER()
+        public Customer()
         {
             ORDERS = new HashSet<Order>();
         }
 
+								[Key]
         public int Customer_ID { get; set; }
 
         public string Customer_First_Name { get; set; }

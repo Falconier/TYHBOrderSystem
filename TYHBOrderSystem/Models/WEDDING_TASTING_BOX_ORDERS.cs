@@ -10,9 +10,10 @@ namespace TYHBOrderSystem.Models
     {
         public WEDDING_TASTING_BOX_ORDERS()
         {
-            WTBO_HISTORY = new HashSet<WTBO_HISTORY>();
+           
         }
 
+								[Key]
         public int WTBO_ID { get; set; }
 
         public string Event_Date { get; set; }
@@ -94,7 +95,5 @@ namespace TYHBOrderSystem.Models
         public virtual ProductFinishings PRODUCT_FINISHINGS { get; set; }
 
         public virtual Product PRODUCT { get; set; }
-
-        public virtual ICollection<WTBO_HISTORY> WTBO_HISTORY { get; set; }
     }
 }

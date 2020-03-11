@@ -7,9 +7,10 @@ namespace TYHBOrderSystem.Models
     using System.Data.Entity.Spatial;
 
     
-    public partial class ORDER
+    public partial class Order
     {
         //PK
+								[Key]
         public int ORDER_ID { get; set; }
 
         //FK
@@ -21,7 +22,7 @@ namespace TYHBOrderSystem.Models
 
         //Time (AM/PM)of pickup of Order
 								//Needs repair - JB
-        public string? Order_Time { get; set; }
+        public DateTimeOffset? Order_Time { get; set; }
 
        //Date of Pickup Order
         public string PickUp_Due_Date { get; set; }
@@ -51,13 +52,13 @@ namespace TYHBOrderSystem.Models
 
         public int? Ingredient_ID { get; set; }
 
-        public virtual CUSTOMER CUSTOMER { get; set; }
+        public virtual Customer CUSTOMER { get; set; }
 
-        public virtual EMPLOYEE EMPLOYEE { get; set; }
+        public virtual Employees EMPLOYEE { get; set; }
 
-        public virtual INGREDIENT INGREDIENT { get; set; }
+        public virtual Ingredient INGREDIENT { get; set; }
 
-        public virtual ORDER_SIZES ORDER_SIZES { get; set; }
+        public virtual OrderSizes ORDER_SIZES { get; set; }
 
         public virtual ProductFinishings PRODUCT_FINISHINGS { get; set; }
 

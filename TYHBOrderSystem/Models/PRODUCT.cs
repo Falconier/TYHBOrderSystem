@@ -14,6 +14,7 @@ namespace TYHBOrderSystem.Models
 												WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
 								}
 
+								[Key]
 								public int ProductId { get; set; }
 
 								public int TypeId { get; set; }

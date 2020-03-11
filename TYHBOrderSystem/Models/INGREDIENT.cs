@@ -6,16 +6,16 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("INGREDIENTS")]
-    public partial class INGREDIENT
+    public partial class Ingredient
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public INGREDIENT()
+        public Ingredient()
         {
             ORDERS = new HashSet<Order>();
             WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
         }
 
+								[Key]
         public int Ingredient_ID { get; set; }
 
         public string Ingredient_Type { get; set; }
@@ -23,6 +23,8 @@ namespace TYHBOrderSystem.Models
         public string Ingredient_Name { get; set; }
 
         public int? Vendor_ID { get; set; }
+
+								public virtual Vendor Vendor { get; set; }
 
         public virtual ICollection<Order> ORDERS { get; set; }
 

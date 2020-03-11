@@ -10,10 +10,11 @@ namespace TYHBOrderSystem.Models
     {
         public ProductFinishings()
         {
-            ORDERS = new HashSet<Order>();
-            WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
+            //ORDERS = new HashSet<Order>();
+            //WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
         }
 
+								[Key]
         public int FinishingID { get; set; }
 
         public string FinishType { get; set; }
