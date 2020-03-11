@@ -18,7 +18,7 @@ namespace TYHBOrderSystem.Models
 								public virtual DbSet<ORDER_SIZES> ORDER_SIZES { get; set; }
 								public virtual DbSet<ORDER> ORDERS { get; set; }
 								public virtual DbSet<PRODUCT_FINISHINGS> PRODUCT_FINISHINGS { get; set; }
-								public virtual DbSet<PRODUCT> PRODUCTS { get; set; }
+								public virtual DbSet<Product> PRODUCTS { get; set; }
 								public virtual DbSet<VENDOR> VENDORS { get; set; }
 								public virtual DbSet<WEDDING_TASTING_BOX_ORDERS> WEDDING_TASTING_BOX_ORDERS { get; set; }
 								public virtual DbSet<WTBO_HISTORY> WTBO_HISTORY { get; set; }
@@ -131,19 +131,19 @@ namespace TYHBOrderSystem.Models
 																.Property(e => e.Finishing_Flavor)
 																.IsUnicode(false);
 
-												modelBuilder.Entity<PRODUCT>()
+												modelBuilder.Entity<Product>()
 																.Property(e => e.Product_Type)
 																.IsUnicode(false);
 
-												modelBuilder.Entity<PRODUCT>()
+												modelBuilder.Entity<Product>()
 																.Property(e => e.Product_Flavor)
 																.IsUnicode(false);
 
-												modelBuilder.Entity<PRODUCT>()
+												modelBuilder.Entity<Product>()
 																.Property(e => e.Product_Description)
 																.IsUnicode(false);
 
-												modelBuilder.Entity<PRODUCT>()
+												modelBuilder.Entity<Product>()
 																.HasMany(e => e.ORDERS)
 																.WithRequired(e => e.PRODUCT)
 																.WillCascadeOnDelete(false);

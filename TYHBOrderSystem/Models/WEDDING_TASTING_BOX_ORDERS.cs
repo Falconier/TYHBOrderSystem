@@ -135,7 +135,7 @@ namespace TYHBOrderSystem.Models
 
         public virtual PRODUCT_FINISHINGS PRODUCT_FINISHINGS { get; set; }
 
-        public virtual PRODUCT PRODUCT { get; set; }
+        public virtual Product PRODUCT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WTBO_HISTORY> WTBO_HISTORY { get; set; }

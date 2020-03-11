@@ -29,7 +29,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PRODUCT product = db.PRODUCTS.Find(id);
+            Product product = db.PRODUCTS.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -64,7 +64,7 @@ namespace TYHBOrderSystem.Views.Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
 								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult Create([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] PRODUCT product)
+								public ActionResult Create([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PRODUCT product = db.PRODUCTS.Find(id);
+            Product product = db.PRODUCTS.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace TYHBOrderSystem.Views.Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
 								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult Edit([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] PRODUCT product)
+								public ActionResult Edit([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +117,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PRODUCT product = db.PRODUCTS.Find(id);
+            Product product = db.PRODUCTS.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -131,7 +131,7 @@ namespace TYHBOrderSystem.Views.Edit
 								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult DeleteConfirmed(int id)
         {
-            PRODUCT product = db.PRODUCTS.Find(id);
+            Product product = db.PRODUCTS.Find(id);
             db.PRODUCTS.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");

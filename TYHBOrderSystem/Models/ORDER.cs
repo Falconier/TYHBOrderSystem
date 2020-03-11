@@ -66,6 +66,6 @@ namespace TYHBOrderSystem.Models
 
         public virtual PRODUCT_FINISHINGS PRODUCT_FINISHINGS { get; set; }
 
-        public virtual PRODUCT PRODUCT { get; set; }
+        public virtual Product PRODUCT { get; set; }
     }
 }
