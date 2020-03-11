@@ -36,5 +36,14 @@ namespace TYHBOrderSystem.Models
 								{
 												return new ApplicationDbContext();
 								}
+
+								public DbSet<Product> Products { get; set; }
+
+								public DbSet<ProductFinishings> ProductFinishings { get; set; }
+
+								public DbSet<DietaryRestriction> DietaryRestrictions { get; set; }
+
+								public DbSet<ProductType> ProductTypes { get; set; }
+
 				}
 }

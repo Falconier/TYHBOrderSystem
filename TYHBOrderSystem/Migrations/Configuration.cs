@@ -66,6 +66,12 @@ namespace TYHBOrderSystem.Migrations
 
 												var userId3 = userManager.FindByEmail("baker@email.com").Id;
 												userManager.AddToRole(userId2, "Baker");
+
+
+
+												//Seed Product Types
+												if (!context.ProductTypes.Any(u => u.Name == "Bread"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Bread" }); }
 								}
     }
 }
