@@ -14,24 +14,18 @@ namespace TYHBOrderSystem.Models
             ORDERS = new HashSet<ORDER>();
         }
 
-        [Key]
+        //PK
         public int Order_Size_ID { get; set; }
 
-        [Required]
-        [StringLength(20)]
-        public string Order_Size_Type { get; set; }
+        /*Comment:Seems to be working as product ID_type "FK" Current Database == 'Order_Size_Type'*/
+        public virtual string Product_Type_ID { get; set; }
 
-        [Required]
-        [StringLength(12)]
-        public string Order_Size { get; set; }
+       //Inch of cake, Count of cupcakes, etc. (Sheet cake is the only one 'size' 18x12, moving to 'Product 
+        public int Order_Size { get; set; }
 
-        [StringLength(2)]
-        public string Number_Of_Layers { get; set; }
+        //Number of layers within Cake Types, Sheet Cake 
+        public int Number_Of_Layers { get; set; }
 
-        [StringLength(10)]
-        public string Serving_Size { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERS { get; set; }
     }
 }
