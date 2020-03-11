@@ -6,17 +6,17 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Product
-    {
-        public Product()
-        {
-            ORDERS = new HashSet<ORDER>();
-            WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
-        }
+				public partial class Product
+				{
+								public Product()
+								{
+												ORDERS = new HashSet<ORDER>();
+												WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
+								}
 
-        public int Product_ID { get; set; }
+								public int Product_ID { get; set; }
 
-        public virtual int Product_Type_Id { get; set; }
+								public virtual ProductType TypeId { get; set; }
 
         public string Product_Flavor { get; set; }
 
