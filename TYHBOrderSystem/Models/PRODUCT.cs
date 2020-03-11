@@ -24,6 +24,8 @@ namespace TYHBOrderSystem.Models
 
         public string Product_Description { get; set; }
 
+								public bool Seasonal { get; set; }
+
 								public virtual ProductType Type { get; set; }
 
 								public virtual DietaryRestriction DietaryRestriction { get; set; }

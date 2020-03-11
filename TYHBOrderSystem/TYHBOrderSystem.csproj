@@ -194,6 +194,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BakeryModels.cs" />
     <Compile Include="Models\CUSTOMER.cs" />
+    <Compile Include="Models\DietaryRestriction.cs" />
     <Compile Include="Models\EMPLOYEE.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\INGREDIENT.cs" />
@@ -201,8 +202,9 @@
     <Compile Include="Models\ORDER.cs" />
     <Compile Include="Models\ORDER_HISTORY.cs" />
     <Compile Include="Models\ORDER_SIZES.cs" />
-    <Compile Include="Models\PRODUCT.cs" />
-    <Compile Include="Models\PRODUCT_FINISHINGS.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\ProductFinishings.cs" />
     <Compile Include="Models\VENDOR.cs" />
     <Compile Include="Models\WEDDING_TASTING_BOX_ORDERS.cs" />
     <Compile Include="Models\WTBO_HISTORY.cs" />
