@@ -12,13 +12,13 @@ namespace TYHBOrderSystem.Views.Edit
 {
     public class ProductsController : Controller
     {
-        private BakeryModels db = new BakeryModels();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Products
 								//[Authorize]
         public ActionResult Index()
         {
-            return View(db.PRODUCTS.ToList());
+            return View(db.Products.ToList());
         }
 
         // GET: Products/Details/5
@@ -29,7 +29,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.PRODUCTS.Find(id);
+            Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -41,19 +41,19 @@ namespace TYHBOrderSystem.Views.Edit
 								//[Authorize(Roles = "Admin, Owner")]
         public ActionResult Create()
         {
-												IEnumerable<String> items = db.PRODUCTS.Select(product => product.Product_Type).Distinct().ToList();
+												//IEnumerable<String> items = db.Products.Select(product => product.Product_Type).Distinct().ToList();
 
 												//TODO: set items to type SelectListItem
 
-												//IEnumerable<SelectListItem> itemList = db.PRODUCTS.Select(p => p.Product_Type).Distinct().ToList();
+												//IEnumerable<SelectListItem> itemList = db.Products.Select(p => p.Product_Type).Distinct().ToList();
 												//var itemList = items.Select(p => new SelectListItem { Text = p, Value = p }).ToList();
-												List<SelectListItem> itemList = new List<SelectListItem>();
-												foreach(var i in items)
-												{
-																itemList.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString() });
-												}
+												//List<SelectListItem> itemList = new List<SelectListItem>();
+												//foreach(var i in items)
+												//{
+												//				itemList.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString() });
+												//}
 												//ViewBag.ProductType = items;
-												ViewBag.Product_Type = new SelectList(itemList,"Product_Type");
+												//ViewBag.Product_Type = new SelectList(itemList,"Product_Type");
 												//ViewBag.Product
             return View();
         }
@@ -68,7 +68,7 @@ namespace TYHBOrderSystem.Views.Edit
         {
             if (ModelState.IsValid)
             {
-                db.PRODUCTS.Add(product);
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -84,7 +84,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.PRODUCTS.Find(id);
+            Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -117,7 +117,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.PRODUCTS.Find(id);
+            Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -131,8 +131,8 @@ namespace TYHBOrderSystem.Views.Edit
 								//[Authorize(Roles = "Admin, Owner")]
 								public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.PRODUCTS.Find(id);
-            db.PRODUCTS.Remove(product);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

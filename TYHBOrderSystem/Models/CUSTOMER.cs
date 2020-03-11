@@ -11,7 +11,7 @@ namespace TYHBOrderSystem.Models
     {
         public CUSTOMER()
         {
-            ORDERS = new HashSet<ORDER>();
+            ORDERS = new HashSet<Order>();
         }
 
         public int Customer_ID { get; set; }
@@ -28,6 +28,6 @@ namespace TYHBOrderSystem.Models
 
         public string Email_Address { get; set; }
 
-        public virtual ICollection<ORDER> ORDERS { get; set; }
+        public virtual ICollection<Order> ORDERS { get; set; }
     }
 }

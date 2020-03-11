@@ -87,9 +87,9 @@ namespace TYHBOrderSystem.Models
 
         public int? Employee_ID { get; set; }
 
-        public virtual EMPLOYEE EMPLOYEE { get; set; }
+        public virtual Employees EMPLOYEE { get; set; }
 
-        public virtual INGREDIENT INGREDIENT { get; set; }
+        public virtual Ingredient INGREDIENT { get; set; }
 
         public virtual ProductFinishings PRODUCT_FINISHINGS { get; set; }
 

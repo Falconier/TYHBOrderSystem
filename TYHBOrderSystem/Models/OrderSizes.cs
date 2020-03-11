@@ -11,7 +11,7 @@ namespace TYHBOrderSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ORDER_SIZES()
         {
-            ORDERS = new HashSet<ORDER>();
+            ORDERS = new HashSet<Order>();
         }
 
         //PK

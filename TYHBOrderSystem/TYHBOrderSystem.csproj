@@ -192,7 +192,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BakeryModels.cs" />
     <Compile Include="Models\CUSTOMER.cs" />
     <Compile Include="Models\DietaryRestriction.cs" />
     <Compile Include="Models\EMPLOYEE.cs" />

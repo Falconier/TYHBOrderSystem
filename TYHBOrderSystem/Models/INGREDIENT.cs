@@ -12,7 +12,7 @@ namespace TYHBOrderSystem.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public INGREDIENT()
         {
-            ORDERS = new HashSet<ORDER>();
+            ORDERS = new HashSet<Order>();
             WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
         }
 
@@ -24,7 +24,7 @@ namespace TYHBOrderSystem.Models
 
         public int? Vendor_ID { get; set; }
 
-        public virtual ICollection<ORDER> ORDERS { get; set; }
+        public virtual ICollection<Order> ORDERS { get; set; }
 
         public virtual ICollection<WEDDING_TASTING_BOX_ORDERS> WEDDING_TASTING_BOX_ORDERS { get; set; }
     }

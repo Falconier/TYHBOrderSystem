@@ -6,7 +6,7 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ORDERS")]
+    
     public partial class ORDER
     {
         //PK
@@ -20,7 +20,8 @@ namespace TYHBOrderSystem.Models
         public string Order_Date { get; set; }
 
         //Time (AM/PM)of pickup of Order
-        public string ?Order_Time { get; set; }
+								//Needs repair - JB
+        public string? Order_Time { get; set; }
 
        //Date of Pickup Order
         public string PickUp_Due_Date { get; set; }
