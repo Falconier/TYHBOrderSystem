@@ -18,6 +18,8 @@ namespace TYHBOrderSystem.Models
 
 								public virtual ProductType TypeId { get; set; }
 
+								public virtual DietaryRestriction RestrictionId { get; set; }
+
         public string Product_Flavor { get; set; }
 
         public string Product_Description { get; set; }

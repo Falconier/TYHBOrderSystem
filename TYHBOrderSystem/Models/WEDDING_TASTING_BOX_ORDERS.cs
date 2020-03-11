@@ -133,7 +133,7 @@ namespace TYHBOrderSystem.Models
 
         public virtual INGREDIENT INGREDIENT { get; set; }
 
-        public virtual PRODUCT_FINISHINGS PRODUCT_FINISHINGS { get; set; }
+        public virtual ProductFinishings PRODUCT_FINISHINGS { get; set; }
 
         public virtual Product PRODUCT { get; set; }
 
