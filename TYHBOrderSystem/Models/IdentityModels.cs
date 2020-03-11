@@ -37,6 +37,8 @@ namespace TYHBOrderSystem.Models
 												return new ApplicationDbContext();
 								}
 
+								
+
 								public DbSet<Product> Products { get; set; }
 
 								public DbSet<ProductFinishings> ProductFinishings { get; set; }

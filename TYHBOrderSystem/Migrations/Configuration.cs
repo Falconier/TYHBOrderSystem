@@ -17,8 +17,8 @@ namespace TYHBOrderSystem.Migrations
 
         protected override void Seed(TYHBOrderSystem.Models.ApplicationDbContext context)
         {
-												var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+												var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
 												var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 												//if (!System.Diagnostics.Debugger.IsAttached)
