@@ -8,14 +8,8 @@ namespace TYHBOrderSystem.Models
 
     public partial class WTBO_HISTORY
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int WTBO_History_ID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int WTBO_ID { get; set; }
 
         public byte[] Wedding_Cake_Description { get; set; }

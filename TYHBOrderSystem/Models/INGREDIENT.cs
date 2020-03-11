@@ -16,23 +16,16 @@ namespace TYHBOrderSystem.Models
             WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
         }
 
-        [Key]
         public int Ingredient_ID { get; set; }
 
-        [Required]
-        [StringLength(10)]
         public string Ingredient_Type { get; set; }
 
-        [Required]
-        [StringLength(25)]
         public string Ingredient_Name { get; set; }
 
         public int? Vendor_ID { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDERS { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WEDDING_TASTING_BOX_ORDERS> WEDDING_TASTING_BOX_ORDERS { get; set; }
     }
 }
