@@ -40,11 +40,12 @@ namespace TYHBOrderSystem.Models
         //Comments
         public string Additional_Comments { get; set; }
 
-
         public int Employee_ID { get; set; }
 
         public int? Order_Size_ID { get; set; }
 
+
+        //Note to 'Self' this is need to connect to product finishing table
         public int? Finishing_ID { get; set; }
 
         public int? Ingredient_ID { get; set; }
