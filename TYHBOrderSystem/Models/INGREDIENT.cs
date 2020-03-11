@@ -8,7 +8,6 @@ namespace TYHBOrderSystem.Models
 
     public partial class Ingredient
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ingredient()
         {
             ORDERS = new HashSet<Order>();

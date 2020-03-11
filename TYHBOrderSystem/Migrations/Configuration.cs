@@ -100,6 +100,17 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.ProductTypes.Any(u => u.Name == "Sheet Cake"))
 												{ context.ProductTypes.Add(new ProductType { Name = "Sheet Cake" }); }
 												#endregion
+
+												//Seed Dietary Restrictions
+												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Generic"))
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Generic" }); }
+
+												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Keto"))
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Keto" }); }
+
+												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Paleo"))
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Paleo" }); }
+
 								}
 				}
 }

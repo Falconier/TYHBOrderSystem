@@ -8,21 +8,20 @@ using System.Web;
 using System.Web.Mvc;
 using TYHBOrderSystem.Models;
 
-namespace TYHBOrderSystem.Views.Edit
+namespace TYHBOrderSystem.Controllers
 {
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Products
-								//[Authorize]
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            var products = db.Products.Include(p => p.Type);
+            return View(products.ToList());
         }
 
         // GET: Products/Details/5
-								//[Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,23 +37,10 @@ namespace TYHBOrderSystem.Views.Edit
         }
 
         // GET: Products/Create
-								//[Authorize(Roles = "Admin, Owner")]
         public ActionResult Create()
         {
-												//IEnumerable<String> items = db.Products.Select(product => product.Product_Type).Distinct().ToList();
-
-												//TODO: set items to type SelectListItem
-
-												//IEnumerable<SelectListItem> itemList = db.Products.Select(p => p.Product_Type).Distinct().ToList();
-												//var itemList = items.Select(p => new SelectListItem { Text = p, Value = p }).ToList();
-												//List<SelectListItem> itemList = new List<SelectListItem>();
-												//foreach(var i in items)
-												//{
-												//				itemList.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString() });
-												//}
-												//ViewBag.ProductType = items;
-												//ViewBag.Product_Type = new SelectList(itemList,"Product_Type");
-												//ViewBag.Product
+            ViewBag.TypeId = new SelectList(db.ProductTypes, "Id", "Name");
+												ViewBag.RestrictionId = new SelectList(db.DietaryRestrictions, "Id", "RestrictionName");
             return View();
         }
 
@@ -63,22 +49,23 @@ namespace TYHBOrderSystem.Views.Edit
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult Create([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] Product product)
+        public ActionResult Create([Bind(Include = "ProductId,TypeId,RestrictionId,Product_Flavor,Product_Description,Seasonal")] Product product)
         {
             if (ModelState.IsValid)
             {
+																
+
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.TypeId = new SelectList(db.ProductTypes, "Id", "Name", product.TypeId);
             return View(product);
         }
 
-								// GET: Products/Edit/5
-								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult Edit(int? id)
+        // GET: Products/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -89,6 +76,7 @@ namespace TYHBOrderSystem.Views.Edit
             {
                 return HttpNotFound();
             }
+            ViewBag.TypeId = new SelectList(db.ProductTypes, "Id", "Name", product.TypeId);
             return View(product);
         }
 
@@ -97,8 +85,7 @@ namespace TYHBOrderSystem.Views.Edit
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult Edit([Bind(Include = "Product_ID,Product_Type,Product_Flavor,Product_Description")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductId,TypeId,RestrictionId,Product_Flavor,Product_Description,Seasonal")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -106,12 +93,12 @@ namespace TYHBOrderSystem.Views.Edit
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.TypeId = new SelectList(db.ProductTypes, "Id", "Name", product.TypeId);
             return View(product);
         }
 
-								// GET: Products/Delete/5
-								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult Delete(int? id)
+        // GET: Products/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -128,8 +115,7 @@ namespace TYHBOrderSystem.Views.Edit
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-								//[Authorize(Roles = "Admin, Owner")]
-								public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
             db.Products.Remove(product);

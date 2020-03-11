@@ -1,4 +1,4 @@
-﻿@model TYHBOrderSystem.Models.PRODUCT
+﻿@model TYHBOrderSystem.Models.Product
 
 @{
     ViewBag.Title = "Details";
@@ -7,15 +7,23 @@
 <h2>Details</h2>
 
 <div>
-    <h4>PRODUCT</h4>
+    <h4>Product</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Product_Type)
+            @Html.DisplayNameFor(model => model.Type.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Product_Type)
+            @Html.DisplayFor(model => model.Type.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestrictionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestrictionId)
         </dd>
 
         <dt>
@@ -34,9 +42,17 @@
             @Html.DisplayFor(model => model.Product_Description)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Seasonal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seasonal)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Product_ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

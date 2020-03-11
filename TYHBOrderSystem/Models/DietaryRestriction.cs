@@ -12,5 +12,7 @@ namespace TYHBOrderSystem.Models
 								public int Id { get; set; }
 
 								public string RestrictionName { get; set; }
+
+								public virtual ICollection<Product> Product { get; set; }
 				}
 }

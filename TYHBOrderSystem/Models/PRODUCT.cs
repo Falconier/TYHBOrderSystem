@@ -29,7 +29,7 @@ namespace TYHBOrderSystem.Models
 
 								public virtual ProductType Type { get; set; }
 
-								public virtual DietaryRestriction DietaryRestriction { get; set; }
+								public virtual DietaryRestriction Restriction { get; set; }
 
         public virtual ICollection<Order> ORDERS { get; set; }
 
