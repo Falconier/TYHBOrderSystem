@@ -6,9 +6,9 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Pro
+    public partial class ProductFinishings
     {
-        public PRODUCT_FINISHINGS()
+        public ProductFinishings()
         {
             ORDERS = new HashSet<ORDER>();
             WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();

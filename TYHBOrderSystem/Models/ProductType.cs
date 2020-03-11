@@ -9,6 +9,8 @@ namespace TYHBOrderSystem.Models
 				{
 								public int Id { get; set; }
 
-								public string TypeName { get; set; }
+								public string Name { get; set; }
+
+								public virtual ICollection<Product> Product { get; set; }
 				}
 }

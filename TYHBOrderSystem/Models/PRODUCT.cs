@@ -14,15 +14,19 @@ namespace TYHBOrderSystem.Models
 												WEDDING_TASTING_BOX_ORDERS = new HashSet<WEDDING_TASTING_BOX_ORDERS>();
 								}
 
-								public int Product_ID { get; set; }
+								public int ProductId { get; set; }
 
-								public virtual ProductType TypeId { get; set; }
+								public int TypeId { get; set; }
 
-								public virtual DietaryRestriction RestrictionId { get; set; }
+								public int RestrictionId { get; set; }
 
         public string Product_Flavor { get; set; }
 
         public string Product_Description { get; set; }
+
+								public virtual ProductType Type { get; set; }
+
+								public virtual DietaryRestriction DietaryRestriction { get; set; }
 
         public virtual ICollection<ORDER> ORDERS { get; set; }
 
