@@ -1,9 +1,7 @@
 ﻿<title>@ViewBag.Title</title>
 
-<style type="text/css">
-    .textcolor {
-        color: white;
-    }
+<!--<style type="text/css">
+
 
     .selection {
         background-color: grey;
@@ -12,14 +10,16 @@
     .approved {
         background-color: green;
     }
-</style>
 
+
+</style>*/
+-->
 
 <div class="box">
 
     <div class="box-header"></div>
     <h3 class="box-title">
-        DAILY REPORT
+        <p style="text-align: center"><font size="15">DAILY REPORT</font></p>
     </h3>
 </div>
 <!-- /.box-header -->
@@ -28,17 +28,13 @@
 <div class="box-body">
     <table id="example1" class="table table-bordered table-striped">
         <thead>
-            <tr class="grey">
-
-                <th>Priority</th>
-                <th>Title</th>
-                <th>Project</th>
-                <th>Cake Status</th>
-                <th>Cake Type</th>
-                @*<th>Description</th>*@
-                <th>Date Ordered</th>
-                <th>Date Due</th>
-                <th>Customer Initials</th>
+            <tr bgcolor="black">
+                <th><font color="white">Date Ordered</font></th>
+                <th><font color="white">Date Due</font></th>
+                <th><font color="white">Cake Type</font></th>
+                <th><font color="white">Quantity</font></th>
+                <th><font color="white">Size</font></th>
+                <th><font color="white">Customer Initials</font></th>
 
             </tr>
         </thead>
@@ -47,7 +43,7 @@
     </table>
 </div>
 <!-- /.box-body -->
-</div>
+
 
 @section Scripts{
 
@@ -56,7 +52,7 @@
             $('#example1').DataTable(
                 {
                     'paging': true,
-                    'pageLength': 20,
+                    'pageLength': 25,
                     'lengthChange': true,
                     'searching': true,
                     'ordering': true,
