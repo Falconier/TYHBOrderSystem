@@ -63,7 +63,7 @@ namespace TYHBOrderSystem.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        //[Required]
         [Display(Name = "User Name")]  //TODO: Replace with name
         public string UserName { get; set; }
 
