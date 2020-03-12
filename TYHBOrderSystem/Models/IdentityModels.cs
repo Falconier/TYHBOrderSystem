@@ -43,6 +43,8 @@ namespace TYHBOrderSystem.Models
 
 								public DbSet<Employees> Employees { get; set; }
 
+								public DbSet<FinishingsType> FinishingsTypes { get; set; }
+
 								public DbSet<Ingredient> Ingredients { get; set; }
 
 								public DbSet<Order> Orders { get; set; }

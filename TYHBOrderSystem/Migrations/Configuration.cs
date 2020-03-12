@@ -67,7 +67,6 @@ namespace TYHBOrderSystem.Migrations
 												userManager.AddToRole(userId2, "Baker");
 												#endregion
 
-
 												//Seed Product Types
 												#region Product Type Seeds
 												if (!context.ProductTypes.Any(u => u.Name == "Bread"))
@@ -102,6 +101,7 @@ namespace TYHBOrderSystem.Migrations
 												#endregion
 
 												//Seed Dietary Restrictions
+												#region Dietary Restrictions Seeds
 												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Generic"))
 												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Generic" }); }
 
@@ -110,7 +110,25 @@ namespace TYHBOrderSystem.Migrations
 
 												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Paleo"))
 												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Paleo" }); }
+												#endregion
 
+												//Seed Finishing Types
+												#region Finishing Type Seeds
+												if (!context.FinishingsTypes.Any(u => u.Name == "Filling"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Filling" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Garnish"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Garnish" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Glaze"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Glaze" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Icing"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Icing" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Topping"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Topping" }); }
+												#endregion
 								}
 				}
 }

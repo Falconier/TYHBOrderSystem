@@ -17,9 +17,11 @@ namespace TYHBOrderSystem.Models
 								[Key]
         public int FinishingID { get; set; }
 
-        public string FinishType { get; set; }
+        public int FinishTypeId { get; set; }
 
         public string FinishingFlavor { get; set; }
+
+								public virtual FinishingsType FinishingsType { get; set; }
 
         public virtual ICollection<Order> ORDERS { get; set; }
 
