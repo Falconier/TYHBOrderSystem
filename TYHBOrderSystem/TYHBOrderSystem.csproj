@@ -196,6 +196,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DietaryRestriction.cs" />
     <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\FinishingsType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

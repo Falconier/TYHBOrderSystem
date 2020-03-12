@@ -4,12 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<h2>Index</h2>
+				<button  class="btn btn-block btn-sm btn-outline-primary">
+								@Html.ActionLink("Create New", "Create")
+				</button>
+<table id="ProductTable"class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Type.Name)
