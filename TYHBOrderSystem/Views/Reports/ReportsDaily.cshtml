@@ -1,17 +1,79 @@
-﻿@{
-    Layout = null;
+﻿<title>@ViewBag.Title</title>
+
+<style type="text/css">
+    .textcolor {
+        color: white;
+    }
+
+    .selection {
+        background-color: grey;
+    }
+
+    .approved {
+        background-color: green;
+    }
+</style>
+
+
+<div class="box">
+
+    <div class="box-header"></div>
+    <h3 class="box-title">
+        DAILY REPORT
+    </h3>
+</div>
+<!-- /.box-header -->
+<!-- DAILY DATA TABLE -->
+
+<div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr class="grey">
+
+                <th>Priority</th>
+                <th>Title</th>
+                <th>Project</th>
+                <th>Cake Status</th>
+                <th>Cake Type</th>
+                @*<th>Description</th>*@
+                <th>Date Ordered</th>
+                <th>Date Due</th>
+                <th>Customer Initials</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<!-- /.box-body -->
+</div>
+
+@section Scripts{
+
+    <script>
+        $(function () {
+            $('#example1').DataTable(
+                {
+                    'paging': true,
+                    'pageLength': 20,
+                    'lengthChange': true,
+                    'searching': true,
+                    'ordering': true,
+                    'info': false,
+                    'autoWidth': true
+                })
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': false,
+                'autoWidth': false
+
+            })
+        })
+    </script>
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+//PDF DATA CODE GOES INTO TABLE ABOVE!!!///
