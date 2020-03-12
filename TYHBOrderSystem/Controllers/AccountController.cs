@@ -154,9 +154,11 @@ namespace TYHBOrderSystem.Controllers
 
 																var user = new ApplicationUser
 																{
-																				UserName = model.FirstName.Substring(0,2) + model.LastName,
+																				UserName = model.FirstName.Substring(0, 2) + model.LastName,
 																				FirstName = model.FirstName,
-																				LastName = model.LastName
+																				LastName = model.LastName,
+																				Email = "null@null.null",
+																				EmailConfirmed = true
 																};
 																var result = await UserManager.CreateAsync(user, model.Password);
 																if (result.Succeeded)
@@ -358,7 +360,7 @@ namespace TYHBOrderSystem.Controllers
 																				// If the user does not have an account, then prompt the user to create an account
 																				ViewBag.ReturnUrl = returnUrl;
 																				ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-																				return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.UserName });
+																				return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = loginInfo.DefaultUserName});
 												}
 								}
 
@@ -382,7 +384,7 @@ namespace TYHBOrderSystem.Controllers
 																{
 																				return View("ExternalLoginFailure");
 																}
-																var user = new ApplicationUser { UserName = model.UserName, UserName = model.UserName };
+																var user = new ApplicationUser { UserName = model.UserName };
 																var result = await UserManager.CreateAsync(user);
 																if (result.Succeeded)
 																{
