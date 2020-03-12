@@ -1,0 +1,17 @@
+﻿@model TYHBOrderSystem.Models.AdminUserViewModel
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<section>
+    <h2>Edit @Model.User.FullName 's Roles</h2>
+</section>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.User.Id)
+    @Html.ListBox("SelectedRoles", Model.Roles)
+    <p>
+        <input type="submit" class="btn btn-info" />
+    </p>
+}

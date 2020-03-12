@@ -24,6 +24,7 @@ namespace TYHBOrderSystem.Models
 												return userIdentity;
 								}
 				}
+	
 
 				public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 				{
