@@ -2236,6 +2236,8 @@
     <Content Include="Assets\plugins\summernote\summernote.js.map" />
     <Content Include="Assets\plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="Assets\plugins\toastr\toastr.js.map" />
+    <Content Include="Class_Diagrams\BakeryModels.cd" />
+    <Content Include="Class_Diagrams\ASPModels.cd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
