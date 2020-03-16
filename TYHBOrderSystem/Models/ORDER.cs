@@ -6,11 +6,11 @@ namespace TYHBOrderSystem.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    
+
     public partial class Order
     {
         //PK
-								[Key]
+        [Key]
         public int ORDER_ID { get; set; }
 
         //FK
@@ -21,10 +21,10 @@ namespace TYHBOrderSystem.Models
         public string Order_Date { get; set; }
 
         //Time (AM/PM)of pickup of Order
-								//Needs repair - JB
+        //Needs repair - JB
         public DateTimeOffset? Order_Time { get; set; }
 
-       //Date of Pickup Order
+        //Date of Pickup Order
         public string PickUp_Due_Date { get; set; }
 
         //Time AM/PM of pickup Time
@@ -32,12 +32,13 @@ namespace TYHBOrderSystem.Models
 
         //FK (FROM Products, Also on Order_Size)
         public virtual int Product_Type_ID { get; set; }
-       
+
+
         //Keeping for now in case of use of 'ingredients' for population'
         public string Ingredient_Substitution { get; set; }
 
         //Per Jacob, for report views to make easier
-        public string  Decoration_Comments { get; set; }
+        public string Decoration_Comments { get; set; }
 
         //Comments
         public string Additional_Comments { get; set; }
@@ -63,5 +64,7 @@ namespace TYHBOrderSystem.Models
         public virtual ProductFinishings PRODUCT_FINISHINGS { get; set; }
 
         public virtual Product PRODUCT { get; set; }
+
+        //Product Category Drop Down List Attempt
     }
 }
