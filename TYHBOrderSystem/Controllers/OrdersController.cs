@@ -43,6 +43,7 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
+            ViewBag.Category = new SelectList(db.ProductTypes, "Id", "Name");
             return View();
         }
 
@@ -64,6 +65,7 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID", order.Order_Size_ID);
+            ViewBag.Categories = new SelectList(db.ProductTypes, "ID", "Name" order.)
             return View(order);
         }
 

@@ -70,6 +70,15 @@
         </div>
     </div>
 
+    <!--- Category Type: Add more descriptive name than 'Categories"-->
+    <div class="form-group">
+        @Html.Label("Choose Category")
+        <div class="col-md-10">
+            @Html.DropDownList("Item Options", new SelectList(ViewBag.Category, "Name"), "Select Item")
+        </div>
+    </div>  
+
+
     <!-- Ingredient Subsition, Drop Down Box-->
     <div class="form-group">
         @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -97,15 +106,15 @@
         </div>
     </div>
 
-    <!-- Employee ID may not be needed in Order View (*at remove comments razor)
+    <!-- Employee ID may not be needed in Order View (WILL BE NEEDED)-->
     <div class="form-group">
-            *@@Html.LabelFor(model => model.Employee_ID, "Employee_ID", htmlAttributes: new { *@@class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Employee_ID, "Employee_ID", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            *@@Html.DropDownList("Employee_ID", null, htmlAttributes: new { *@@class = "form-control" })
-            *@@Html.ValidationMessageFor(model => model.Employee_ID, "", new { *@@class = "text-danger" })
+            @Html.DropDownList("Employee_ID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Employee_ID, "", new { @class = "text-danger" })
         </div>
     </div>
-    -->
+
     <!--Primary Key to grab 'Num_Layers' or Other keys-->
     <div class="form-group">
         @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-2" })
