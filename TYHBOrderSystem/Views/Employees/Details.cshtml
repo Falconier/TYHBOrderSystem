@@ -1,0 +1,42 @@
+﻿@model TYHBOrderSystem.Models.Employees
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Emp_First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emp_First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emp_Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emp_Last_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emp_Initials)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emp_Initials)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Employee_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
