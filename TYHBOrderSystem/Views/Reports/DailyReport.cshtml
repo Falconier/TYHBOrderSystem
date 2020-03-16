@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TYHBOrderSystem.Models.Order
+
+@{
     ViewBag.Title = "Daily Report";
 }
 
@@ -33,10 +35,11 @@
                 <tr bgcolor="black">
                     <th style="text-align: center"><font color="white">Date Ordered:</font></th>
                     <th style="text-align: center"><font color="white">Date Due:</font></th>
+                    <th style="text-align: center"><font color="white">Cake ID:</font></th>
                     <th style="text-align: center"><font color="white">Cake Type:</font></th>
-                    <th style="text-align: center"><font color="white">Quantity:</font></th>
                     <th style="text-align: center"><font color="white">Size:</font></th>
-                    <th style="text-align: center"><font color="white">Customer Initials:</font></th>
+                    <th style="text-align: center"><font color="white">Customer Name:</font></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +47,55 @@
         </table>
     </div>
 </div>
-<!-- /.box-body -->
+
+<table id="InformationTable" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUp_Due_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Finishing_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Type_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+        </th>
+
+    </tr>
+
+
+   
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Order_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PickUp_Due_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Finishing_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Product_Type_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name)
+            </td>
+        </tr>
+    
+</table>
+<!-- /.box-body
 
 
 @section Scripts{
@@ -73,5 +124,5 @@
         })
     </script>
 }
-
-//PDF DATA CODE GOES INTO TABLE ABOVE!!!///
+    -->
+        //PDF DATA CODE GOES INTO TABLE ABOVE!!!///
