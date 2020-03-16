@@ -38,12 +38,12 @@
   <Class Name="TYHBOrderSystem.Models.Order">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAIAAAABAEAAAAAAgRBAAAKAQAASIAABAAAACCCEA=</HashCode>
+      <HashCode>QAAAIAAAABAEAAAAAAgRBAAAKAQAASIAABAAAACACEA=</HashCode>
       <FileName>Models\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TYHBOrderSystem.Models.OrderSizes">
-    <Position X="0.5" Y="5.25" Width="1.5" />
+    <Position X="0.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAEACAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Models\OrderSizes.cs</FileName>

@@ -31,7 +31,7 @@ namespace TYHBOrderSystem.Models
         public string PickUp_Time { get; set; }
 
         //FK (FROM Products, Also on Order_Size)
-        public virtual int Product_Type_ID { get; set; }
+        //public virtual int Product_Type_ID { get; set; }
 
 
         //Keeping for now in case of use of 'ingredients' for population'

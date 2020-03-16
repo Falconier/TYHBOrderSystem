@@ -53,8 +53,6 @@ namespace TYHBOrderSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-																
-
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
