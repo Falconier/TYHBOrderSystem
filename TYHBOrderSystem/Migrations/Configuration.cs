@@ -98,6 +98,12 @@ namespace TYHBOrderSystem.Migrations
 
 												if (!context.ProductTypes.Any(u => u.Name == "Sheet Cake"))
 												{ context.ProductTypes.Add(new ProductType { Name = "Sheet Cake" }); }
+												
+												if (!context.ProductTypes.Any(u => u.Name == "Cupcake"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Cupcake" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Buns"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Buns" }); }
 												#endregion
 
 												//Seed Dietary Restrictions
