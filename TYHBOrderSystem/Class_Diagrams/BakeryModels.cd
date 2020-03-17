@@ -78,7 +78,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TYHBOrderSystem.Models.WEDDING_TASTING_BOX_ORDERS">
-    <Position X="8" Y="0.5" Width="1.5" />
+    <Position X="8" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>GlAAoABgCOAAAgAECAiWEiAAIIUCAAAASQgAAQjAKEA=</HashCode>
       <FileName>Models\WEDDING_TASTING_BOX_ORDERS.cs</FileName>

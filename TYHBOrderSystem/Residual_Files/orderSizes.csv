@@ -1,0 +1,14 @@
+﻿Order_Size_ID,Order_Size_Type,Order_Size,Number_Of_Layers,Serving_Size
+1,Round_cake,6-inch,2,8-12
+2,Round_Cake,8_inch,3,24-30
+3,Round_Cake,10_inch,3,
+4,Round_Cake,12_inch,3,
+5,Cupcakes,6_count,,
+6,Cupcakes,12_Count,,
+7,Muffins,6_count,,
+8,Muffins,12_count,,
+9,Pies,9_inch,,
+10,Buns,6_count,,
+11,Buns,12_count,,
+12,Sheet_cake,18x12,2,
+13,Cookies,12_Count,,
