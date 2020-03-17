@@ -1,4 +1,6 @@
-﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
+﻿@model TYHBOrderSystem.Models.Order
+
+
 @{
     ViewBag.Title = "Weekly Report";
 }
@@ -18,6 +20,12 @@
 </style>*/
 -->
 
+
+@{
+    var selectQueryString = "SELECT * FROM Orders ORDER BY PickUp_Due_Date";
+}
+
+
 <div class="box">
 
     <div class="box-header">
@@ -34,10 +42,10 @@
                 <tr bgcolor="black">
                     <th style="text-align: center"><font color="white">Date Ordered:</font></th>
                     <th style="text-align: center"><font color="white">Date Due:</font></th>
-                    <th style="text-align: center"><font color="white">Cake Type:</font></th>
-                    <th style="text-align: center"><font color="white">Quantity:</font></th>
+                    <th style="text-align: center"><font color="white">Cake ID:</font></th>
+                    <!--<th style="text-align: center"><font color="white">Cake Type:</font></th>-->
                     <th style="text-align: center"><font color="white">Size:</font></th>
-                    <th style="text-align: center"><font color="white">Customer Initials:</font></th>
+                    <th style="text-align: center"><font color="white">Customer Name:</font></th>
                 </tr>
             </thead>
             <tbody>
@@ -57,9 +65,11 @@
         <th>
             @Html.DisplayNameFor(model => model.Finishing_ID)
         </th>
+        <!--
         <th>
-            @Html.DisplayNameFor(model => model.Product_Type_ID)
+        Html.DisplayNameFor(model => model.Product_Type_ID)
         </th>
+        -->
         <th>
             @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
         </th>
@@ -70,29 +80,31 @@
     </tr>
 
 
-    @foreach (var item in Model)
+  <!-- foreach (var item in Query(selectQueryString))
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Order_Date)
+                item.Order_Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PickUp_Due_Date)
+                item.PickUp_Due_Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Finishing_ID)
+                item.Finishing_ID)
+            </td>
+            
+            <td>
+            Html.DisplayFor(model => model.Product_Type_ID)
+            </td>
+            
+            <td>
+                item.ORDER_SIZES.Product_Type_ID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product_Type_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ORDER_SIZES.Product_Type_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CUSTOMER.Customer_First_Name)
+                item.CUSTOMER.Customer_First_Name)
             </td>
         </tr>
-    }
+    }-->
 </table>
 <!-- /.box-body
 

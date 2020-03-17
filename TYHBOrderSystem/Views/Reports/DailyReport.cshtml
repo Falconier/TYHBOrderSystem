@@ -19,6 +19,8 @@
 </style>*/
 -->
 
+
+
 <div class="box">
 
     <div class="box-header">
@@ -36,7 +38,7 @@
                     <th style="text-align: center"><font color="white">Date Ordered:</font></th>
                     <th style="text-align: center"><font color="white">Date Due:</font></th>
                     <th style="text-align: center"><font color="white">Cake ID:</font></th>
-                    <th style="text-align: center"><font color="white">Cake Type:</font></th>
+                    <!--<th style="text-align: center"><font color="white">Cake Type:</font></th>-->
                     <th style="text-align: center"><font color="white">Size:</font></th>
                     <th style="text-align: center"><font color="white">Customer Name:</font></th>
 
@@ -59,9 +61,11 @@
         <th>
             @Html.DisplayNameFor(model => model.Finishing_ID)
         </th>
+        <!--
         <th>
-            @Html.DisplayNameFor(model => model.Product_Type_ID)
+        Html.DisplayNameFor(model => model.Product_Type_ID)
         </th>
+        -->
         <th>
             @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
         </th>
@@ -73,26 +77,28 @@
 
 
    
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.Order_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.PickUp_Due_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Finishing_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Product_Type_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Order_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PickUp_Due_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Finishing_ID)
+        </td>
+        <!--
+        <th>
+        Html.DisplayFor(model => model.Product_Type_ID)
+        </th>
+        -->
+        <td>
+            @Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name)
+        </td>
+    </tr>
     
 </table>
 <!-- /.box-body

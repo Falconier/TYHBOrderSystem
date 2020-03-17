@@ -17,8 +17,7 @@ namespace TYHBOrderSystem.Controllers
         // GET: Reports
         public ActionResult Index()
         {
-            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
-            return View(orders.ToList());
+            return View(DB.Orders.OrderBy(x => x.PickUp_Due_Date).ToList());
         }
 
         // GET: Reports/Details/5
