@@ -2005,7 +2005,6 @@
     <Content Include="Assets\Bootstrap\bootstrap.bundle.min.js.map" />
     <Content Include="Assets\Bootstrap\bootstrap.js.map" />
     <Content Include="Assets\Bootstrap\bootstrap.min.js.map" />
-    <Content Include="Private.config" />
     <Content Include="Assets\build\js\.jscsrc" />
     <Content Include="Assets\build\scss\.csslintrc" />
     <Content Include="Assets\build\scss\AdminLTE-components.scss" />
