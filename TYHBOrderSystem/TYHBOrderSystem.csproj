@@ -195,14 +195,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\View_Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DietaryRestriction.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\FinishingsType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Ingredient.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\View_Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderSizes.cs" />
     <Compile Include="Models\Product.cs" />
@@ -2238,6 +2238,8 @@
     <Content Include="Assets\plugins\toastr\toastr.js.map" />
     <Content Include="Class_Diagrams\BakeryModels.cd" />
     <Content Include="Class_Diagrams\ASPModels.cd" />
+    <Content Include="Private.config" />
+    <Content Include="EmailService.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
