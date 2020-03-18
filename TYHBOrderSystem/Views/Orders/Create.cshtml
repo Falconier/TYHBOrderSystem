@@ -91,7 +91,7 @@
       </div>
 
       <!-- Pickup Date: DatePicker JS &&& Pick Up Time-->
-      <div class=" form-row">
+      <div class="form-row">
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.PickUp_Due_Date, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
@@ -108,18 +108,47 @@
         </div>
       </div>
 
+      <!-- Employee ID && Customer ID-->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Employee_ID, "Employee_ID", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.DropDownList("Employee_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Employee_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Customer_ID, "Customer_ID", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      </div>
+
         <br/>
         <h4>Order Details</h4>
         <hr/>
 
         <!--- Category Type: Add more descriptive name than 'Categories"-->
         <div class="form-group">
-            @Html.Label("Choose Item Category")
+            @Html.Label("Choose Item Category", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.DropDownList("Item Options", ViewBag.ProductCategoryList as SelectList)
+                @Html.DropDownList("Item Options", ViewBag.ProductCategoryList as SelectList, htmlAttributes: new { @class = "form-control col-md-6" })
             </div>
         </div>
 
+      <!-- Dietary Restritions: Format radio button CSS-->
+      <div class= "form-row">
+          <div class="form-group col-md-4">
+              @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10"})
+              <div class="form-group col-md-10">
+                  @Html.RadioButtonFor(model => model.PRODUCT.Restriction, "Paleo") Paleo  
+                  @Html.RadioButtonFor(model => model.PRODUCT.Restriction, "Keto") Keto   
+                  @Html.RadioButtonFor(model => model.PRODUCT.Restriction, "GF") Gluten-Free   
+              </div>
+          </div>
+      </div>
 
         <!-- Ingredient Subsition, Drop Down Box-->
         <div class="form-group">
@@ -130,41 +159,23 @@
             </div>
         </div>
 
-        <!-- Decoration Comments STRING-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Decoration_Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+        <!-- Decoration Comments && Additional Comments-->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Decoration_Comments,"Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Decoration_Comments, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Decoration_Comments, 5, 80, htmlAttributes: new { @class = "control-text-area" })
                 @Html.ValidationMessageFor(model => model.Decoration_Comments, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <!-- Additional Comments: Changes to cake flavor/icing-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Additional_Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Additional_Comments, "Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Additional_Comments, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Additional_Comments, 5, 80, new { htmlAttributes = new { @class = "control-text-area" } })
                 @Html.ValidationMessageFor(model => model.Additional_Comments, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <!-- Employee ID may not be needed in Order View (WILL BE NEEDED)-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Employee_ID, "Employee_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Employee_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Employee_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <!--Customer ID # Should be prepopulated by DB-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Customer_ID, "Customer_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+      </div>
 
         <!--Primary Key to grab 'Num_Layers' or Other keys-->
         <div class="form-group">

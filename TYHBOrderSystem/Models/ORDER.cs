@@ -17,16 +17,14 @@ namespace TYHBOrderSystem.Models
         public int? Customer_ID { get; set; }
 
 
-        //Expression allows date until 2099. Febuaray not account for :( 
-        //[RegularExpression("^(0[1 - 9] | 1[012])[- /](0[1 - 9] |[12][0 - 9] | 3[01])[- /](19 | 20)[0 - 9][0 - 9]$", ErrorMessage = "Date must be in DD/MM/YYYY or DD-MM-YYYY")]
+        //OrderDate
         public string Order_Date { get; set; }
 
         //Time (AM/PM)of pickup of Order
         //Needs repair - JB
         public DateTimeOffset? Order_Time { get; set; }
 
-        //Date of Pickup Order: Expression allows date until 2099. Febuaray not account for :(
-        //[RegularExpression("^(0[1 - 9] | 1[012])[- /](0[1 - 9] |[12][0 - 9] | 3[01])[- /](19 | 20)[0 - 9][0 - 9]$", ErrorMessage = "Date must be in DD/MM/YYYY or DD-MM-YYYY")]
+        //Date of Pickup Order
         public string PickUp_Due_Date { get; set; }
 
         //Time AM/PM of pickup Time
