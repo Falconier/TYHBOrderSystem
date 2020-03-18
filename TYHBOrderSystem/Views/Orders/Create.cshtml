@@ -17,110 +17,100 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Order</h4>
+
+        <br/>
+        <h4>Customer Information</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <!--Customer First Name-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <!--Customer First Name &&& Customer Last Name-->
+      <div class = "form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_First_Name, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <!--Customer Last Name-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_Last_Name, "", new { @class = "text-danger" })
             </div>
         </div>
+      </div>
 
-        <!-- Primary Phone Number REGEX?-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-2" })
+        <!-- Primary Phone Number &&& Alt Phone  Number-->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Contact_Number, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <!-- Alternate Phone Number-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.CUSTOMER.Alternate_Contact_Number, "Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.CUSTOMER.Alternate_Contact_Number, "Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Alternate_Contact_Number, "", new { @class = "text-danger" })
             </div>
         </div>
+      </div>
 
         <!-- Email Address -->
         <div class="form-group">
-            @Html.LabelFor(model => model.CUSTOMER.Email_Address, "Email Address", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CUSTOMER.Email_Address, "Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control col-md-10" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Email_Address, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <!--Customer ID # Should be prepopulated by DB-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Customer_ID, "Customer_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <br/>
+        <h4>Order Information</h4>
+        <hr/>
 
-        <!--Order Date, (MM/DD/YYYY) REGEX POSSIBLE for input validation?-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-2" })
+      <!--Order Date: DatePicker JS &&& Order Time-->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class ="datepicker"} })
+                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class ="datepicker col-md-10"} })
                 @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <!--Order Time: AM/PM 12hr, REGEX PATTERN-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Order_Time, "Order Time", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Order_Time, "Order Time", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Order_Time, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Order_Time, "", new { @class = "text-danger" })
             </div>
         </div>
+      </div>
 
-        <!-- Pickup Date: (MM/DD/YYYY) REGEX POSSIBLE -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.PickUp_Due_Date, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-2" })
+      <!-- Pickup Date: DatePicker JS &&& Pick Up Time-->
+      <div class=" form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.PickUp_Due_Date, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class ="datepicker"} })
+                @Html.EditorFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class ="datepicker col-md-10"} })
                 @Html.ValidationMessageFor(model => model.PickUp_Due_Date, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <!--Pick Up Time: AM/PM 12hr, REGEX PATTERN-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.PickUp_Time, "Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.PickUp_Time, "Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PickUp_Time, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PickUp_Time, "", new { @class = "text-danger" })
             </div>
         </div>
+      </div>
 
-        <!--INT: Product Type ID specifies the product type for 'filtering'
-            Product_Type_ID Key removed from DB: it is not needed CW 3_16
-        <div class="form-group">
-            *@@Html.LabelFor(model => model.Product_Type_ID, htmlAttributes: new { *@@class = "control-label col-md-2" })
-            <div class="col-md-10">
-                *@@Html.EditorFor(model => model.Product_Type_ID, new { htmlAttributes = new { *@@class = "form-control" } })
-                *@@Html.ValidationMessageFor(model => model.Product_Type_ID, "", new { *@@class = "text-danger" })
-            </div>
-        </div>
-        -->
+        <br/>
+        <h4>Order Details</h4>
+        <hr/>
 
         <!--- Category Type: Add more descriptive name than 'Categories"-->
         <div class="form-group">
@@ -167,6 +157,15 @@
             </div>
         </div>
 
+        <!--Customer ID # Should be prepopulated by DB-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customer_ID, "Customer_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <!--Primary Key to grab 'Num_Layers' or Other keys-->
         <div class="form-group">
             @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -185,6 +184,7 @@
             </div>
         </div>
         -->
+
         <!-- Ingredient_ID no longer needed, Tables have been removed
         <div class="form-group">
             *@@Html.LabelFor(model => model.Ingredient_ID, "Ingredient_ID", htmlAttributes: new { *@@class = "control-label col-md-2" })
@@ -194,6 +194,18 @@
             </div>
         </div>
             -->
+
+        <!--INT: Product Type ID specifies the product type for 'filtering'
+            Product_Type_ID Key removed from DB: it is not needed CW 3_16
+        <div class="form-group">
+            *@@Html.LabelFor(model => model.Product_Type_ID, htmlAttributes: new { *@@class = "control-label col-md-2" })
+            <div class="col-md-10">
+                *@@Html.EditorFor(model => model.Product_Type_ID, new { htmlAttributes = new { *@@class = "form-control" } })
+                *@@Html.ValidationMessageFor(model => model.Product_Type_ID, "", new { *@@class = "text-danger" })
+            </div>
+        </div>
+        -->
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
