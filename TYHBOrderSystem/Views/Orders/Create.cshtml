@@ -85,40 +85,42 @@
       <!-- Dietary Restritions: Format radio button CSS-->
       <div class= "form-row">
           <div class="form-group col-md-4">
-              @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10"})
+              @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10" })
               <div class="form-group col-md-10">
                   @Html.RadioButton("searching", "1") Gluten-Free
-                  @Html.RadioButton("searching", "2") Keto   
+                  @Html.RadioButton("searching", "2") Keto
                   @Html.RadioButton("searching", "3") Paleo
-                  <input type="submit" value="search" asp-action="Create" formmethod="get" />
- 
               </div>
+              <input type="submit" value="search" asp-action="Create" formmethod="get" />
           </div>
       </div>
 
         <!---Table for Filter Results of 'Radio Buttons'-->
-        <table>
-            <tr>
-                <th>Product ID</th>
-                <th>TypeID</th>
-                <th>RestrictionID</th>
-                <th>Product Flavor</th>
-                <th>Description</th>
-                <th>Seasonal</th>
-            </tr>
-
-            @foreach (var item in ViewBag.DietResitrictionSearch)
-            {
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td>@item.ProductId</td>
-                    <td>@item.TypeId</td>
-                    <td>@item.RestrictionId</td>
-                    <td>@item.Product_Flavor</td>
-                    <td>@item.Product_Description</td>
-                    <td>@item.Seasonal</td>
-                </tr>
-            }
+                    <th scope="col">Product ID</th>
+                    <th scope="col">TypeID</th>
+                    <th scope="col">RestrictionID</th>
+                    <th scope="col">Product Flavor</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Seasonal</th>
+                </tr>     
+            </thead>
 
+            <tbody>
+                @foreach (var item in ViewBag.DietResitrictionSearch)
+                {
+                    <tr>
+                        <td>@item.ProductId</td>
+                        <td>@item.TypeId</td>
+                        <td>@item.RestrictionId</td>
+                        <td>@item.Product_Flavor</td>
+                        <td>@item.Product_Description</td>
+                        <td>@item.Seasonal</td>
+                    </tr>
+                }
+            </tbody>
         </table>
 
 
