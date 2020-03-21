@@ -37,22 +37,40 @@ namespace TYHBOrderSystem.Controllers
         }
 
         // GET: Orders/Create
-        public ActionResult Create()
+        public ActionResult Create(string searching)
         {
             //Working on autopopulating order date and time
             DateTime currentDate = DateTime.Now;
             string orderDate = currentDate.ToString("MM/dd/yyyy");
 
+            //Product Categories
             List<ProductType> productCategory = db.ProductTypes.ToList();
+
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
-   
 
-            //Updated CW
-            ViewBag.ProductCategoryList = new SelectList(productCategory,"Id", "Name");
-           
+            //Updated Product Catgories to ViewBag
+            ViewBag.ProductCategoryList = new SelectList(productCategory, "Id", "Name");
+
+            //Filter for Radio Button
+            ViewBag.DietResitrictionSearch = db.Products.ToList();
+
+            if (searching is null)
+            {
+                ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(0));
+                return View();
+            }
+            else if (searching != null)
+            {
+                int _search = int.Parse(searching);
+
+                ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search));
+
+                return View();
+            }
+
             return View();
         }
 
@@ -77,8 +95,9 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID", order.Order_Size_ID);
 
+           
             //ViewBag.Categories = new SelectList(db.ProductTypes, "ID", "Name" order.PRODUCT.)
-            //Dietary Restriction for radio buttons needed to grab option
+           
             return View(order);
         }
 

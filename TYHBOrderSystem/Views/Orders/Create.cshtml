@@ -68,6 +68,96 @@
             </div>
         </div>
 
+
+        <!--Order Details-->
+         <br/>
+        <h4>Order Details</h4>
+        <hr/>
+
+        <!--- Category Type: Add more descriptive name than 'Categories"-->
+        <div class="form-group">
+            @Html.Label("Choose Item Category", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.DropDownList("Item Options", ViewBag.ProductCategoryList as SelectList, htmlAttributes: new { @class = "form-control col-md-6" })
+            </div>
+        </div>
+
+      <!-- Dietary Restritions: Format radio button CSS-->
+      <div class= "form-row">
+          <div class="form-group col-md-4">
+              @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10"})
+              <div class="form-group col-md-10">
+                  @Html.RadioButton("searching", "1") Paleo  
+                  @Html.RadioButton("searching", "2") Keto   
+                  @Html.RadioButton("searching", "3") Gluten-Free
+                  <input type="submit" value="search" />
+              </div>
+          </div>
+      </div>
+
+        <!---Table for Filter Results of 'Radio Buttons'-->
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>TypeID</th>
+                <th>RestrictionID</th>
+                <th>Product Flavor</th>
+                <th>Description</th>
+                <th>Seasonal</th>
+            </tr>
+
+            @foreach (var item in ViewBag.DietResitrictionSearch)
+            {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td>@item.TypeId</td>
+                    <td>@item.RestrictionId</td>
+                    <td>@item.Product_Flavor</td>
+                    <td>@item.Product_Description</td>
+                    <td>@item.Seasonal</td>
+                </tr>
+            }
+
+        </table>
+
+
+
+        <!-- Ingredient Subsition, Drop Down Box-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ingredient_Substitution, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Decoration Comments && Additional Comments-->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Decoration_Comments,"Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Decoration_Comments, 5, 80, htmlAttributes: new { @class = "control-text-area" })
+                @Html.ValidationMessageFor(model => model.Decoration_Comments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.Additional_Comments, "Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Additional_Comments, 5, 80, new { htmlAttributes = new { @class = "control-text-area" } })
+                @Html.ValidationMessageFor(model => model.Additional_Comments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+      </div>
+
+        <!--Primary Key to grab 'Num_Layers' or Other keys-->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <br/>
         <h4>Order Information</h4>
         <hr/>
@@ -125,66 +215,6 @@
             </div>
         </div>
       </div>
-
-        <br/>
-        <h4>Order Details</h4>
-        <hr/>
-
-        <!--- Category Type: Add more descriptive name than 'Categories"-->
-        <div class="form-group">
-            @Html.Label("Choose Item Category", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.DropDownList("Item Options", ViewBag.ProductCategoryList as SelectList, htmlAttributes: new { @class = "form-control col-md-6" })
-            </div>
-        </div>
-
-      <!-- Dietary Restritions: Format radio button CSS-->
-      <div class= "form-row">
-          <div class="form-group col-md-4">
-              @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10"})
-              <div class="form-group col-md-10">
-                  @Html.RadioButtonFor(model => model.PRODUCT.Restriction, "Paleo") Paleo  
-                  @Html.RadioButtonFor(model => model.PRODUCT.Restriction, "Keto") Keto   
-                  @Html.RadioButtonFor(model => model.PRODUCT.Restriction, "GF") Gluten-Free   
-              </div>
-          </div>
-      </div>
-
-        <!-- Ingredient Subsition, Drop Down Box-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ingredient_Substitution, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <!-- Decoration Comments && Additional Comments-->
-      <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Decoration_Comments,"Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Decoration_Comments, 5, 80, htmlAttributes: new { @class = "control-text-area" })
-                @Html.ValidationMessageFor(model => model.Decoration_Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Additional_Comments, "Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Additional_Comments, 5, 80, new { htmlAttributes = new { @class = "control-text-area" } })
-                @Html.ValidationMessageFor(model => model.Additional_Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
-
-        <!--Primary Key to grab 'Num_Layers' or Other keys-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <!-- May not need Finishing_ID, commenting out for not needed for input, may need if table is still in use
         <div class="form-group">
