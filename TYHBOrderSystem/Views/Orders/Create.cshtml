@@ -87,10 +87,11 @@
           <div class="form-group col-md-4">
               @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10"})
               <div class="form-group col-md-10">
-                  @Html.RadioButton("searching", "1") Paleo  
+                  @Html.RadioButton("searching", "1") Gluten-Free
                   @Html.RadioButton("searching", "2") Keto   
-                  @Html.RadioButton("searching", "3") Gluten-Free
-                  <input type="submit" value="search" />
+                  @Html.RadioButton("searching", "3") Paleo
+                  <input type="submit" value="search" asp-action="Create" formmethod="get" />
+ 
               </div>
           </div>
       </div>

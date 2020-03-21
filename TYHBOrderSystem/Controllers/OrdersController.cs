@@ -74,6 +74,7 @@ namespace TYHBOrderSystem.Controllers
             return View();
         }
 
+
         // POST: Orders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -94,10 +95,12 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID", order.Order_Size_ID);
+           
+            ViewBag.DietResitrictionSearch = db.Products.ToList();
 
-           
+
             //ViewBag.Categories = new SelectList(db.ProductTypes, "ID", "Name" order.PRODUCT.)
-           
+
             return View(order);
         }
 
