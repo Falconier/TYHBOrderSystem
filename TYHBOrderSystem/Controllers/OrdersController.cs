@@ -37,14 +37,16 @@ namespace TYHBOrderSystem.Controllers
         }
 
         // GET: Orders/Create
-        public ActionResult Create(string searching)
+        public ActionResult Create(string searching, string itemchoice)
         {
+           
+           
             //Working on autopopulating order date and time
             DateTime currentDate = DateTime.Now;
             string orderDate = currentDate.ToString("MM/dd/yyyy");
 
-            //Product Categories
-            List<ProductType> productCategory = db.ProductTypes.ToList();
+            //Product Categories for View
+            ViewBag.ProductCategoryList = db.ProductTypes.ToList();
 
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
@@ -52,25 +54,97 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
 
             //Updated Product Catgories to ViewBag
-            ViewBag.ProductCategoryList = new SelectList(productCategory, "Id", "Name");
+            //ViewBag.ProductCategoryList = new SelectList(productCategory, "Id", "Name");
 
-            //Filter for Radio Button
+            //Filter for Radio Button and DropDownList
             ViewBag.DietResitrictionSearch = db.Products.ToList();
 
             if (searching is null)
             {
                 ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(0));
+                
                 return View();
             }
-            else if (searching != null)
+            else
             {
                 int _search = int.Parse(searching);
 
-                ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search));
+                if(itemchoice == "1")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model=>model.TypeId.Equals(tempChoice));
+                    
+                    return View();
+                }
+                else if(itemchoice == "2")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "3")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "4")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "5")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "6")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "7")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "8")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "9")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "10")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "11")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
+                else if(itemchoice == "12")
+                {
+                    int tempChoice = int.Parse(itemchoice);
+                    ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    return View();
+                }
 
-                return View();
             }
-
+            
             return View();
         }
 
