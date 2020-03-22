@@ -7,21 +7,21 @@
 				<link rel="stylesheet" href="~/Assets/plugins/fontawesome-free/css/all.min.css" />
 				<link rel="stylesheet" href="~/Assets/dist/css/adminlte.css" />
 				<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+				<link rel="stylesheet" href="~/Content/TYHB_Themes/TYHB_Styles.css"
+
 				<title>@ViewBag.Title - My ASP.NET Application</title>
 				@Styles.Render("~/Content/css")
 				@Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-				<nav class="main-header navbar navbar-expand navbar-green navbar-light">
-								<ul class="navbar-nav">
-												<a class="nav-link" data-widget="pushmenu" href="#">
-																<i class="fas fa-bars"></i>
-												</a>
-								</ul>
-				</nav>
-
 				@Html.Partial("_SidebarPartial")
+<body>
+				@*<li>
+								<a href="@Url.Action("WeeklyReport","Reports")">
+												<i class="fa fa-calendar-week"> Daily Report</i>
+								</a>
+				</li>*@
+
 
 				<div class="container body-content">
 								<secion>
