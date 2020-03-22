@@ -10,49 +10,79 @@
 				<button  class="btn btn-block btn-sm btn-outline-primary">
 								@Html.ActionLink("Create New", "Create")
 				</button>
-<table id="ProductTable"class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Type.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RestrictionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product_Flavor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Product_Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seasonal)
-        </th>
-        <th></th>
-    </tr>
+								<table id="ProductTable" class="table">
+												<tr>
+																<th>
+																				@Html.DisplayNameFor(model => model.Type.Name)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.RestrictionId)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Product_Flavor)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Product_Description)
+																</th>
+																@*<th>
+																@Html.DisplayNameFor(model => model.Seasonal)
+												</th>*@
+																<th></th>
+												</tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product_Flavor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product_Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seasonal)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
-}
+												@foreach (var item in Model)
+												{
+																if (item.Seasonal)
+																{
+																				<tr style="background-color:#ffc107">
+																								<td>
+																												@Html.DisplayFor(modelItem => item.Type.Name)
+																								</td>
+																								<td>
+																												@Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
+																								</td>
+																								<td>
+																												@Html.DisplayFor(modelItem => item.Product_Flavor)
+																								</td>
+																								<td>
+																												@Html.DisplayFor(modelItem => item.Product_Description)
+																								</td>
+																								@*<td>
+																								@Html.DisplayFor(modelItem => item.Seasonal)
+																				</td>*@
+																								<td>
+																												@Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+																												@Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+																												@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+																								</td>
+																				</tr>
 
-</table>
+																}
+																else
+																{
+																<tr>
+																				<td>
+																								@Html.DisplayFor(modelItem => item.Type.Name)
+																				</td>
+																				<td>
+																								@Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
+																				</td>
+																				<td>
+																								@Html.DisplayFor(modelItem => item.Product_Flavor)
+																				</td>
+																				<td>
+																								@Html.DisplayFor(modelItem => item.Product_Description)
+																				</td>
+																				@*<td>
+																				@Html.DisplayFor(modelItem => item.Seasonal)
+																</td>*@
+																				<td>
+																								@Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+																								@Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+																								@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+																				</td>
+																</tr>
+																				}
+																}
+
+								</table>
