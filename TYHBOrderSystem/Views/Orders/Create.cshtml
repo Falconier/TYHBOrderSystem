@@ -99,12 +99,13 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Product ID</th>
-                    <th scope="col">TypeID</th>
-                    <th scope="col">RestrictionID</th>
+                    <!--<th scope="col">Product ID</th-->
+                    <!--<th scope="col">TypeID</th>-->
+                    <!--<th scope="col">RestrictionID</th>-->
                     <th scope="col">Product Flavor</th>
                     <th scope="col">Description</th>
                     <th scope="col">Seasonal</th>
+                    <th scope="col">Order Item</th>
                 </tr>     
             </thead>
 
@@ -112,20 +113,26 @@
                 @foreach (var item in ViewBag.DietResitrictionSearch)
                 {
                     <tr>
-                        <td>@item.ProductId</td>
-                        <td>@item.TypeId</td>
-                        <td>@item.RestrictionId</td>
+                        <!--<td>*@@item.ProductId</td>-->
+                        <!--<td>*@@item.TypeId</td-->
+                        <!--<td>*@@item.RestrictionId</td>-->
                         <td>@item.Product_Flavor</td>
                         <td>@item.Product_Description</td>
-                        <td>@item.Seasonal</td>
+                        @if (item.Seasonal != false)
+                        {
+                            <td>@item.Seasonal</td> //if is seasonal change row color of entire item
+                        }
+                        else
+                        {
+                            <td> </td> //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
+                        }
+                        <td>@Html.ActionLink("Order Item", "Create", new { id = item.ProductId })</td>
                     </tr>
                 }
             </tbody>
         </table>
 
-
-
-        <!-- Ingredient Subsition, Drop Down Box-->
+        <!-- Ingredient Subsition, Drop Down Box NOTHING IN DB TO USE THIS AT ALL-->
         <div class="form-group">
             @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -170,7 +177,7 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class ="datepicker col-md-10"} })
+                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class ="orderdate col-md-10"} })
                 @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
             </div>
         </div>

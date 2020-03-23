@@ -45,6 +45,8 @@ namespace TYHBOrderSystem.Controllers
             DateTime currentDate = DateTime.Now;
             string orderDate = currentDate.ToString("MM/dd/yyyy");
 
+            //Ingredient Substitution CheckList
+            
             //Product Categories for View
             ViewBag.ProductCategoryList = db.ProductTypes.ToList();
 
@@ -160,10 +162,16 @@ namespace TYHBOrderSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            //Order Date
+            DateTime currentDate = DateTime.Now;
+            string orderDate = currentDate.ToString("MM/dd/yyyy");
+            order.Order_Date = orderDate;
 
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
