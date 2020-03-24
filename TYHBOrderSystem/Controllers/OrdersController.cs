@@ -39,14 +39,6 @@ namespace TYHBOrderSystem.Controllers
         // GET: Orders/Create
         public ActionResult Create(string searching, string itemchoice)
         {
-           
-           
-            //Working on autopopulating order date and time
-            DateTime currentDate = DateTime.Now;
-            string orderDate = currentDate.ToString("MM/dd/yyyy");
-
-            //Ingredient Substitution CheckList
-            
             //Product Categories for View
             ViewBag.ProductCategoryList = db.ProductTypes.ToList();
 
@@ -71,7 +63,7 @@ namespace TYHBOrderSystem.Controllers
             {
                 int _search = int.Parse(searching);
 
-                if(itemchoice == "1")
+                if (itemchoice == "1")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model=>model.TypeId.Equals(tempChoice));
@@ -146,7 +138,7 @@ namespace TYHBOrderSystem.Controllers
                 }
 
             }
-            
+
             return View();
         }
 
@@ -158,27 +150,33 @@ namespace TYHBOrderSystem.Controllers
         [ValidateAntiForgeryToken]
 
         //Removed "Product_Type_ID" from Bind CW 3_17
-        public ActionResult Create([Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
+        public ActionResult Create(string ProductList,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
         {
             if (ModelState.IsValid)
             {
+                int chosenProduct = int.Parse(ProductList);
+                ViewBag.ChosenItem = db.Products.Where(model => model.ProductId.Equals(chosenProduct));
+                var pID = ViewBag.ChosenItem;
+                order.PRODUCT = pID;
+
                 
+                //Order Date
+                DateTime currentDate = DateTime.Now;
+                string orderDate = currentDate.ToString("MM/dd/yyyy");
+                order.Order_Date = orderDate;
                 db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            //Order Date
-            DateTime currentDate = DateTime.Now;
-            string orderDate = currentDate.ToString("MM/dd/yyyy");
-            order.Order_Date = orderDate;
+
 
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID", order.Order_Size_ID);
            
-            ViewBag.DietResitrictionSearch = db.Products.ToList();
+            //ViewBag.DietResitrictionSearch = db.Products.ToList();
 
 
             //ViewBag.Categories = new SelectList(db.ProductTypes, "ID", "Name" order.PRODUCT.)
