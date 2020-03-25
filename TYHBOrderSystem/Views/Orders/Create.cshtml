@@ -125,7 +125,7 @@
                         {
                             <td> </td> //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
                         }
-                        <td><input type="checkbox" name="chosenID" value="@item.ProductId"></td>
+                        <td><input type="checkbox" id="@item.ProductId"></td>
                     </tr>
                 }
             </tbody>
@@ -259,7 +259,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" onclick="SaveItem()" class="btn btn-default" />
+                <input type="submit" value="Create" nclick="SaveItem()" class="btn btn-default" />
                 
             </div>
         </div>
@@ -289,6 +289,39 @@
             });
         });
 
+    </script>
+
+    <script>
+        var SaveItem = function () {
+            
+            var separatedIDs = "";
+
+            $("#ProductList table input[type=checkbox] ").each(function(index,val)
+            {
+                
+                var itemID = $(val).attr("Id")
+                var currentCheckBoxId = itemID[1];
+
+                var isClicked = $("#" + itemID).is(";checked", true)
+
+                if (isClicked) {
+                    separatedIDs = currentCheckBoxId;
+                }
+            })
+
+            if (separatedIDs != "") {
+                $.ajax({
+                    url:"@Url.Action("Create")",
+                    type: "POST",
+                    datatype: 'string',
+                    data: { ProductList: separatedIDs },
+                    success: function (response) {
+
+                    }
+                })
+            }
+
+        }
     </script>
 
 }
