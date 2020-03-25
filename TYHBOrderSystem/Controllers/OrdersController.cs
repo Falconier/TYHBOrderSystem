@@ -48,7 +48,7 @@ namespace TYHBOrderSystem.Controllers
             //ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
 
             
-            ViewBag.Order_Size = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
+            ViewBag.Order_Size = new SelectList(db.OrderSizes, "Order_Size_ID", "Order_Size");
 
             //Ingredients Sub for View
             ViewBag.IngredientSub = db.Ingredients.ToList();
