@@ -45,10 +45,13 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
-            ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
+            //ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
 
-            //Updated Product Catgories to ViewBag
-            //ViewBag.ProductCategoryList = new SelectList(productCategory, "Id", "Name");
+            
+            ViewBag.Order_Size = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
+
+            //Ingredients Sub for View
+            ViewBag.IngredientSub = db.Ingredients.ToList();
 
             //Filter for Radio Button and DropDownList
             ViewBag.DietResitrictionSearch = db.Products.ToList();
@@ -67,19 +70,20 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model=>model.TypeId.Equals(tempChoice));
-                    
                     return View();
                 }
                 else if(itemchoice == "2")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size  = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "3")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "4")
@@ -92,6 +96,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "6")
@@ -104,6 +109,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "8")
@@ -122,18 +128,21 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "11")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "12")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
 
@@ -150,7 +159,8 @@ namespace TYHBOrderSystem.Controllers
         [ValidateAntiForgeryToken]
 
         //Removed "Product_Type_ID" from Bind CW 3_17
-        public ActionResult Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
+        //"ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID
+        public ActionResult Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -177,11 +187,6 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);
             ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID", order.Order_Size_ID);
-           
-            //ViewBag.DietResitrictionSearch = db.Products.ToList();
-
-
-            //ViewBag.Categories = new SelectList(db.ProductTypes, "ID", "Name" order.PRODUCT.)
 
             return View(order);
         }

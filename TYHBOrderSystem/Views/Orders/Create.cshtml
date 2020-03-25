@@ -96,7 +96,7 @@
       </div>
 
         <!---Table for Filter Results of 'Radio Buttons'-->
-        <table class="table table-bordered" id="ProductList">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <!--<th scope="col">Product ID</th-->
@@ -125,8 +125,9 @@
                         {
                             <td> </td> //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
                         }
-                        <td><input type="checkbox" name="chosenID" value="@item.ProductId"></td>
+                        <td><input type="radio" name="chosenID" value="@item.ProductId"/></td>
                     </tr>
+                    
                 }
             </tbody>
         </table>
@@ -135,7 +136,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
+                @foreach(var ingredient in ViewBag.IngredientSub)
+                {
+                    <div>
+                        @ingredient.Ingredient_Name
+                        <input type="checkbox" name="substitution" value="@ingredient.Ingredient_Name"/>
+                    </div>
+                }
+
                 @Html.ValidationMessageFor(model => model.Ingredient_Substitution, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -160,9 +168,9 @@
 
         <!--Primary Key to grab 'Num_Layers' or Other keys-->
         <div class="form-group">
-            @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("countchoice", ViewBag.Order_Size as SelectList, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -259,7 +267,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" onclick="SaveItem()" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
                 
             </div>
         </div>
@@ -269,6 +277,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
