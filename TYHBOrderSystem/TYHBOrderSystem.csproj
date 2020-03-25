@@ -2041,6 +2041,7 @@
     <Content Include="Assets\Bootstrap\bootstrap-grid.min.css.map" />
     <Content Include="Assets\Bootstrap\bootstrap-reboot.css.map" />
     <Content Include="Assets\Bootstrap\bootstrap-reboot.min.css.map" />
+
     <Content Include="Assets\Bootstrap\bootstrap.css.map" />
     <Content Include="Assets\Bootstrap\bootstrap.min.css.map" />
     <Content Include="Assets\Bootstrap\bootstrap.bundle.js.map" />
@@ -2281,7 +2282,9 @@
     <Content Include="Class_Diagrams\BakeryModels.cd" />
     <Content Include="Class_Diagrams\ASPModels.cd" />
     <Content Include="Private.config" />
+
     <Content Include="EmailService.config" />
+
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -2329,6 +2332,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
@@ -2347,6 +2351,17 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Shared\_SidebarPartial.cshtml" />
+    <Content Include="Views\Account\Demo.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\ManageUsers.cshtml" />
+    <Content Include="Views\Home\DevDashboard.cshtml" />
+    <Content Include="Views\Home\BugTracker.cshtml" />
+    <Content Include="Views\Home\ProjectManagerDash.cshtml" />
+    <Content Include="Views\Home\SubmissionDash.cshtml" />
+    <Content Include="Views\ProjectManager\Index.cshtml" />
+    <Content Include="Views\DatabaseView\DataViewMain.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
