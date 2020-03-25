@@ -17,14 +17,13 @@ namespace TYHBOrderSystem.Migrations
 
         protected override void Seed(TYHBOrderSystem.Models.ApplicationDbContext context)
         {
-												var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+												var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
 												var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 												//if (!System.Diagnostics.Debugger.IsAttached)
 												//    System.Diagnostics.Debugger.Launch();
-												//Sets Administrator (Admin)
-
+												#region Role Seeds
 												//Sets Administrator (Admin)
 												if (!context.Roles.Any(r => r.Name == "Admin"))
 												{
@@ -66,6 +65,76 @@ namespace TYHBOrderSystem.Migrations
 
 												var userId3 = userManager.FindByEmail("baker@email.com").Id;
 												userManager.AddToRole(userId2, "Baker");
+												#endregion
+
+												//Seed Product Types
+												#region Product Type Seeds
+												if (!context.ProductTypes.Any(u => u.Name == "Bread"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Bread" }); }
+												
+												if (!context.ProductTypes.Any(u => u.Name == "Cake"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Cake" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Cookie"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Cookie" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Doughnut"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Doughnut" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Muffin"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Muffin" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Other Sweet"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Other Sweet" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Pie"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Pie" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Protien Bar"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Protien Bar" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Savory Item"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Savory Item" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Sheet Cake"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Sheet Cake" }); }
+												
+												if (!context.ProductTypes.Any(u => u.Name == "Cupcake"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Cupcake" }); }
+
+												if (!context.ProductTypes.Any(u => u.Name == "Buns"))
+												{ context.ProductTypes.Add(new ProductType { Name = "Buns" }); }
+												#endregion
+
+												//Seed Dietary Restrictions
+												#region Dietary Restrictions Seeds
+												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Generic"))
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Generic" }); }
+
+												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Keto"))
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Keto" }); }
+
+												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Paleo"))
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Paleo" }); }
+												#endregion
+
+												//Seed Finishing Types
+												#region Finishing Type Seeds
+												if (!context.FinishingsTypes.Any(u => u.Name == "Filling"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Filling" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Garnish"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Garnish" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Glaze"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Glaze" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Icing"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Icing" }); }
+
+												if (!context.FinishingsTypes.Any(u => u.Name == "Topping"))
+												{ context.FinishingsTypes.Add(new FinishingsType { Name = "Topping" }); }
+												#endregion
 								}
-    }
+				}
 }

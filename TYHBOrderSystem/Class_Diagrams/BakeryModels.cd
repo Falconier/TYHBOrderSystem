@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TYHBOrderSystem.Models.Customer">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAEAAAAAAAIAAAAIAAAAABAAAQABAABAAA=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.DietaryRestriction">
+    <Position X="2" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\DietaryRestriction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.Employees">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAEAAAAAAAAAEAAAAAAAAAAAAAAAIAAQAAAAAAAAAEA=</HashCode>
+      <FileName>Models\Employees.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.FinishingsType">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Models\FinishingsType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.Ingredient">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAQAgAAAAAAAAAQABAAAAAgAABAAA=</HashCode>
+      <FileName>Models\Ingredient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.Order">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAIAAAABAEAAAAAAgRBAAAKAQAASIAABAAAACACEA=</HashCode>
+      <FileName>Models\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.OrderSizes">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAEACAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Models\OrderSizes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.Product">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAAEAAAAAAAAEAgAACAAAAAAAAAAAAAgAQCAAAABAAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.ProductFinishings">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAACAAAAAAAQQAAAAAAAAAAAAAAAAAIAAABAAA=</HashCode>
+      <FileName>Models\ProductFinishings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.ProductType">
+    <Position X="2" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProductType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.Vendor">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAIAAAAIQAAIAAAAAAAAAAAAAAAAgAQAAgA=</HashCode>
+      <FileName>Models\Vendor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TYHBOrderSystem.Models.WEDDING_TASTING_BOX_ORDERS">
+    <Position X="8" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>GlAAoABgCOAAAgAECAiWEiAAIIUCAAAASQgAAQjAKEA=</HashCode>
+      <FileName>Models\WEDDING_TASTING_BOX_ORDERS.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
