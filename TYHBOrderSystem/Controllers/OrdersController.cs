@@ -150,20 +150,22 @@ namespace TYHBOrderSystem.Controllers
         [ValidateAntiForgeryToken]
 
         //Removed "Product_Type_ID" from Bind CW 3_17
-        public ActionResult Create(string ProductList,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
+        public ActionResult Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
         {
             if (ModelState.IsValid)
             {
-                int chosenProduct = int.Parse(ProductList);
-                ViewBag.ChosenItem = db.Products.Where(model => model.ProductId.Equals(chosenProduct));
-                var pID = ViewBag.ChosenItem;
-                order.PRODUCT = pID;
+                //Get Product ID: Create Product Object with chosen product ID, set to 'ORDER'
+                string chosenID = form["chosenID"];
+                int tempChosenID = int.Parse(chosenID);
+                Product ProductChoice = new Product();
+                ProductChoice.ProductId = tempChosenID;
+                order.PRODUCT =  ProductChoice;
 
-                
                 //Order Date
                 DateTime currentDate = DateTime.Now;
                 string orderDate = currentDate.ToString("MM/dd/yyyy");
                 order.Order_Date = orderDate;
+
                 db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
