@@ -45,10 +45,9 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
-            //ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
+												ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Order_Size");
 
-            
-            ViewBag.Order_Size = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
+            //ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID");
 
             //Ingredients Sub for View
             ViewBag.IngredientSub = db.Ingredients.ToList();
@@ -157,8 +156,6 @@ namespace TYHBOrderSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-
         public ActionResult Create(string ProductList,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
         {
             if (ModelState.IsValid)
