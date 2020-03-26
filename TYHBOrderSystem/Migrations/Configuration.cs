@@ -65,6 +65,68 @@ namespace TYHBOrderSystem.Migrations
 
 												var userId3 = userManager.FindByEmail("baker@email.com").Id;
 												userManager.AddToRole(userId2, "Baker");
+            #endregion
+												
+												//Seed Ingredients
+											 #region Ingredients Type Seeds
+
+												//Ingredient_Type
+			         if (!context.Ingredients.Any(x => x.Ingredient_Type == "Sugar"))
+			         { context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Type == "Flour"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Flour" }); }
+
+												//Ingredient_Name
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Granulated Sugar"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Granulated Sugar" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Honey"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Honey" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Agave"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Agave" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Xylitol"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Xylitol" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Swerre"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Swerre" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Sugar Free"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Sugar Free" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Organic Sugar"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Organic Sugar" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Tapiocca Powdered Sugar"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Tapiocca Powdered Sugar" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Coconut"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Coconut" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "MonkFruit"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "MonkFruit" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Almond Flour"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Almond Flour" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Name == "Brown Rice Flour"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Name = "Brown Rice Flour" }); }
+
+												#endregion
+
+												//Seed OrderSizes Types
+												#region OrderSizes Type Seeds
+
+												//Order_Size
+												if (!context.OrderSizes.Any(x => x.Order_Size == 6))
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 6}); }
+												if (!context.OrderSizes.Any(x => x.Order_Size == 8))
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 8 }); }
+												if (!context.OrderSizes.Any(x => x.Order_Size == 9))
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 9 }); }
+												if (!context.OrderSizes.Any(x => x.Order_Size == 10))
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 10 }); }
+												if (!context.OrderSizes.Any(x => x.Order_Size == 12))
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 12 }); }
+												if (!context.OrderSizes.Any(x => x.Order_Size == 1812))
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 1812 }); }
+
+												//Number_Of_Layers
+												if (!context.OrderSizes.Any(x => x.Number_Of_Layers == 2))
+												{ context.OrderSizes.Add(new OrderSizes { Number_Of_Layers = 2 }); }
+												if (!context.OrderSizes.Any(x => x.Number_Of_Layers == 3))
+												{ context.OrderSizes.Add(new OrderSizes { Number_Of_Layers = 3 }); }
+
 												#endregion
 
 												//Seed Product Types
