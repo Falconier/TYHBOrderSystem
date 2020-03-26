@@ -415,20 +415,19 @@ namespace TYHBOrderSystem.Migrations
 
 												//Seed Products AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH (end the suffering ;-;)
 												#region Product Type Seeds
-
 												if (!context.Products.Any(x => x.Product_Flavor == "Almond Butter"))
-												{ context.Products.Add(new Product { ProductId = 82, TypeId = 8, RestrictionId = 1, Product_Flavor = "Almond Butter" , Product_Description = "16 grams of protein per bar, 100% gluten free and plant based.", Seasonal = false }); }
+												{ context.Products.Add(new Product { ProductId = 82, TypeId = 8, RestrictionId = 1, Product_Flavor = "Almond Butter", Product_Description = "16 grams of protein per bar, 100% gluten free and plant based.", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Apple"))
 												{ context.Products.Add(new Product { ProductId = 107, TypeId = 7, RestrictionId = 1, Product_Flavor = "Apple", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Apple Butter"))
 												{ context.Products.Add(new Product { ProductId = 55, TypeId = 2, RestrictionId = 1, Product_Flavor = "Apple Butter", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Apple Caramel Butterscotch"))
-												{ 
-																context.Products.Add(new Product { ProductId = 96, TypeId = 3, RestrictionId = 1, Product_Flavor = "Apple Caramel Butterscotch", Product_Description = "Loaded with granny smith apples and rolled oats,topped with homemade caramel and butterscotch sauce, these beauties won first place at the Dixie Classic Fair for a good reason. ", Seasonal = false }); 
+												{
+																context.Products.Add(new Product { ProductId = 96, TypeId = 3, RestrictionId = 1, Product_Flavor = "Apple Caramel Butterscotch", Product_Description = "Loaded with granny smith apples and rolled oats,topped with homemade caramel and butterscotch sauce, these beauties won first place at the Dixie Classic Fair for a good reason. ", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 85, TypeId = 3, RestrictionId = 1, Product_Flavor = "Apple Caramel Butterscotch", Product_Description = "(gluten free only)", Seasonal = false });
 												}
 												if (!context.Products.Any(x => x.Product_Flavor == "Apple Harvest"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 71, TypeId = 4, RestrictionId = 1, Product_Flavor = "Apple Harvest", Product_Description = "Spiced donut topped with organic stewed apples.", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 10, TypeId = 2, RestrictionId = 1, Product_Flavor = "Apple Harvest", Product_Description = "A spiced cake loaded with organic stewed apples, topped with homemade caramel buttercream. A taste of Fall.", Seasonal = false });
 												}
@@ -438,7 +437,7 @@ namespace TYHBOrderSystem.Migrations
 												{ context.Products.Add(new Product { ProductId = 120, TypeId = 6, RestrictionId = 1, Product_Flavor = "Baklava", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Banana Bread"))
 												{ context.Products.Add(new Product { ProductId = 144, TypeId = 1, RestrictionId = 3, Product_Flavor = "Banana Bread", Product_Description = "Incredibly moist, chewy, and spiced to perfection. Sweetened with honey.", Seasonal = false }); }
-												
+
 												#endregion
 
 								}
