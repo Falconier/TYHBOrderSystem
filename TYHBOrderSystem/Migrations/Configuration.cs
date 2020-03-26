@@ -438,7 +438,37 @@ namespace TYHBOrderSystem.Migrations
 												{ context.Products.Add(new Product { ProductId = 120, TypeId = 6, RestrictionId = 1, Product_Flavor = "Baklava", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Banana Bread"))
 												{ context.Products.Add(new Product { ProductId = 144, TypeId = 1, RestrictionId = 3, Product_Flavor = "Banana Bread", Product_Description = "Incredibly moist, chewy, and spiced to perfection. Sweetened with honey.", Seasonal = false }); }
-												
+												if (!context.Products.Any(x => x.Product_Flavor == "Beef + Eggplant Lasagna"))
+												{ context.Products.Add(new Product { ProductId = 129, TypeId = 9, RestrictionId = 1, Product_Flavor = "Beef + Eggplant Lasagna", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Berry Bars"))
+												{ context.Products.Add(new Product { ProductId = 115, TypeId = 6, RestrictionId = 1, Product_Flavor = "Berry Bars", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Black Forest"))
+												{ context.Products.Add(new Product { ProductId = 18, TypeId = 2, RestrictionId = 1, Product_Flavor = "Black Forest", Product_Description = "A rich chocolate cake layered with homemade cherry preserves, iced in vanilla buttercream and topped with chocolate shards.", Seasonal = false }); }
+												if(!context.Products.Any(x => x.Product_Flavor == "Blueberry"))
+												{ 
+																context.Products.Add(new Product { ProductId = 66, TypeId = 4, RestrictionId = 1, Product_Flavor = "Blueberry", Product_Description = "Bursting with flavor, vanilla donut laced and topped with organic blueberries", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 109, TypeId = 7, RestrictionId = 1, Product_Flavor = "Blueberry", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Broccoli + Potato Cheese Casserole"))
+												{ 
+																context.Products.Add(new Product { ProductId = 128, TypeId = 9, RestrictionId = 1, Product_Flavor = "Broccoli + Potato Cheese Casserole", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 129, TypeId = 9, RestrictionId = 1, Product_Flavor = "Broccoli + Potato Cheese Casserole", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Brookie"))
+												{ context.Products.Add(new Product { ProductId = 26, TypeId = 2, RestrictionId = 1, Product_Flavor = "Brookie", Product_Description = "Half brownie + half cookie = wholly delicious. Alternating layers of rich chocolate and chocolate chip cake, iced in our signature cookie dough frosting. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Brookies"))
+												{ context.Products.Add(new Product { ProductId = 94, TypeId = 3, RestrictionId = 1, Product_Flavor = "Brookies", Product_Description = "Half Brownie + Half Chocolate Chip = 100% amazing.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Brownies"))
+												{ context.Products.Add(new Product { ProductId = 118, TypeId = 6, RestrictionId = 1, Product_Flavor = "Brownies", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cannoli"))
+												{ context.Products.Add(new Product { ProductId = 123, TypeId = 6, RestrictionId = 1, Product_Flavor = "Cannoli", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Caramel Cappuccino "))
+												{ context.Products.Add(new Product { ProductId = 31, TypeId = 2, RestrictionId = 1, Product_Flavor = "Caramel Cappuccino ", Product_Description = "Vanilla cake swirled with homemade caramel, hot fudge, and espresso, iced in our signature espresso buttercream and topped with more decadent caramel and hot fudge.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Carrot Cake Muffins"))
+												{ context.Products.Add(new Product { ProductId = 143, TypeId = 5, RestrictionId = 1, Product_Flavor = "Carrot Cake Muffins", Product_Description = "Loaded with carrot, apple, raisins, spices, and more! Topped with a silky lemon meringue buttercream. Sweetened with honey. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chai Spice"))
+												{ context.Products.Add(new Product { ProductId = 63, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chai Spice", Product_Description = "No Description", Seasonal = false }); }
+												//Stopped at 24
 												#endregion
 
 								}
