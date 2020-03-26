@@ -412,6 +412,8 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Vegan Buttercream"))
 												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Vegan Buttercream", FinishTypeId = 4 }); }
 												#endregion
+
+
 								}
 				}
 }
