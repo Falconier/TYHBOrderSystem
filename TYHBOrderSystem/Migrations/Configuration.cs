@@ -70,9 +70,9 @@ namespace TYHBOrderSystem.Migrations
 												//Seed Ingredients
 												#region Ingredients Type Seeds
 
-										
-			         if (!context.Ingredients.Any(x => x.Ingredient_ID == 2))
-			         { context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Granulated Sugar" }); }
+
+												if (!context.Ingredients.Any(x => x.Ingredient_ID == 2))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Granulated Sugar" }); }
 												if (!context.Ingredients.Any(x => x.Ingredient_ID == 3))
 												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Honey" }); }
 												if (!context.Ingredients.Any(x => x.Ingredient_ID == 4))
@@ -316,9 +316,101 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "German Chocolate Frosting"))
 												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "German Chocolate Frosting", FinishTypeId = 4 }); }
 
-												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Carrots"))
-												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Carrots", FinishTypeId = 1 }); }
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Graham Cracker"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Graham Craker", FinishTypeId = 5 }); }
 
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Lemon Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Lemon Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Lemon Meringue Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Lemon Meringue Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Lemon Shortbread"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Lemon Shortbread", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Marbled Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Marbled Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Nuts"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Nuts", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Peach Slivers"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Peach Slivers", FinishTypeId = 2 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Peaches"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Peaches", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Pecans"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Pecans", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Pineapple"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Pineapple", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Pink Tripple Berry Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Pink Tripple Berry Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Pralines"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Pralines", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Pralines", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Raisins"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Raisins", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Raspberry Pistachio Preserves"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Raspberry Pistachio Preserves", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Raspberry Preserves"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Raspberry Preserves", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Semi-sweet Espresso Ganache"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Semi-sweet Espresso Ganache", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Spiced Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Spiced Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Spiced Chocolate"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Spiced Chocolate", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Sprinkles"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Sprinkles", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Stewed Apples"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Stewed Apples", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Stewed Apples", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Strawberry"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Strawberry", FinishTypeId = 3 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Strawberry Preserves"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Strawberry Preserves", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Sweet Coconut Cream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Sweet Coconut Cream", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Sweet Sugar Glaze"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Sweet Sugar Glaze", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Toasted Coconut"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Toasted Coconut", FinishTypeId = 2 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Toasted Marshmallow Fluff"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Toasted Marshmallow Fluff", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Toasted Marshmallow Fluff", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Toasted Pecans"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Toasted Pecans", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Vanilla Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Vanilla Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Vegan Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Vegan Buttercream", FinishTypeId = 4 }); }
 												#endregion
 
 												//Seed Products AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH (end the suffering ;-;)
