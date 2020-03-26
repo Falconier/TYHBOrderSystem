@@ -133,52 +133,52 @@ namespace TYHBOrderSystem.Migrations
 												//Seed Product Types
 												#region Product Type Seeds
 												if (!context.ProductTypes.Any(u => u.Name == "Bread"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Bread" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Bread", Id = 1 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Cake"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Cake" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Cake", Id = 2 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Cookie"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Cookie" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Cookie", Id = 3 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Doughnut"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Doughnut" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Doughnut", Id = 4 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Muffin"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Muffin" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Muffin", Id = 5 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Other Sweet"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Other Sweet" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Other Sweet", Id = 6 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Pie"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Pie" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Pie", Id = 7 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Protien Bar"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Protien Bar" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Protien Bar", Id = 8 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Savory Item"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Savory Item" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Savory Item", Id = 9 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Sheet Cake"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Sheet Cake" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Sheet Cake", Id = 10 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Cupcake"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Cupcake" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Cupcake", Id = 11 }); }
 
 												if (!context.ProductTypes.Any(u => u.Name == "Buns"))
-												{ context.ProductTypes.Add(new ProductType { Name = "Buns" }); }
+												{ context.ProductTypes.Add(new ProductType { Name = "Buns", Id = 12 }); }
 												#endregion
 
 												//Seed Dietary Restrictions
 												#region Dietary Restrictions Seeds
 												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Generic"))
-												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Generic" }); }
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Generic", Id = 1 }); }
 
 												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Keto"))
-												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Keto" }); }
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Keto", Id = 2 }); }
 
 												if (!context.DietaryRestrictions.Any(u => u.RestrictionName == "Paleo"))
-												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Paleo" }); }
+												{ context.DietaryRestrictions.Add(new DietaryRestriction { RestrictionName = "Paleo", Id = 3 }); }
 												#endregion
 
 												//Seed Finishing Types
@@ -443,13 +443,13 @@ namespace TYHBOrderSystem.Migrations
 												{ context.Products.Add(new Product { ProductId = 115, TypeId = 6, RestrictionId = 1, Product_Flavor = "Berry Bars", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Black Forest"))
 												{ context.Products.Add(new Product { ProductId = 18, TypeId = 2, RestrictionId = 1, Product_Flavor = "Black Forest", Product_Description = "A rich chocolate cake layered with homemade cherry preserves, iced in vanilla buttercream and topped with chocolate shards.", Seasonal = false }); }
-												if(!context.Products.Any(x => x.Product_Flavor == "Blueberry"))
-												{ 
+												if (!context.Products.Any(x => x.Product_Flavor == "Blueberry"))
+												{
 																context.Products.Add(new Product { ProductId = 66, TypeId = 4, RestrictionId = 1, Product_Flavor = "Blueberry", Product_Description = "Bursting with flavor, vanilla donut laced and topped with organic blueberries", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 109, TypeId = 7, RestrictionId = 1, Product_Flavor = "Blueberry", Product_Description = "No Description", Seasonal = false });
 												}
 												if (!context.Products.Any(x => x.Product_Flavor == "Broccoli + Potato Cheese Casserole"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 128, TypeId = 9, RestrictionId = 1, Product_Flavor = "Broccoli + Potato Cheese Casserole", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 129, TypeId = 9, RestrictionId = 1, Product_Flavor = "Broccoli + Potato Cheese Casserole", Product_Description = "No Description", Seasonal = false });
 												}
