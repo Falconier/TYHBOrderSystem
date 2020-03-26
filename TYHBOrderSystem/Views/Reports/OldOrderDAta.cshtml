@@ -6,6 +6,8 @@
 
 <h2>OLD ORDERS</h2>
 
+<!-- TEST TEST TEST-->
+<!-- NEED ORDER DATA TO PULL FROM DATABASE-->
 
 <table class="table">
     <tr>
@@ -53,49 +55,49 @@
 
     @foreach (var itemset in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.Finishing_ID)
-    </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.Finishing_ID)
+            </td>
 
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.CUSTOMER.Customer_First_Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.EMPLOYEE.Emp_First_Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.INGREDIENT.Ingredient_Type)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.ORDER_SIZES.Product_Type_ID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.Order_Date)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.Order_Time)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.PickUp_Due_Date)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.PickUp_Time)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.PRODUCT)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.Ingredient_Substitution)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.Decoration_Comments)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItemset => itemset.Additional_Comments)
-    </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.CUSTOMER.Customer_First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.EMPLOYEE.Emp_First_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.INGREDIENT.Ingredient_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.ORDER_SIZES.Product_Type_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.Order_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.Order_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.PickUp_Due_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.PickUp_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.PRODUCT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.Ingredient_Substitution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.Decoration_Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItemset => itemset.Additional_Comments)
+            </td>
 
-</tr>
+        </tr>
     }
 
 </table>
