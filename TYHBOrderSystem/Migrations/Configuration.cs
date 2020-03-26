@@ -3,20 +3,20 @@ namespace TYHBOrderSystem.Migrations
 				using Microsoft.AspNet.Identity;
 				using Microsoft.AspNet.Identity.EntityFramework;
 				using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+				using System.Data.Entity;
+				using System.Data.Entity.Migrations;
+				using System.Linq;
 				using TYHBOrderSystem.Models;
 
 				internal sealed class Configuration : DbMigrationsConfiguration<TYHBOrderSystem.Models.ApplicationDbContext>
-    {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = true;
-        }
+				{
+								public Configuration()
+								{
+												AutomaticMigrationsEnabled = true;
+								}
 
-        protected override void Seed(TYHBOrderSystem.Models.ApplicationDbContext context)
-        {
+								protected override void Seed(TYHBOrderSystem.Models.ApplicationDbContext context)
+								{
 
 												var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
@@ -65,14 +65,14 @@ namespace TYHBOrderSystem.Migrations
 
 												var userId3 = userManager.FindByEmail("baker@email.com").Id;
 												userManager.AddToRole(userId2, "Baker");
-            #endregion
-												
+												#endregion
+
 												//Seed Ingredients
-											 #region Ingredients Type Seeds
+												#region Ingredients Type Seeds
 
 												//Ingredient_Type
-			         if (!context.Ingredients.Any(x => x.Ingredient_Type == "Sugar"))
-			         { context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar" }); }
+												if (!context.Ingredients.Any(x => x.Ingredient_Type == "Sugar"))
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar" }); }
 												if (!context.Ingredients.Any(x => x.Ingredient_Type == "Flour"))
 												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Flour" }); }
 
@@ -109,7 +109,7 @@ namespace TYHBOrderSystem.Migrations
 
 												//Order_Size
 												if (!context.OrderSizes.Any(x => x.Order_Size == 6))
-												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 6}); }
+												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 6 }); }
 												if (!context.OrderSizes.Any(x => x.Order_Size == 8))
 												{ context.OrderSizes.Add(new OrderSizes { Order_Size = 8 }); }
 												if (!context.OrderSizes.Any(x => x.Order_Size == 9))
@@ -133,7 +133,7 @@ namespace TYHBOrderSystem.Migrations
 												#region Product Type Seeds
 												if (!context.ProductTypes.Any(u => u.Name == "Bread"))
 												{ context.ProductTypes.Add(new ProductType { Name = "Bread" }); }
-												
+
 												if (!context.ProductTypes.Any(u => u.Name == "Cake"))
 												{ context.ProductTypes.Add(new ProductType { Name = "Cake" }); }
 
@@ -160,7 +160,7 @@ namespace TYHBOrderSystem.Migrations
 
 												if (!context.ProductTypes.Any(u => u.Name == "Sheet Cake"))
 												{ context.ProductTypes.Add(new ProductType { Name = "Sheet Cake" }); }
-												
+
 												if (!context.ProductTypes.Any(u => u.Name == "Cupcake"))
 												{ context.ProductTypes.Add(new ProductType { Name = "Cupcake" }); }
 
@@ -201,7 +201,7 @@ namespace TYHBOrderSystem.Migrations
 												//Seed Product Finishings
 												#region Product Finishings Seeds
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Banana"))
-												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Banana",FinishTypeId = 1 }); }
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Banana", FinishTypeId = 1 }); }
 
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Belgian Chocolate"))
 												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Belgian Chocolate", FinishTypeId = 5 }); }
@@ -245,7 +245,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Chocolate Chip Cookies"))
 												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Chocolate Chip Cookies", FinishTypeId = 5 }); }
 
-												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Chocolate Esspresso Beans"))
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Chocolate Espresso Beans"))
 												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Chocolate Esspresso Beans", FinishTypeId = 4 }); }
 
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Chocolate Shards"))
@@ -257,6 +257,66 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Cinnamon Sugar"))
 												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Cinnamon Sugar", FinishTypeId = 3 }); }
 
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Classic White"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Classic White", FinishTypeId = 3 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Cocoa"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Cocoa", FinishTypeId = 3 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Coconut"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Coconut", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Coconut", FinishTypeId = 4 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Coconut", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Coffee Beans"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Coffee Beans", FinishTypeId = 2 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Cookie Dough"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Cookie Dough", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Crushed Peppermint"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Crushed Peppermint", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Crushed Peppermint", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Espresso Buttercream "))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Espresso Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Espresso Infused"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Espresso Infused", FinishTypeId = 3 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Fresh Cherry"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fresh Cherry", FinishTypeId = 1 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Fresh Raspberry"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fresh Raspberry", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fresh Raspberry", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Fresh Strawberry"))
+												{
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fresh Strawberry", FinishTypeId = 1 });
+																context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fresh Strawberry", FinishTypeId = 5 });
+												}
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Fudge Sauce"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fudge Sauce", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Fudgy Buttercream"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Fudgy Buttercream", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Ganache"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Ganache", FinishTypeId = 5 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "German Chocolate Frosting"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "German Chocolate Frosting", FinishTypeId = 4 }); }
+
+												if (!context.ProductFinishings.Any(u => u.FinishingFlavor == "Carrots"))
+												{ context.ProductFinishings.Add(new ProductFinishings { FinishingFlavor = "Carrots", FinishTypeId = 1 }); }
 
 												#endregion
 								}
