@@ -465,10 +465,148 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Caramel Cappuccino "))
 												{ context.Products.Add(new Product { ProductId = 31, TypeId = 2, RestrictionId = 1, Product_Flavor = "Caramel Cappuccino ", Product_Description = "Vanilla cake swirled with homemade caramel, hot fudge, and espresso, iced in our signature espresso buttercream and topped with more decadent caramel and hot fudge.", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Carrot Cake Muffins"))
-												{ context.Products.Add(new Product { ProductId = 143, TypeId = 5, RestrictionId = 1, Product_Flavor = "Carrot Cake Muffins", Product_Description = "Loaded with carrot, apple, raisins, spices, and more! Topped with a silky lemon meringue buttercream. Sweetened with honey. ", Seasonal = false }); }
+												{ context.Products.Add(new Product { ProductId = 143, TypeId = 5, RestrictionId = 3, Product_Flavor = "Carrot Cake Muffins", Product_Description = "Loaded with carrot, apple, raisins, spices, and more! Topped with a silky lemon meringue buttercream. Sweetened with honey. ", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Chai Spice"))
 												{ context.Products.Add(new Product { ProductId = 63, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chai Spice", Product_Description = "No Description", Seasonal = false }); }
-												//Stopped at 24
+												if (!context.Products.Any(x => x.Product_Flavor == "Cheesecake Bars"))
+												{ context.Products.Add(new Product { ProductId = 175, TypeId = 6, RestrictionId = 2, Product_Flavor = "Cheesecake Bars", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate"))
+												{ context.Products.Add(new Product { ProductId = 78, TypeId = 8, RestrictionId = 1, Product_Flavor = "Chocolate", Product_Description = "16 grams of protein per bar, 100% gluten free and plant based. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Biscotti"))
+												{ context.Products.Add(new Product { ProductId = 141, TypeId = 6, RestrictionId = 3, Product_Flavor = "Chocolate Biscotti", Product_Description = "Addictive! Almond flour and dutch cocoa biscotti, loaded with nuts. Sweetened with honey. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Caramel"))
+												{ context.Products.Add(new Product { ProductId = 32, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Caramel", Product_Description = "Rich chocolate cake filled and topped with our decadent homemade caramel.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Cherry Berry"))
+												{ context.Products.Add(new Product { ProductId = 35, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Cherry Berry", Product_Description = "A rich chocolate cake layered with homemade 5 berry preserves and iced in silky chocolate buttercream.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Chip"))
+												{ context.Products.Add(new Product { ProductId = 104, TypeId = 5, RestrictionId = 1, Product_Flavor = "Chocolate Chip", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Chip Banana Bread"))
+												{ context.Products.Add(new Product { ProductId = 117, TypeId = 6, RestrictionId = 1, Product_Flavor = "Chocolate Chip Banana Bread", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Chip Cookie Dough"))
+												{ context.Products.Add(new Product { ProductId = 24, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Chip Cookie Dough", Product_Description = "Rich chocolate cake iced in our signature cookie dough frosting. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Chip Espresso"))
+												{ context.Products.Add(new Product { ProductId = 87, TypeId = 3, RestrictionId = 1, Product_Flavor = "Chocolate Chip Espresso", Product_Description = "For all you coffee addicts, ehm, I mean, coffee *lovers*, this cookie is just for you! We incorporate Fortuna Espresso into our classic chocolate chip cookie base to give you that extra kick you need to get going! ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Coconut Cream"))
+												{ context.Products.Add(new Product { ProductId = 19, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Coconut Cream", Product_Description = "Rich chocolate cake filled with homemade sweet coconut cream, iced in classic chocolate buttercream, garnished with organic toasted coconut. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Espresso"))
+												{ context.Products.Add(new Product { ProductId = 5, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Espresso", Product_Description = "Rich chocolate cake infused with locally roasted Fortuna coffee, iced in our signature chocolate espresso buttercream and garnished with coffee beans.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Meringue Muffins"))
+												{ context.Products.Add(new Product { ProductId = 142, TypeId = 5, RestrictionId = 3, Product_Flavor = "Chocolate Meringue Muffins", Product_Description = "Dense almond flour chocolate cake, topped with a silky smooth chocolate meringue. Sweetened with honey. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Orange"))
+												{ context.Products.Add(new Product { ProductId = 46, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Orange", Product_Description = "The perfect flavor combo of decadence, dutch cocoa meets organic citrus. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Orange Biscotti"))
+												{ context.Products.Add(new Product { ProductId = 176, TypeId = 6, RestrictionId = 2, Product_Flavor = "Chocolate Orange Biscotti", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Peppermint"))
+												{ context.Products.Add(new Product { ProductId = 22, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Peppermint", Product_Description = "Rich chocolate cake laced with peppermint, iced in vanilla buttercream, filled and topped with crushed peppermints", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Pumpkin"))
+												{ context.Products.Add(new Product { ProductId = 62, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Pumpkin", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Raspberry"))
+												{ context.Products.Add(new Product { ProductId = 13, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Raspberry", Product_Description = "Rich chocolate cake filled with organic raspberry preserves, iced in classic chocolate buttercream and topped with fresh raspberries. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Strawberry"))
+												{ context.Products.Add(new Product { ProductId = 7, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Strawberry", Product_Description = "Rich chocolate cake filled with organic strawberry preserves, iced with fudgy buttercream.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Chocolate Turtle"))
+												{ 
+																context.Products.Add(new Product { ProductId = 58, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chocolate Turtle", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 70, TypeId = 4, RestrictionId = 1, Product_Flavor = "Chocolate Turtle", Product_Description = "Signature chocolate topped with toasted pecans, homemade caramel, and Belgian chocolate drizzle", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 156, TypeId = 2, RestrictionId = 2, Product_Flavor = "Chocolate Turtle", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Chunky Monkey"))
+												{ context.Products.Add(new Product { ProductId = 52, TypeId = 2, RestrictionId = 1, Product_Flavor = "Chunky Monkey", Product_Description = "Banana Cake bursting with flavor, iced in Cinnamon Buttercream, and topped with Chocolate Ganache, this one is a year round best seller!", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cinnamon Bun"))
+												{ context.Products.Add(new Product { ProductId = 51, TypeId = 2, RestrictionId = 1, Product_Flavor = "Cinnamon Bun", Product_Description = "The ultimate comfort cake. One bite summons visions of sweater weather lazy couch days. Cinnamon swirl cake iced in a brown sugar buttercream and topped with a sweet sugar glaze", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cinnamon Buns"))
+												{ 
+															 context.Products.Add(new Product { ProductId = 138, TypeId = 6, RestrictionId = 3, Product_Flavor = "Cinnamon Buns", Product_Description = "Little rolls of cinnamon perfection, topped with coconut cream frosting. Sweetened with honey and coconut sugar", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 124, TypeId = 6, RestrictionId = 1, Product_Flavor = "Cinnamon Buns", Product_Description = "Famous", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 174, TypeId = 6, RestrictionId = 2, Product_Flavor = "Cinnamon Buns", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Cinnamon Sugar"))
+												{ 
+																context.Products.Add(new Product { ProductId = 134, TypeId = 1, RestrictionId = 1, Product_Flavor = "Cinnamon Sugar", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 172, TypeId = 4, RestrictionId = 1, Product_Flavor = "Cinnamon Sugar", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Citrus Twist"))
+												{ context.Products.Add(new Product { ProductId = 59, TypeId = 2, RestrictionId = 1, Product_Flavor = "Citrus Twist", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Classic"))
+												{ context.Products.Add(new Product { ProductId = 132, TypeId = 1, RestrictionId = 1, Product_Flavor = "Classic", Product_Description = "The BEST gluten Free, vegan Sandwich Bread in town", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Classic Chocolate Chip"))
+												{ context.Products.Add(new Product { ProductId = 86, TypeId = 3, RestrictionId = 1, Product_Flavor = "Classic Chocolate Chip", Product_Description = "Our classic chocolate chip cookies are the real deal...if you don't believe it, check out our customer reviews! Loaded with semi-sweet Belgian chocolate chips, they will leave you begging for more.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Classic Vanilla"))
+												{ context.Products.Add(new Product { ProductId = 2, TypeId = 2, RestrictionId = 1, Product_Flavor = "Classic Vanilla", Product_Description = "Our classic vanilla cake is likewise noteworthy in its supreme moistness and perfect crumb. This recipe is old, as in WWII old...so you know for it to have lasted this long, it has to be good! Paired with our vanilla buttercream, this one is definitely a crowd-pleaser.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Coconut Cream"))
+												{ 
+																context.Products.Add(new Product { ProductId = 20, TypeId = 2, RestrictionId = 1, Product_Flavor = "Coconut Cream", Product_Description = "White cake filled with homemade sweet coconut cream, iced in vanilla buttercream and garnished with toasted coconut ", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 112, TypeId = 7, RestrictionId = 1, Product_Flavor = "Coconut Cream", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Cookie Crunch"))
+												{ context.Products.Add(new Product { ProductId = 25, TypeId = 2, RestrictionId = 1, Product_Flavor = "Cookie Crunch", Product_Description = "Rich chocolate cake, iced in vanilla buttercream, and topped and filled with homemade chocolate chip cookie crumbles.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cookie Dough"))
+												{ context.Products.Add(new Product { ProductId = 23, TypeId = 2, RestrictionId = 1, Product_Flavor = "Cookie Dough", Product_Description = "A definite bestseller, this is a winner with kids and adults alike. Our chocolate chip cake, iced in our signature cookie dough frosting. Yum yum yum! ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cookies n Cream"))
+												{ 
+																context.Products.Add(new Product { ProductId = 56, TypeId = 2, RestrictionId = 1, Product_Flavor = "Cookies n Cream", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 76, TypeId = 4, RestrictionId = 1, Product_Flavor = "Cookies n Cream", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Cranberry"))
+												{ context.Products.Add(new Product { ProductId = 79, TypeId = 8, RestrictionId = 1, Product_Flavor = "Cranberry", Product_Description = "16 grams of protein per bar, 100% gluten free and plant based. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cranberry Orange Cookie Cake"))
+												{ context.Products.Add(new Product { ProductId = 139, TypeId = 2, RestrictionId = 3, Product_Flavor = "Cranberry Orange Cookie Cake", Product_Description = "Almond flour cookie cake, laced with organic orange and loaded with cranberries. A perfect balance of sweet and tang. Sweetened with honey. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cranberry Orange Ginger"))
+												{ context.Products.Add(new Product { ProductId = 88, TypeId = 3, RestrictionId = 1, Product_Flavor = "Cranberry Orange Ginger", Product_Description = "The title says it all. These cookies are a party of flavor in your mouth and a best seller! ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Cupcakes"))
+												{ context.Products.Add(new Product { ProductId = 116, TypeId = 6, RestrictionId = 1, Product_Flavor = "Cupcakes", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Dark Chocolate Cookie Cake"))
+												{ context.Products.Add(new Product { ProductId = 140, TypeId = 2, RestrictionId = 3, Product_Flavor = "Dark Chocolate Cookie Cake", Product_Description = "Almond flour and dutch cocoa cookie cake. Sweetened with honey. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Death By Chocolate"))
+												{ context.Products.Add(new Product { ProductId = 102, TypeId = 5, RestrictionId = 1, Product_Flavor = "Death By Chocolate", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Double Chocolate"))
+												{ 
+																context.Products.Add(new Product { ProductId = 64, TypeId = 4, RestrictionId = 1, Product_Flavor = "Double Chocolate", Product_Description = "Our signature chocolate donut with dark dutch cocoa glaze", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 3, TypeId = 2, RestrictionId = 1, Product_Flavor = "Double Chocolate", Product_Description = "Incredibly moist, rich, and delicious. Paired with fudgy, silky buttercream, it is a year-round best seller!", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 165, TypeId = 5, RestrictionId = 2, Product_Flavor = "Double Chocolate", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 157, TypeId = 4, RestrictionId = 2, Product_Flavor = "Double Chocolate", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 146, TypeId = 2, RestrictionId = 2, Product_Flavor = "Double Chocolate", Product_Description = "No Description", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Dreamsicle"))
+												{ context.Products.Add(new Product { ProductId = 41, TypeId = 2, RestrictionId = 1, Product_Flavor = "Dreamsicle", Product_Description = "Reminiscent of orange push pops and the accompanying endless carefree childhood summer days", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Earl Grey"))
+												{ context.Products.Add(new Product { ProductId = 75, TypeId = 4, RestrictionId = 1, Product_Flavor = "Earl Grey", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Eclairs"))
+												{ context.Products.Add(new Product { ProductId = 122, TypeId = 6, RestrictionId = 1, Product_Flavor = "Eclairs", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Espresso"))
+												{ context.Products.Add(new Product { ProductId = 73, TypeId = 4, RestrictionId = 1, Product_Flavor = "Espresso", Product_Description = "Signature chocolate topped with espresso infused glaze. Coffee lovers rejoice! ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Five-Berry"))
+												{ context.Products.Add(new Product { ProductId = 111, TypeId = 7, RestrictionId = 1, Product_Flavor = "Five-Berry", Product_Description = "No Description", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Fresh Strawberry"))
+												{ context.Products.Add(new Product { ProductId = 9, TypeId = 2, RestrictionId = 1, Product_Flavor = "Fresh Strawberry", Product_Description = "vanilla cake loaded with juicy, organic fresh strawberry chunks and topped with the same. ", Seasonal = true }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Fudge Marble"))
+												{ context.Products.Add(new Product { ProductId = 40, TypeId = 2, RestrictionId = 1, Product_Flavor = "Fudge Marble", Product_Description = "For the indecisive-the best of both worlds. Vanilla cake swirled with Belgian chocolate, iced in a marbled buttercream. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Fully Loaded Southern Carrot"))
+												{ context.Products.Add(new Product { ProductId = 39, TypeId = 2, RestrictionId = 1, Product_Flavor = "Fully Loaded Southern Carrot", Product_Description = "Laden with Carrots, Spices, Nuts, Pineapple, Coconut, Raisins and topped with vegan buttercream frosting, this goldmine is the FULL EXPERIENCE!", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "German Chocolate"))
+												{ 
+																context.Products.Add(new Product { ProductId = 57, TypeId = 2, RestrictionId = 1, Product_Flavor = "German Chocolate", Product_Description = "No Description", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 16, TypeId = 2, RestrictionId = 1, Product_Flavor = "German Chocolate", Product_Description = "Rich chocolate cake filled and iced with our signature German Chocolate frosting, LOADED with coconut and toasted pecans. A holiday favorite.", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Ginger Zingers"))
+												{ context.Products.Add(new Product { ProductId = 98, TypeId = 3, RestrictionId = 1, Product_Flavor = "Ginger Zingers", Product_Description = "Soft and chewy, with the flavor of Moravian cookies, and an extra zing of ginger. A holiday essential.", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Gingerade"))
+												{ context.Products.Add(new Product { ProductId = 50, TypeId = 2, RestrictionId = 1, Product_Flavor = "Gingerade", Product_Description = "Spiced ginger cake iced with a twist of refreshing lemon buttercream. A unique and perfectly balanced pairing. YUM. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Gingerbread"))
+												{ 
+																context.Products.Add(new Product { ProductId = 37, TypeId = 2, RestrictionId = 1, Product_Flavor = "Gingerbread", Product_Description = "Baking spirits bright, this seasonal favorite signals the start of the holidays! An incredibly moist molasses cake spiced to perfection, iced in a fluffy vanilla buttercream.", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 92, TypeId = 3, RestrictionId = 1, Product_Flavor = "Gingerbread", Product_Description = "Wow. We have literally converted gingerbread haters (crazy, right?) into die-hard fans where these cookies are concerned. Our men of ginger are the perfect consistency of firm yet chewy and are spiced reeeal nice! ", Seasonal = false });
+												}
+												if (!context.Products.Any(x => x.Product_Flavor == "Hemp"))
+												{ context.Products.Add(new Product { ProductId = 80, TypeId = 8, RestrictionId = 1, Product_Flavor = "Hemp", Product_Description = "16 grams of protein per bar, 100% gluten free and plant based. ", Seasonal = false }); }
+												if (!context.Products.Any(x => x.Product_Flavor == "Hot Cocoa Snickerdoodle"))
+												{ 
+																context.Products.Add(new Product { ProductId = 38, TypeId = 2, RestrictionId = 1, Product_Flavor = "Hot Cocoa Snickerdoodle", Product_Description = "Mexican hot chocolate cake, frosted in a spiced chocolate buttercream", Seasonal = false });
+																context.Products.Add(new Product { ProductId = 91, TypeId = 3, RestrictionId = 1, Product_Flavor = "Hot Cocoa Snickerdoodle", Product_Description = "Favorite holiday cookie meets favorite holiday drink. Chewy cocoa cookies rolled in cinnamon and sugar. Sugar, spice, and everything nice: that's what these are made of! Sold by the dozen.", Seasonal = false });
+												}
+
+												//line 91 is next!
+
 												#endregion
 
 								}
