@@ -28,14 +28,14 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new {@class = "form-control", @id = "txtFname" } })
+                @Html.TextBoxFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new {@class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_First_Name, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control", @id="txtLname"} })
+                @Html.TextBoxFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_Last_Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -46,8 +46,8 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Contact_Number, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control", @onclick = "validate(this.value)"} })
+               <font id="lblPhone1Error" color="red"></font>
             </div>
         </div>
         <div class="form-group col-md-4">
@@ -87,11 +87,11 @@
           <div class="form-group col-md-4">
               @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10" })
               <div class="form-group col-md-10">
-                  @Html.RadioButton("searching", "1") Gluten-Free
+                  @Html.RadioButton("searching", "1", true) Gluten-Free
                   @Html.RadioButton("searching", "2") Keto
                   @Html.RadioButton("searching", "3") Paleo
               </div>
-              <input type="submit" value="search" asp-action="Create" formmethod="get" onclick="setCookie()"/>
+              <input type="submit" value="search" asp-action="Create" formmethod="get"/> 
           </div>
       </div>
 
@@ -112,22 +112,24 @@
             <tbody>
                 @foreach (var item in ViewBag.DietResitrictionSearch)
                 {
-                    <tr>
-                        <!--<td>*@@item.ProductId</td>-->
-                        <!--<td>*@@item.RestrictionId</td>-->
-                        <td>@item.Product_Flavor</td>
-                        <td>@item.Product_Description</td>
-                        @if (item.Seasonal != false)
-                        {
-                            <td>@item.Seasonal</td> //if is seasonal change row color of entire item
-                        }
-                        else
-                        {
-                            <td> </td> //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
-                        }
+                <tr>
+                    <!--<td>*@@item.ProductId</td>-->
+                    <!--<td>*@@item.RestrictionId</td>-->
+                    <td>@item.Product_Flavor</td>
+                    <td>@item.Product_Description</td>
+                    @if (item.Seasonal != false)
+                    {
+                        <td>@item.Seasonal</td>
+                        //if is seasonal change row color of entire item
+                    }
+                    else
+                    {
+                        <td> </td>
+                        //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
+                    }
 
-                        <td><input type="radio" name="chosenID" value="@item.ProductId"/></td>
-                    </tr>
+                    <td><input type="radio" name="chosenID" value="@item.ProductId"/></td>
+                </tr>
                     
                 }
             </tbody>
@@ -298,33 +300,17 @@
                 buttonText: "<i class='fa fa-calendar'></i>" //name in ' ' is file name from bootstrap css
             });
         });
+    </script>
 
-        $(function setCookie() {
-
-            document.cookie = "first_name=" + document.getElementById("txtFname").value;
-            document.cookie = "last_name=" + document.getElementById("txtLname").value;
-        });
-
-        $(function getCookie() {
-
-            if (document.cookie.length != 0) {
-                var cookiesArray = document.cookie.split("; ");
-
-                for (var index = 0; index < cookiesArray.length; index++) {
-                    var orderValueArray = cookiesArray[index].split("=");
-
-                    if (orderValueArray[0] == "first_name") {
-                        document.getElementById("txtFname").value = orderValueArray[1];
-                    }
-                    else if (orderValueArray[0] == "last_name") {
-                        document.getElementById("txtLname").value = orderValueArray[1];
-                    }
-                }
+    <script src="~/Scripts/OrderValidation.js"></script>
+    <script type="text/javascript">
+        function validate(str) {
+            var lblOutput = document.getElementById("lblPhone1Error");
+            if (IsValidPhoneNumber(str)) {
+                lblOutput.innerText = "Invalid Phone Number";
             }
             else {
-                alert("Cookies not found");
+                lblOutput.innerText = "";
             }
-        });
-
     </script>
 }
