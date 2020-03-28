@@ -67,6 +67,49 @@ namespace TYHBOrderSystem.Migrations
 												userManager.AddToRole(userId2, "Baker");
 												#endregion
 
+												//Seed Test Customers and Test Employees
+												#region Test Customer & Employee Seeds
+												//Test Customers
+												if (!context.Customers.Any(c => c.Customer_First_Name.Contains("Test")))
+												{
+																context.Customers.Add(new Customer
+																{
+																				Customer_ID = 1,
+																				Customer_First_Name = "Test_Cus_One",
+																				Customer_Last_Name = "Customer_One",
+																				Contact_Number = "123-456-7890",
+																				Email_Address = "testc1@null.com"
+																});
+																context.Customers.Add(new Customer
+																{
+																				Customer_ID = 2,
+																				Customer_First_Name = "Test_Cus_Two",
+																				Customer_Last_Name = "Customer_Two",
+																				Contact_Number = "908-765-4321",
+																				Email_Address = "testc2@null.com"
+																});
+												}
+
+												//Test Employees
+												if (!context.Employees.Any(e => e.Emp_First_Name.Contains("Test")))
+												{
+																context.Employees.Add(new Employees
+																{
+																				Employee_ID = 1,
+																				Emp_First_Name = "Test_Emp_One",
+																				Emp_Last_Name = "Employee_One",
+																				Emp_Initials = "TE1"
+																});
+																context.Employees.Add(new Employees
+																{
+																				Employee_ID = 2,
+																				Emp_First_Name = "Test_Emp_Two",
+																				Emp_Last_Name = "Employee_Two",
+																				Emp_Initials = "TE2"
+																});
+												}
+												#endregion
+
 												//Seed Ingredients
 												#region Ingredients Type Seeds
 
@@ -610,7 +653,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Kalamata Olive"))
 												{ context.Products.Add(new Product { ProductId = 135, TypeId = 1, RestrictionId = 1, Product_Flavor = "Kalamata Olive", Product_Description = "The BEST gluten Free, vegan Sandwich Bread in town", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Lemon Blueberry"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 130, TypeId = 5, RestrictionId = 1, Product_Flavor = "Lemon Blueberry", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 47, TypeId = 2, RestrictionId = 1, Product_Flavor = "Lemon Blueberry", Product_Description = "BESTSELLER!! Luscious lemon cake, iced in our organic blueberry infused buttercream", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 155, TypeId = 2, RestrictionId = 2, Product_Flavor = "Lemon Blueberry", Product_Description = "No Description", Seasonal = false });
@@ -626,12 +669,12 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Luscious Lemon"))
 												{ context.Products.Add(new Product { ProductId = 21, TypeId = 2, RestrictionId = 1, Product_Flavor = "Luscious Lemon", Product_Description = "Light lemon cake, iced in a refreshing lemon buttercream. Simplicity bursting with flavor.", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Maple Praline"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 15, TypeId = 2, RestrictionId = 1, Product_Flavor = "Maple Praline", Product_Description = "Moist cake, laced with pure Canadian maple syrup, frosted in a spiced buttercream, filled and topped with homemade pralines ", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 67, TypeId = 4, RestrictionId = 1, Product_Flavor = "Maple Praline", Product_Description = "Maple donut topped with housemade candied pecans. Reminiscent of pancakes", Seasonal = false });
 												}
 												if (!context.Products.Any(x => x.Product_Flavor == "Mexican Hot Chocolate"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 168, TypeId = 5, RestrictionId = 2, Product_Flavor = "Mexican Hot Chocolate", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 149, TypeId = 2, RestrictionId = 2, Product_Flavor = "Mexican Hot Chocolate", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 160, TypeId = 4, RestrictionId = 2, Product_Flavor = "Mexican Hot Chocolate", Product_Description = "No Description", Seasonal = false });
@@ -639,7 +682,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Million Dollar Chocolate Mousse"))
 												{ context.Products.Add(new Product { ProductId = 119, TypeId = 6, RestrictionId = 1, Product_Flavor = "Million Dollar Chocolate Mousse", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Mixed Berry"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 153, TypeId = 2, RestrictionId = 2, Product_Flavor = "Mixed Berry", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 164, TypeId = 4, RestrictionId = 2, Product_Flavor = "Mixed Berry", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 172, TypeId = 5, RestrictionId = 2, Product_Flavor = "Mixed Berry", Product_Description = "No Description", Seasonal = false });
@@ -673,7 +716,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Pumpkin Oat"))
 												{ context.Products.Add(new Product { ProductId = 101, TypeId = 5, RestrictionId = 1, Product_Flavor = "Pumpkin Oat", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Pumpkin Spice"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 29, TypeId = 2, RestrictionId = 1, Product_Flavor = "Pumpkin Spice", Product_Description = "This masterpiece won the WBFJ cake competition at the Dixie Classic Fair and is our fall bestseller by far! Moist spiced pumpkin cake iced with homemade caramel buttercream...need we say more? ", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 167, TypeId = 5, RestrictionId = 2, Product_Flavor = "Pumpkin Spice", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 159, TypeId = 4, RestrictionId = 2, Product_Flavor = "Pumpkin Spice", Product_Description = "No Description", Seasonal = false });
@@ -696,14 +739,14 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Shepherd's Pie"))
 												{ context.Products.Add(new Product { ProductId = 131, TypeId = 9, RestrictionId = 1, Product_Flavor = "Shepherd's Pie", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "S'More"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 68, TypeId = 4, RestrictionId = 1, Product_Flavor = "S'More", Product_Description = "Signature chocolate donut filled with homemade toasted marshmallow fluff and topped with graham cracker", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 12, TypeId = 2, RestrictionId = 1, Product_Flavor = "S'More", Product_Description = "Also known as the Campfire Cake, children and adults alike LOVE one. Rich chocolate cake filled with homemade + toasted marshmallow fluff, iced in chocolate buttercream and topped with graham cracker and ganache. Ooh la la!", Seasonal = false });
 												}
 												if (!context.Products.Any(x => x.Product_Flavor == "S'more Brownies"))
 												{ context.Products.Add(new Product { ProductId = 177, TypeId = 6, RestrictionId = 2, Product_Flavor = "S'more Brownies", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Southern Carrot"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 169, TypeId = 5, RestrictionId = 2, Product_Flavor = "Southern Carrot", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 150, TypeId = 2, RestrictionId = 2, Product_Flavor = "Southern Carrot", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 161, TypeId = 4, RestrictionId = 2, Product_Flavor = "Southern Carrot", Product_Description = "No Description", Seasonal = false });
@@ -713,7 +756,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Spiced Peach"))
 												{ context.Products.Add(new Product { ProductId = 105, TypeId = 5, RestrictionId = 1, Product_Flavor = "Spiced Peach", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Spiced Praline"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 162, TypeId = 4, RestrictionId = 2, Product_Flavor = "Spiced Praline", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 151, TypeId = 2, RestrictionId = 2, Product_Flavor = "Spiced Praline", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 170, TypeId = 5, RestrictionId = 2, Product_Flavor = "Spiced Praline", Product_Description = "No Description", Seasonal = false });
@@ -723,12 +766,12 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Strawberries & Cream"))
 												{ context.Products.Add(new Product { ProductId = 60, TypeId = 2, RestrictionId = 1, Product_Flavor = "Strawberries & Cream", Product_Description = "No Description", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Strawberry"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 65, TypeId = 4, RestrictionId = 1, Product_Flavor = "Strawberry", Product_Description = "The sweetness of summer, vanilla donut topped with with organic strawberry glaze ", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 108, TypeId = 7, RestrictionId = 1, Product_Flavor = "Strawberry", Product_Description = "No Description", Seasonal = false });
 												}
 												if (!context.Products.Any(x => x.Product_Flavor == "Strawberry Lemonade"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 89, TypeId = 3, RestrictionId = 1, Product_Flavor = "Strawberry Lemonade", Product_Description = "A lemon shortbread cookie base drizzled with homemade strawberry glaze. The perfect taste of summer.", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 48, TypeId = 2, RestrictionId = 1, Product_Flavor = "Strawberry Lemonade", Product_Description = "Luscious lemon cake filled with organic strawberry preserves, iced in a light lemon buttercream.", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 166, TypeId = 5, RestrictionId = 2, Product_Flavor = "Strawberry Lemonade", Product_Description = "No Description", Seasonal = false });
@@ -746,7 +789,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "The Gentleman"))
 												{ context.Products.Add(new Product { ProductId = 43, TypeId = 2, RestrictionId = 1, Product_Flavor = "The Gentleman", Product_Description = "Moist chocolate cake filled with our homemade raspberry pistachio preserves, iced with chocolate buttercream and semi-sweet espresso ganache.", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Tiramisu"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 36, TypeId = 2, RestrictionId = 1, Product_Flavor = "Tiramisu", Product_Description = "Moist cake laced with espresso and Kahlua, iced in silky cream and topped with dutch cocoa and Belgian chocolate.", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 121, TypeId = 6, RestrictionId = 1, Product_Flavor = "Tiramisu", Product_Description = "No Description", Seasonal = false });
 												}
@@ -761,7 +804,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Vanilla"))
 												{ context.Products.Add(new Product { ProductId = 83, TypeId = 8, RestrictionId = 1, Product_Flavor = "Vanilla", Product_Description = "16 grams of protein per bar, 100% gluten free and plant based. ", Seasonal = false }); }
 												if (!context.Products.Any(x => x.Product_Flavor == "Vanilla Almond"))
-												{ 
+												{
 																context.Products.Add(new Product { ProductId = 163, TypeId = 4, RestrictionId = 2, Product_Flavor = "Vanilla Almond", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 152, TypeId = 2, RestrictionId = 2, Product_Flavor = "Vanilla Almond", Product_Description = "No Description", Seasonal = false });
 																context.Products.Add(new Product { ProductId = 171, TypeId = 5, RestrictionId = 2, Product_Flavor = "Vanilla Almond", Product_Description = "No Description", Seasonal = false });
@@ -777,9 +820,47 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Products.Any(x => x.Product_Flavor == "Veggie Medley Lasagna"))
 												{ context.Products.Add(new Product { ProductId = 127, TypeId = 9, RestrictionId = 1, Product_Flavor = "Veggie Medley Lasagna", Product_Description = "No Description", Seasonal = false }); }
 
-											
+
 												#endregion
 
+												//Seed Test Orders
+												#region Test Orders
+												//if (!context.Orders.Any(o => o.Customer_ID == 1 || o.Customer_ID == 2 || o.Employee_ID == 1 || o.Employee_ID == 2))
+												//{
+												//				context.Orders.Add(new Order
+												//				{
+												//								ORDER_ID = 1,
+												//								Customer_ID = 1,
+												//								Order_Date = DateTime.Now.ToString("MM/dd/yyyy"),
+												//								Order_Time = DateTimeOffset.Now,
+												//								PickUp_Due_Date = DateTime.Now.AddDays(7).ToString("MM/dd/yyyy"),
+												//								PickUp_Time = DateTimeOffset.Now.AddDays(7.00).ToString(),
+												//								Ingredient_Substitution = context.Ingredients.FirstOrDefault().Ingredient_Name,
+												//								Decoration_Comments = "Make the icing smoothed.",
+												//								Additional_Comments = "",
+												//								Employee_ID = 2,
+												//								Order_Size_ID = 1,
+												//								Finishing_ID = 57,
+												//								PRODUCT = context.Products.First(p => p.TypeId == 2)
+												//				});
+												//				context.Orders.Add(new Order
+												//				{
+												//								ORDER_ID = 2,
+												//								Customer_ID = 2,
+												//								Order_Date = DateTime.Now.ToString("MM/dd/yyyy"),
+												//								Order_Time = DateTimeOffset.Now,
+												//								PickUp_Due_Date = DateTime.Now.AddDays(7).ToString("MM/dd/yyyy"),
+												//								PickUp_Time = DateTimeOffset.Now.AddDays(7.00).ToString(),
+												//								Ingredient_Substitution = context.Ingredients.FirstOrDefault().Ingredient_Name,
+												//								Decoration_Comments = "",
+												//								Additional_Comments = "Pre-cut half of the cake, 6 slices",
+												//								Employee_ID = 1,
+												//								Order_Size_ID = 2,
+												//								Finishing_ID = 38,
+												//								PRODUCT = context.Products.First(p => p.TypeId == 2)
+												//				});
+												//}
+												#endregion
 								}
 				}
 }
