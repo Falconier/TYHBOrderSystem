@@ -1,103 +1,93 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
-
 @{
-    ViewBag.Title = "OldOrders";
+				ViewBag.Title = "OldOrderData";
 }
+<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
-<h2>OLD ORDERS</h2>
 
-<!-- TEST TEST TEST-->
+
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMPLOYEE.Emp_First_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Order_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Order_Time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickUp_Due_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickUp_Time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRODUCT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ingredient_Substitution)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Decoration_Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Additional_Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Finishing_ID)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var itemset in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.Finishing_ID)
-            </td>
+<table id="InformationTable" class="table">
+				<tr>
+								<th>
+												@Html.DisplayNameFor(model => model.Order_Date)
+								</th>
+								<th>
+												@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+								</th>
+								<th>
+												@Html.DisplayNameFor(model => model.Finishing_ID)
+								</th>
+								<!--
+								<th>
+								Html.DisplayNameFor(model => model.Product_Type_ID)
+								</th>
+								-->
+								<th>
+												@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+								</th>
+								<th>
+												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+								</th>
 
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.CUSTOMER.Customer_First_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.EMPLOYEE.Emp_First_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.INGREDIENT.Ingredient_Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.ORDER_SIZES.Product_Type_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.Order_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.Order_Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.PickUp_Due_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.PickUp_Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.PRODUCT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.Ingredient_Substitution)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.Decoration_Comments)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItemset => itemset.Additional_Comments)
-            </td>
+				</tr>
 
-        </tr>
-    }
+				@foreach (var item in Model)
+				{
 
+								<tr>
+												<td>
+																@Html.DisplayFor(model => item.Order_Date)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.PickUp_Due_Date)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.Finishing_ID)
+												</td>
+												<!--
+												<th>
+												Html.DisplayFor(model => model.Product_Type_ID)
+												</th>
+												-->
+												<td>
+																@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+												</td>
+								</tr>
+				}
 </table>
+<!-- /.box-body
+
+
+@section Scripts{
+
+				<script>
+								$(function () {
+												$('#example1').DataTable(
+																{
+																				'paging': true,
+																				'pageLength': 25,
+																				'lengthChange': true,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': true
+																})
+												$('#example2').DataTable({
+																'paging': true,
+																'lengthChange': false,
+																'searching': false,
+																'ordering': true,
+																'info': false,
+																'autoWidth': false
+
+												})
+								})
+				</script>
+}
+				-->

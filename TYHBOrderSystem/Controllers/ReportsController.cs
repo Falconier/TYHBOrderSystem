@@ -45,18 +45,22 @@ namespace TYHBOrderSystem.Controllers
 
         public ActionResult DailyReport()
         {
-            
-            return View(DB.Orders.OrderBy(x => x.PickUp_Due_Date).ToList());
+
+            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            return View(orders.ToList());
+           
         }
         public ActionResult WeeklyReport()
         {
-            
-            return View(DB.Orders.OrderBy(x => x.PickUp_Due_Date).ToList());
+
+            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            return View(orders.ToList());
         }
         public ActionResult OldOrderData()
         {
-            
-            return View(DB.Orders.OrderBy(x => x.Finishing_ID).ToList());
+
+            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            return View(orders.ToList());
         }
 
         // POST: Reports/Create
