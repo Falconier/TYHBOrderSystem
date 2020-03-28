@@ -1,94 +1,125 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
 @{
-    ViewBag.Title = "Daily Report";
+				ViewBag.Title = "Daily Report";
 }
-    <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
+<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
 
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
 
 
-<table id="InformationTable" class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Order_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickUp_Due_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Finishing_ID)
-        </th>
-        <!--
-        <th>
-        Html.DisplayNameFor(model => model.Product_Type_ID)
-        </th>
-        -->
-        <th>
-            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
-        </th>
+@if (Model.Count() > 0)
+{
+				<table id="InformationTable" class="table">
+								<tr>
+												<th>
+																@Html.DisplayNameFor(model => model.Order_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.Finishing_ID)
+												</th>
+												<!--
+												<th>
+												Html.DisplayNameFor(model => model.Product_Type_ID)
+												</th>
+												-->
+												<th>
+																@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+												</th>
 
-    </tr>
+								</tr>
+								@foreach (var item in Model)
+								{
 
-    @foreach (var item in Model)
-    {
+												<tr>
+																<td>
+																				@Html.DisplayFor(model => item.Order_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.Finishing_ID)
+																</td>
+																<!--
+																<th>
+																Html.DisplayFor(model => model.Product_Type_ID)
+																</th>
+																-->
+																<td>
+																				@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																</td>
+												</tr>
+								}
+				</table>
+}
+else
+{
+				<table id="InformationTable" class="table">
+								<tr>
+												<th>
+																@Html.DisplayNameFor(model => model.Order_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.Finishing_ID)
+												</th>
+												<!--
+												<th>
+												Html.DisplayNameFor(model => model.Product_Type_ID)
+												</th>
+												-->
+												<th>
+																@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+												</th>
 
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.Order_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.PickUp_Due_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Finishing_ID)
-            </td>
-            <!--
-            <th>
-            Html.DisplayFor(model => model.Product_Type_ID)
-            </th>
-            -->
-            <td>
-                @Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
-            </td>
-        </tr>
-    }
-</table>
+								</tr>
+				</table>
+				<p>No Orders</p>
+}
 <!-- /.box-body
 
 
 @section Scripts{
 
-    <script>
-        $(function () {
-            $('#example1').DataTable(
-                {
-                    'paging': true,
-                    'pageLength': 25,
-                    'lengthChange': true,
-                    'searching': true,
-                    'ordering': true,
-                    'info': false,
-                    'autoWidth': true
-                })
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': false,
-                'autoWidth': false
+				<script>
+								$(function () {
+												$('#example1').DataTable(
+																{
+																				'paging': true,
+																				'pageLength': 25,
+																				'lengthChange': true,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': true
+																})
+												$('#example2').DataTable({
+																'paging': true,
+																'lengthChange': false,
+																'searching': false,
+																'ordering': true,
+																'info': false,
+																'autoWidth': false
 
-            })
-        })
-    </script>
+												})
+								})
+				</script>
 }
-    -->
-        //PDF DATA CODE GOES INTO TABLE ABOVE!!!///
+				-->
+												//PDF DATA CODE GOES INTO TABLE ABOVE!!!///
