@@ -2,15 +2,18 @@
 @{
     ViewBag.Title = "Daily Report";
 }
-    <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
+
+<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
 
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
+<h2>Daily Report</h2>
 
 
 <table id="InformationTable" class="table">
     <tr>
+
         <th>
             @Html.DisplayNameFor(model => model.Order_Date)
         </th>
@@ -28,7 +31,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
         </th>
-        <th>
+        <th onclick="sortTable(0)">
             @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
         </th>
 
@@ -61,34 +64,50 @@
         </tr>
     }
 </table>
-<!-- /.box-body
 
 
-@section Scripts{
-
-    <script>
-        $(function () {
-            $('#example1').DataTable(
-                {
-                    'paging': true,
-                    'pageLength': 25,
-                    'lengthChange': true,
-                    'searching': true,
-                    'ordering': true,
-                    'info': false,
-                    'autoWidth': true
-                })
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': false,
-                'autoWidth': false
-
-            })
-        })
-    </script>
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+		  table = model.getElementById("InformationTable");
+  switching = true;
+  dir = "asc";
+  
+				while (switching) {
+								switching = false;
+    rows = table.rows;
+    
+    for (i = 1; i < (rows.length - 1); i++) {
+      
+      shouldSwitch = false;
+     
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+     
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
 }
-    -->
-        //PDF DATA CODE GOES INTO TABLE ABOVE!!!///
+</script>
