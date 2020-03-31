@@ -45,10 +45,26 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
-												ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Order_Size");
-            
-            ViewBag.Order_Size = new SelectList(db.OrderSizes, "Order_Size_ID", "Order_Size");
+			//ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Order_Size");
 
+            var orderSizeList = db.OrderSizes.ToList();
+            IEnumerable<SelectListItem> selectListQueryCakes = from o in orderSizeList
+                                                          where o.Number_Of_Layers != 0
+                                                          select new SelectListItem
+                                                          {
+                                                              Value = o.Order_Size_ID.ToString(),
+                                                              Text = o.Order_Size.ToString() + " inches" + " - " + o.Number_Of_Layers.ToString() + " layers"
+                                                          };
+            IEnumerable<SelectListItem> selectListQueryDefault = from o in orderSizeList
+                                                                 where o.Number_Of_Layers == 0
+                                                                 select new SelectListItem
+                                                                 {
+                                                                     Value = o.Order_Size_ID.ToString(),
+                                                                     Text = o.Order_Size.ToString() + " count"
+
+                                                                 };
+
+            ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
 
             //Ingredients Sub for View
             ViewBag.IngredientSub = db.Ingredients.ToList();
@@ -76,14 +92,14 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size  = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID  = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "3")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    //ViewBag.Order_Size_ID = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "4")
@@ -96,7 +112,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "6")
@@ -109,7 +125,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "8")
@@ -128,21 +144,21 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "11")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
                 else if(itemchoice == "12")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
                     return View();
                 }
 
@@ -155,22 +171,37 @@ namespace TYHBOrderSystem.Controllers
         // POST: Orders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //Removed Order_Size_ID,Finishing_ID, from BIND
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string ProductList,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
+        public ActionResult Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID, Ingredient_ID, Order_Size_ID")] Order order)
         {
             if (ModelState.IsValid)
             {
-                int chosenProduct = int.Parse(ProductList);
-                ViewBag.ChosenItem = db.Products.Where(model => model.ProductId.Equals(chosenProduct));
-                var pID = ViewBag.ChosenItem;
-                order.PRODUCT = pID;
+                //Get Product ID: Create Product Object with chosen product ID, set to 'ORDER'
+                string chosenID = form["chosenID"];
+                int tempChosenID = int.Parse(chosenID);
+                Product ProductChoice = new Product();
+                ProductChoice.ProductId = tempChosenID;
+                order.PRODUCT = ProductChoice;
 
-                
+                //Get Ingredient Substitution: Ingredient_ID(INT)
+                string chosenSubIngredient = form["substitution"];
+                int tempChosenSubIngredient = int.Parse(chosenSubIngredient);
+                order.Ingredient_ID = tempChosenSubIngredient;
+
+                //Get Ingredient_Substitution (String)
+                var chosenIngredientQuery = from i in db.Ingredients
+                                            where i.Ingredient_ID == tempChosenSubIngredient
+                                            select i.Ingredient_Name;
+                string chosenIngredientValue = chosenIngredientQuery.FirstOrDefault().ToString();
+                order.Ingredient_Substitution = chosenIngredientValue;
+
                 //Order Date
                 DateTime currentDate = DateTime.Now;
                 string orderDate = currentDate.ToString("MM/dd/yyyy");
                 order.Order_Date = orderDate;
+
                 db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");

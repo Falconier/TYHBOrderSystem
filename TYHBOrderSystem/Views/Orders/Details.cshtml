@@ -27,19 +27,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
+            @Html.DisplayNameFor(model => model.PRODUCT.Product_Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
+            @Html.DisplayFor(model => model.PRODUCT.Product_Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+            @Html.DisplayNameFor(model => model.PRODUCT.Restriction)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+            @Html.DisplayFor(model => model.PRODUCT.Restriction)
         </dd>
 
         <dt>
@@ -75,14 +75,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Product_Type_ID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Product_Type_ID)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Ingredient_Substitution)
         </dt>
 
@@ -106,13 +98,40 @@
             @Html.DisplayFor(model => model.Additional_Comments)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Finishing_ID)
-        </dt>
+        <!---
+    <dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Finishing_ID)
-        </dd>
+        *@@Html.DisplayNameFor(model => model.Product_Type_ID)
+    </dt>
+
+    <dd>
+        *@@Html.DisplayFor(model => model.Product_Type_ID)
+    </dd>
+    -
+    <dt>
+        *@@Html.DisplayNameFor(model => model.Finishing_ID)
+    </dt>
+
+    <dd>
+        *@@Html.DisplayFor(model => model.Finishing_ID)
+    </dd>
+
+    <dt>
+        *@@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+    </dt>
+
+    <dd>
+        *@@Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+    </dd>
+
+    <dt>
+        *@@Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
+    </dt>
+
+    <dd>
+        *@@Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
+    </dd>
+    -->
 
     </dl>
 </div>
