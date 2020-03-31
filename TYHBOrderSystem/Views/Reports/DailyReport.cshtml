@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
 @{
-    ViewBag.Title = "Daily Report";
+				ViewBag.Title = "Daily Report";
 }
-
 <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
 
@@ -35,10 +34,59 @@
             @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
         </th>
 
-    </tr>
+								</tr>
+								@foreach (var item in Model)
+								{
 
-    @foreach (var item in Model)
-    {
+												<tr>
+																<td>
+																				@Html.DisplayFor(model => item.Order_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.Finishing_ID)
+																</td>
+																<!--
+																<th>
+																Html.DisplayFor(model => model.Product_Type_ID)
+																</th>
+																-->
+																<td>
+																				@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																</td>
+												</tr>
+								}
+				</table>
+}
+else
+{
+				<table id="InformationTable" class="table">
+								<tr>
+												<th>
+																@Html.DisplayNameFor(model => model.Order_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.Finishing_ID)
+												</th>
+												<!--
+												<th>
+												Html.DisplayNameFor(model => model.Product_Type_ID)
+												</th>
+												-->
+												<th>
+																@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+												</th>
 
         <tr>
             <td>
