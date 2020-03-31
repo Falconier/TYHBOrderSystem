@@ -45,26 +45,39 @@ namespace TYHBOrderSystem.Controllers
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
-			//ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Order_Size");
-
+            
+            //Order_Size_ID toList for data mutation for View Display
             var orderSizeList = db.OrderSizes.ToList();
+
+            //Select List Items for Order Sizes with Layers
             IEnumerable<SelectListItem> selectListQueryCakes = from o in orderSizeList
-                                                          where o.Number_Of_Layers != 0
+                                                          where o.Number_Of_Layers != 0 && o.Product_Type_ID == itemchoice
                                                           select new SelectListItem
                                                           {
                                                               Value = o.Order_Size_ID.ToString(),
                                                               Text = o.Order_Size.ToString() + " inches" + " - " + o.Number_Of_Layers.ToString() + " layers"
                                                           };
-            IEnumerable<SelectListItem> selectListQueryDefault = from o in orderSizeList
-                                                                 where o.Number_Of_Layers == 0
-                                                                 select new SelectListItem
-                                                                 {
-                                                                     Value = o.Order_Size_ID.ToString(),
-                                                                     Text = o.Order_Size.ToString() + " count"
 
-                                                                 };
+            IEnumerable<SelectListItem> selectListQueryPie = from o in orderSizeList
+                                                             where o.Number_Of_Layers == 0 && o.Product_Type_ID == itemchoice
+                                                             select new SelectListItem
+                                                             {
+                                                                 Value = o.Order_Size_ID.ToString(),
+                                                                 Text = o.Order_Size.ToString() + " inches"
+                                                             };
 
-            ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
+            //SelectListItem for Order Sizes without Layers
+            IEnumerable < SelectListItem > selectListQueryDefault = from o in orderSizeList
+                                                                    where o.Number_Of_Layers == 0 && o.Product_Type_ID == itemchoice
+                                                                    select new SelectListItem
+                                                                    {
+                                                                        Value = o.Order_Size_ID.ToString(),
+                                                                        Text = o.Order_Size.ToString() + " count"
+
+                                                                    };
+
+            //Default Set for 'View' on load
+            ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
 
             //Ingredients Sub for View
             ViewBag.IngredientSub = db.Ingredients.ToList();
@@ -92,14 +105,14 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    ViewBag.Order_Size_ID  = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "3")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    //ViewBag.Order_Size_ID = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "4")
@@ -112,7 +125,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "6")
@@ -125,7 +138,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryPie, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "8")
@@ -144,21 +157,21 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "11")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "12")
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
-                    //ViewBag.Order_Size = db.OrderSizes.Where(model => model.Product_Type_ID.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text"); 
                     return View();
                 }
 
