@@ -47,6 +47,8 @@ namespace TYHBOrderSystem.Controllers
         {
 
             var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            DateTime currentDate = DateTime.Now;
+           // var data = DB("SELECT * FROM Orders WHERE Pickup_Date='currentdate'");
             return View(orders.ToList());
            
         }
@@ -54,6 +56,7 @@ namespace TYHBOrderSystem.Controllers
         {
 
             var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            DateTime currentDate = DateTime.Now;
             return View(orders.ToList());
         }
         public ActionResult OldOrderData()
