@@ -92,7 +92,7 @@
                 @Html.RadioButton("searching", "2") Keto
                 @Html.RadioButton("searching", "3") Paleo
             </div>
-            <input type="submit" value="search" asp-action="Create" formmethod="get" />
+            <input type="submit" name="restriction" value="search" asp-action="Create" formmethod="get" />
         </div>
     </div>
 
@@ -144,7 +144,7 @@
             {
                 <div>
                     @ingredient.Ingredient_Name
-                    <input type="checkbox" name="substitution" value="@ingredient.Ingredient_ID" />
+                    <input type="radio" name="substitution" value="@ingredient.Ingredient_ID" />
                 </div>
             }
 
@@ -170,11 +170,11 @@
         </div>
     </div>
 
-    <!--Primary Key to grab 'Num_Layers' or Other keys-->
+    <!--Primary Key to grab Order_Size_ID-->
     <div class="form-group">
         @Html.LabelFor(model => model.Order_Size_ID, "Order Size", htmlAttributes: new { @class = "control-label col-md-10" })
         <div class="col-md-10">
-            @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control"})
             @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -188,14 +188,14 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class = "col-md-10" } })
+                @Html.TextBox("CurrentDate", (object)ViewBag.CurrentDate, htmlAttributes: new { @class = "form-control", disabled="disabled" } )
                 @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Order_Time, "Order Time", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Order_Time, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBox("CurrentTime", (object)ViewBag.CurrentTime, htmlAttributes: new { @class = "form-control", disabled = "disabled" })
                 @Html.ValidationMessageFor(model => model.Order_Time, "", new { @class = "text-danger" })
             </div>
         </div>

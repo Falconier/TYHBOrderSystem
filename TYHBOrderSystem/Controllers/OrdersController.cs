@@ -39,13 +39,20 @@ namespace TYHBOrderSystem.Controllers
         // GET: Orders/Create
         public ActionResult Create(string searching, string itemchoice)
         {
+            
             //Product Categories for View
             ViewBag.ProductCategoryList = db.ProductTypes.ToList();
-
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
-            
+
+            //Order Date/Order Time View
+            DateTime currentDate = DateTime.Now;
+            string orderDateFormat = currentDate.ToString("MM/dd/yyyy");
+            string timeDateFormat = currentDate.ToString("h:mm tt");
+            ViewBag.CurrentDate = orderDateFormat;
+            ViewBag.CurrentTime = timeDateFormat;
+
             //Order_Size_ID toList for data mutation for View Display
             var orderSizeList = db.OrderSizes.ToList();
 
@@ -184,7 +191,7 @@ namespace TYHBOrderSystem.Controllers
         // POST: Orders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //Removed Order_Size_ID,Finishing_ID, from BIND
+        //Removed Finishing_ID, from BIND
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID, Ingredient_ID, Order_Size_ID")] Order order)
@@ -197,6 +204,11 @@ namespace TYHBOrderSystem.Controllers
                 Product ProductChoice = new Product();
                 ProductChoice.ProductId = tempChosenID;
                 order.PRODUCT = ProductChoice;
+
+                //Get Restriction ID
+                string chosenRestriction = form["restriction"];
+                int tempChosenRestriction = int.Parse(chosenRestriction);
+                order.PRODUCT.RestrictionId = tempChosenRestriction;
 
                 //Get Ingredient Substitution: Ingredient_ID(INT)
                 string chosenSubIngredient = form["substitution"];
@@ -214,6 +226,9 @@ namespace TYHBOrderSystem.Controllers
                 DateTime currentDate = DateTime.Now;
                 string orderDate = currentDate.ToString("MM/dd/yyyy");
                 order.Order_Date = orderDate;
+
+                DateTimeOffset currentTime = DateTimeOffset.Now;
+                order.Order_Time = currentTime;
 
                 db.Orders.Add(order);
                 db.SaveChanges();
