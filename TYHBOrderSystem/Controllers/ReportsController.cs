@@ -46,17 +46,39 @@ namespace TYHBOrderSystem.Controllers
         public ActionResult DailyReport()
         {
 
-            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
             DateTime currentDate = DateTime.Now;
-           // var data = DB("SELECT * FROM Orders WHERE Pickup_Date='currentdate'");
+            string DateFormat = currentDate.ToString("MM/dd/yyyy");
+            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            IEnumerable<SelectListItem> selectListDaily = from o in orders
+                                                           where o.PickUp_Due_Date == DateFormat
+                                                           select new SelectListItem
+                                                           {
+                                                               Value = o.PickUp_Due_Date.ToString(),
+                                                               Text = o.PickUp_Due_Date.ToString()
+                                                           };
+
+
+            ViewBag.PickUp_Due_Date = new SelectList(selectListDaily, "Value" ,"Text");
             return View(orders.ToList());
-           
+
         }
         public ActionResult WeeklyReport()
         {
 
-            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
             DateTime currentDate = DateTime.Now;
+            string DateFormat = currentDate.ToString("MM/dd/yyyy");
+            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            IEnumerable<SelectListItem> selectListWeekly = from o in orders
+                                                           where o.PickUp_Due_Date == DateFormat
+                                                           select new SelectListItem
+                                                           {
+                                                               Value = o.PickUp_Due_Date.ToString(),
+                                                               Text = o.PickUp_Due_Date.ToString()
+                                                           };
+
+
+            ViewBag.PickUp_Due_Date = new SelectList(selectListWeekly, "Value", "Text");
+
             return View(orders.ToList());
         }
         public ActionResult OldOrderData()
