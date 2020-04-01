@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
+
+
 @{
 				ViewBag.Title = "OldOrderData";
 }
@@ -12,82 +14,57 @@
 <table id="InformationTable" class="table">
 				<tr>
 								<th>
+												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+								</th>
+								<th>
+												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_Last_Name)
+								</th>
+								<th>
 												@Html.DisplayNameFor(model => model.Order_Date)
 								</th>
 								<th>
 												@Html.DisplayNameFor(model => model.PickUp_Due_Date)
 								</th>
 								<th>
+												@Html.DisplayNameFor(model => model.ORDER_ID)
+								</th>
+								<th>
 												@Html.DisplayNameFor(model => model.Finishing_ID)
 								</th>
-								<!--
-								<th>
-								Html.DisplayNameFor(model => model.Product_Type_ID)
-								</th>
-								-->
-								<th>
-												@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
-								</th>
+								
+
 
 				</tr>
 
 				@foreach (var item in Model)
 				{
 
-								<tr>
-												<td>
-																@Html.DisplayFor(model => item.Order_Date)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.PickUp_Due_Date)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.Finishing_ID)
-												</td>
-												<!--
-												<th>
-												Html.DisplayFor(model => model.Product_Type_ID)
-												</th>
-												-->
-												<td>
-																@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
-												</td>
-								</tr>
+<tr>
+				<td>
+								@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+				</td>
+				<td>
+								@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
+				</td>
+				<td>
+								@Html.DisplayFor(model => item.Order_Date)
+				</td>
+				<td>
+								@Html.DisplayFor(model => item.PickUp_Due_Date)
+				</td>
+				<td>
+								@Html.DisplayFor(model => item.ORDER_ID)
+				</td>
+				<td>
+								@Html.DisplayFor(model => item.Finishing_ID)
+				</td>
+				
+
+</tr>
 				}
 </table>
-<!-- /.box-body
 
 
-@section Scripts{
-
-				<script>
-								$(function () {
-												$('#example1').DataTable(
-																{
-																				'paging': true,
-																				'pageLength': 25,
-																				'lengthChange': true,
-																				'searching': true,
-																				'ordering': true,
-																				'info': false,
-																				'autoWidth': true
-																})
-												$('#example2').DataTable({
-																'paging': true,
-																'lengthChange': false,
-																'searching': false,
-																'ordering': true,
-																'info': false,
-																'autoWidth': false
-
-												})
-								})
-				</script>
-}
-				-->
+<!-- SELECT *
+	    FROM Orders
+	    ORDER BY Order_Date-->
