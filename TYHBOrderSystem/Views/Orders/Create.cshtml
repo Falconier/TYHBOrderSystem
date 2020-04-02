@@ -28,14 +28,14 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_First_Name, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_Last_Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } }) <!--id = "primNum", JQUERY VAL -->
+                @Html.EditorFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } }) <!--id = "primNum", JQUERY VAL -->
 
                 @Html.ValidationMessageFor(model => model.CUSTOMER.Contact_Number, "", new { @class = "text-danger" })
             </div>
@@ -92,7 +92,7 @@
                 @Html.RadioButton("searching", "2") Keto
                 @Html.RadioButton("searching", "3") Paleo
             </div>
-            <input type="submit" name="restriction" value="search" asp-action="Create" formmethod="get" />
+            <input type="submit" class="btn btn-secondary" value="Search" asp-action="Create" formmethod="get" />
         </div>
     </div>
 
@@ -138,7 +138,7 @@
 
     <!-- Ingredient Subsition, Drop Down Box NOTHING IN DB TO USE THIS AT ALL-->
     <div class="form-group">
-        @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Ingredient_Substitution,"Ingredient Substitution", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @foreach (var ingredient in ViewBag.IngredientSub)
             {
@@ -271,7 +271,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </div>
 </div>

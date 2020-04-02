@@ -201,14 +201,8 @@ namespace TYHBOrderSystem.Controllers
                 //Get Product ID: Create Product Object with chosen product ID, set to 'ORDER'
                 string chosenID = form["chosenID"];
                 int tempChosenID = int.Parse(chosenID);
-                Product ProductChoice = new Product();
-                ProductChoice.ProductId = tempChosenID;
-                order.PRODUCT = ProductChoice;
-
-                //Get Restriction ID
-                string chosenRestriction = form["restriction"];
-                int tempChosenRestriction = int.Parse(chosenRestriction);
-                order.PRODUCT.RestrictionId = tempChosenRestriction;
+                Product productChoice = db.Products.Find(tempChosenID);
+                order.PRODUCT = productChoice;
 
                 //Get Ingredient Substitution: Ingredient_ID(INT)
                 string chosenSubIngredient = form["substitution"];
