@@ -203,6 +203,7 @@
     <Compile Include="Models\FinishingsType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\View_Models\CustomerViewModels.cs" />
     <Compile Include="Models\View_Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderSizes.cs" />
