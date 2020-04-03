@@ -36,7 +36,7 @@ namespace TYHBOrderSystem.Controllers
         }
 
         // GET: Customers/Create
-        public ActionResult Create()
+        public ActionResult CreateForOrder()
         {
             return View();
         }
@@ -46,20 +46,45 @@ namespace TYHBOrderSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Customer_ID,Customer_First_Name,Customer_Last_Name,Contact_Number,Alternate_Contact_Number,Allergy_Desctiption,Email_Address")] Customer customer)
+        public ActionResult CreateForOrder([Bind(Include = "Customer_ID,Customer_First_Name,Customer_Last_Name,Contact_Number,Alternate_Contact_Number,Allergy_Desctiption,Email_Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create","Orders");
             }
 
             return View(customer);
         }
 
-        // GET: Customers/Edit/5
-        public ActionResult Edit(int? id)
+								#region For later use
+								//// GET: Customers/Create
+								//public ActionResult Create()
+								//{
+								//    return View();
+								//}
+
+								//// POST: Customers/Create
+								//// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+								//// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+								//[HttpPost]
+								//[ValidateAntiForgeryToken]
+								//public ActionResult Create([Bind(Include = "Customer_ID,Customer_First_Name,Customer_Last_Name,Contact_Number,Alternate_Contact_Number,Allergy_Desctiption,Email_Address")] Customer customer)
+								//{
+								//    if (ModelState.IsValid)
+								//    {
+								//        db.Customers.Add(customer);
+								//        db.SaveChanges();
+								//        return RedirectToAction("Index");
+								//    }
+
+								//    return View(customer);
+								//}
+								#endregion
+
+								// GET: Customers/Edit/5
+								public ActionResult Edit(int? id)
         {
             if (id == null)
             {
