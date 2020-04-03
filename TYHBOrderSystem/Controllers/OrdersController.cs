@@ -226,7 +226,7 @@ namespace TYHBOrderSystem.Controllers
 
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = order.ORDER_ID });
             }
 
 
