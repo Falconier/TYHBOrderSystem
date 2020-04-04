@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
+
 @{
 				ViewBag.Title = "Weekly Report";
 }
+
 <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
 
@@ -34,31 +36,42 @@
 
 				</tr>
 
-				@foreach (var item in Model)
+
+
+
+				@if (Model.Count() > 0)
 				{
 
-								<tr>
-												<td>
-																@Html.DisplayFor(model => item.Order_Date)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.PickUp_Due_Date)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.Finishing_ID)
-												</td>
-												<!--
-												<th>
-												Html.DisplayFor(model => model.Product_Type_ID)
-												</th>
-												-->
-												<td>
-																@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
-												</td>
-								</tr>
+								foreach (var item in Model)
+								{
+
+												<tr>
+																<td>
+																				@Html.DisplayFor(model => item.Order_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.Finishing_ID)
+																</td>
+																<!--
+																<th>
+																Html.DisplayFor(model => model.Product_Type_ID)
+																</th>
+																-->
+																<td>
+																				@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																</td>
+												</tr>
+								}
+				}
+				else
+				{
+				No DATA FOUND
 				}
 </table>
 <!-- /.box-body

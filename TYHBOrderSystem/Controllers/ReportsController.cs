@@ -45,21 +45,11 @@ namespace TYHBOrderSystem.Controllers
 
         public ActionResult DailyReport()
         {
-
+            
             DateTime currentDate = DateTime.Now;
             string DateFormat = currentDate.ToString("MM/dd/yyyy");
-            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
-            IEnumerable<SelectListItem> selectListDaily = from o in orders
-                                                           where o.PickUp_Due_Date == DateFormat
-                                                           select new SelectListItem
-                                                           {
-                                                               Value = o.PickUp_Due_Date.ToString(),
-                                                               Text = o.PickUp_Due_Date.ToString()
-                                                           };
-
-
-            ViewBag.PickUp_Due_Date = new SelectList(selectListDaily, "Value" ,"Text");
-            return View(orders.ToList());
+            var orders = DB.Orders.Where(o => o.PickUp_Due_Date.Equals(DateFormat));
+            return View(orders);
 
         }
         public ActionResult WeeklyReport()
@@ -67,19 +57,10 @@ namespace TYHBOrderSystem.Controllers
 
             DateTime currentDate = DateTime.Now;
             string DateFormat = currentDate.ToString("MM/dd/yyyy");
-            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
-            IEnumerable<SelectListItem> selectListWeekly = from o in orders
-                                                           where o.PickUp_Due_Date == DateFormat
-                                                           select new SelectListItem
-                                                           {
-                                                               Value = o.PickUp_Due_Date.ToString(),
-                                                               Text = o.PickUp_Due_Date.ToString()
-                                                           };
-
-
-            ViewBag.PickUp_Due_Date = new SelectList(selectListWeekly, "Value", "Text");
-
-            return View(orders.ToList());
+            //string weekFormat = currentDate.ToString("MM/dd/yyyy");
+            //need to figure out how to display within range of a week for pickupdate
+            var orders = DB.Orders.Where(o => o.PickUp_Due_Date.Equals(DateFormat ));
+            return View(orders);
         }
         public ActionResult OldOrderData()
         {
