@@ -69,6 +69,15 @@ namespace TYHBOrderSystem.Controllers
             return View(orders.ToList());
         }
 
+        //Hopefully the code below works as well as it does with my test sheet
+        [ChildActionOnly]
+        public ActionResult SearchDatabase(string x){
+        
+            var orders = DB.Orders.Where(o => o.Equals(x));
+            return PartialView("Database", orders);
+        }
+
+
         // POST: Reports/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)

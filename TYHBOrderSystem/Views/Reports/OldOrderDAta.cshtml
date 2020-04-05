@@ -10,6 +10,17 @@
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
 
+<div class="searchdb">
+				<div class="search">
+								<form action="SearchDatabase">
+												<input type="text" placeholder="Enter Here" name="search">
+												<button type="submit">Search</button>
+								</form>
+				</div>
+</div>
+
+<!--Html.TextBoxFor(m => m.Name, new { class = "form-control" })-->
+
 
 <table id="InformationTable" class="table">
 				<tr>
@@ -31,7 +42,7 @@
 								<th>
 												@Html.DisplayNameFor(model => model.Finishing_ID)
 								</th>
-								
+
 
 
 				</tr>
@@ -39,32 +50,32 @@
 				@foreach (var item in Model)
 				{
 
-<tr>
-				<td>
-								@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
-				</td>
-				<td>
-								@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
-				</td>
-				<td>
-								@Html.DisplayFor(model => item.Order_Date)
-				</td>
-				<td>
-								@Html.DisplayFor(model => item.PickUp_Due_Date)
-				</td>
-				<td>
-								@Html.DisplayFor(model => item.ORDER_ID)
-				</td>
-				<td>
-								@Html.DisplayFor(model => item.Finishing_ID)
-				</td>
-				
+								<tr>
+												<td>
+																@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.Order_Date)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.PickUp_Due_Date)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.ORDER_ID)
+												</td>
+												<td>
+																@Html.DisplayFor(model => item.Finishing_ID)
+												</td>
 
-</tr>
+
+								</tr>
 				}
 </table>
 
 
 <!-- SELECT *
-	    FROM Orders
-	    ORDER BY Order_Date-->
+					FROM Orders
+					ORDER BY Order_Date-->
