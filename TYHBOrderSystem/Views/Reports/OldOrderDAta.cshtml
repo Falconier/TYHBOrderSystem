@@ -10,15 +10,12 @@
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
 
-<div class="searchdb">
-				<div class="search">
-								<form action="SearchDatabase">
-												<input type="text" placeholder="Enter Here" name="search">
-												<button type="submit">Search</button>
-								</form>
-				</div>
-</div>
-
+<form asp-controller="Data" asp-action="OldoOrderData">
+				<p>
+								Search: <input type="text" name="SearchString">
+								<input type="submit" value="Filter" />
+				</p>
+</form>
 <!--Html.TextBoxFor(m => m.Name, new { class = "form-control" })-->
 
 
@@ -42,9 +39,6 @@
 								<th>
 												@Html.DisplayNameFor(model => model.Finishing_ID)
 								</th>
-
-
-
 				</tr>
 
 				@foreach (var item in Model)

@@ -69,12 +69,16 @@ namespace TYHBOrderSystem.Controllers
             return View(orders.ToList());
         }
 
-        //Hopefully the code below works as well as it does with my test sheet
-        [ChildActionOnly]
-        public ActionResult SearchDatabase(string x){
-        
-            var orders = DB.Orders.Where(o => o.Equals(x));
-            return PartialView("Database", orders);
+        //Hopefully the code below works as well as it does with my test sheet    
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                orders = DB.Orders.Where(o => o.Equals(searchString));
+            }
+
+            return View(await orders.ToListAsync());
         }
 
 
@@ -114,6 +118,12 @@ namespace TYHBOrderSystem.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
         }
 
         // GET: Reports/Delete/5
