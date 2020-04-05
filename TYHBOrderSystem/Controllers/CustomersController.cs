@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TYHBOrderSystem.Models;
+using TYHBOrderSystem.Models.View_Models;
 
 namespace TYHBOrderSystem.Controllers
 {
@@ -38,6 +39,8 @@ namespace TYHBOrderSystem.Controllers
         // GET: Customers/Create
         public ActionResult CreateForOrder()
         {
+            
+
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace TYHBOrderSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateForOrder([Bind(Include = "Customer_ID,Customer_First_Name,Customer_Last_Name,Contact_Number,Alternate_Contact_Number,Allergy_Desctiption,Email_Address")] Customer customer)
+        public ActionResult CreateForOrder(CustomerViewModels tempCustomer,[Bind(Include = "Customer_ID,Customer_First_Name,Customer_Last_Name,Contact_Number,Alternate_Contact_Number,Allergy_Desctiption,Email_Address")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +58,7 @@ namespace TYHBOrderSystem.Controllers
                 return RedirectToAction("Create","Orders");
             }
 
-            return View(customer);
+            return View(tempCustomer);
         }
 
 								#region For later use
