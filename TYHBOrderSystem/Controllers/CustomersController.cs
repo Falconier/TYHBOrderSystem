@@ -53,11 +53,17 @@ namespace TYHBOrderSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.Customer_First_Name = tempCustomer.FirstName;
+                customer.Customer_Last_Name = tempCustomer.LastName;
+                customer.Contact_Number = tempCustomer.PrimarymNum;
+                customer.Alternate_Contact_Number = tempCustomer.AlternativeNum;
+                customer.Email_Address = tempCustomer.EmailAddress;
+                customer.Allergy_Desctiption = tempCustomer.AllergyDesc;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Create","Orders");
             }
-
+                
             return View(tempCustomer);
         }
 
