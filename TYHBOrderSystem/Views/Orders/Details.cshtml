@@ -4,99 +4,184 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Order Details</h2>
 
 <div>
-    <h4>Order</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+    <dl class="row">
+        <!--First Name-->
+        <dt class="col-sm-3">
+            @Html.Label("First Name")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EMPLOYEE.Emp_First_Name)
+        <!--Last Name-->
+        <dt class="col-sm-3">
+            @Html.Label("Last Name")
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUSTOMER.Customer_Last_Name)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PRODUCT.Product_Description)
+        <!--Primary Number-->
+        <dt class="col-sm-3">
+            @Html.Label("Primary Contact Number")
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PRODUCT.Product_Description)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUSTOMER.Contact_Number)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PRODUCT.Restriction)
+        <!--Alt Number-->
+        <dt class="col-sm-3">
+            @Html.Label("Alternative Contact Number")
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PRODUCT.Restriction)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUSTOMER.Alternate_Contact_Number)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Order_Date)
+        <!--Email Address-->
+        <dt class="col-sm-3">
+            @Html.Label("Email Address")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUSTOMER.Email_Address)
+        </dd>
+
+        <!--Allergy Description-->
+        <dt class="col-sm-3">
+            @Html.Label("Allergy Description")
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CUSTOMER.Allergy_Desctiption)
+        </dd>
+
+        <!--Order Date mm/dd/yyyy-->
+        <dt class="col-sm-3">
+            @Html.Label("Order Date")
+        </dt>
+
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Order_Date)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Order_Time)
+        <!--Order Time-->
+        <dt class="col-sm-3">
+            @Html.Label("Order Time")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Order_Time)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PickUp_Due_Date)
+        <!--PickUp Due Date mm/dd/yy-->
+        <dt class="col-sm-3">
+            @Html.Label("Pick-Up Date")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.PickUp_Due_Date)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PickUp_Time)
+        <!--Pickup Time DATE TIME OFFSET-->
+        <dt class="col-sm-3">
+            @Html.Label("Pick-Up Time")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.PickUp_Time)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ingredient_Substitution)
+
+        <!--Employee ID-->
+        <dt class="col-sm-3">
+            @Html.Label("Employee Name")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name)
+        </dd>
+
+        <!--Product Flavor Choice-->
+        <dt class="col-sm-3">
+            @Html.Label("Product Flavor")
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.PRODUCT.Product_Flavor)
+        </dd>
+
+        <!--Product Description-->
+        <dt class="col-sm-3">
+            @Html.Label("Product Description")
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.PRODUCT.Product_Description)
+        </dd>
+
+        <!--Restriction Name-->
+        <dt class="col-sm-3">
+            @Html.Label("Dietary Restriction")
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.PRODUCT.Restriction.RestrictionName)
+        </dd>
+
+        <!--Ingredient Substitution-->
+        <dt class="col-sm-3">
+            @Html.Label("Ingredient Subsitution")
+        </dt>
+
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Ingredient_Substitution)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Decoration_Comments)
+        <!--Order Size-->
+        <dt class="col-sm-3">
+            @Html.Label("Order Size")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ORDER_SIZES.Order_Size)
+        </dd>
+
+        <!--Layer Size-->
+        <dt class="col-sm-3">
+            @Html.Label("Number of Layers")
+        </dt>
+
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ORDER_SIZES.Number_Of_Layers)
+        </dd>
+
+        <!--Decoration Comments-->
+        <dt class="col-sm-3">
+            @Html.Label("Decoration Comments")
+        </dt>
+
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Decoration_Comments)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Additional_Comments)
+        <!--Additional Comments-->
+        <dt class="col-sm-3">
+            @Html.Label("Additional Comments")
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Additional_Comments)
         </dd>
+    </dl>
+
 
         <!---
     <dt>
@@ -133,7 +218,7 @@
     </dd>
     -->
 
-    </dl>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ORDER_ID }) |

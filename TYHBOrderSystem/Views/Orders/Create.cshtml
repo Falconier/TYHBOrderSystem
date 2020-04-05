@@ -18,61 +18,55 @@
 
 <div class="form-horizontal">
 
-    <br />
-    <h4>Customer Information</h4>
-    <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <!--
-    <!--Customer First Name &&& Customer Last Name-->
+    <!--UPDATE CUSTOMER VIEW HAS INPUT INFORMATION FOR VALIDATION THUS INFO ON ORDER PAGE IS UNEEDED
+    <!--Customer First Name &&& Customer Last Name
     <div class="form-row">
         <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-10" })
+            *@@Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { *@@class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_First_Name, "", new { @class = "text-danger" })
+                *@@Html.EditorFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { *@@class = "form-control" } })
+                *@@Html.ValidationMessageFor(model => model.CUSTOMER.Customer_First_Name, "", new { *@@class = "text-danger" })
             </div>
         </div>
         <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
+            *@@Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { *@@class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_Last_Name, "", new { @class = "text-danger" })
+                *@@Html.EditorFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { *@@class = "form-control" } })
+                *@@Html.ValidationMessageFor(model => model.CUSTOMER.Customer_Last_Name, "", new { *@@class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    -->
+    <!-- Primary Phone Number &&& Alt Phone  Number
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            *@@Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { *@@class = "control-label col-md-10" })
+            <div class="col-md-10">
+                *@@Html.EditorFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { *@@class = "form-control" } })
+                *@@Html.ValidationMessageFor(model => model.CUSTOMER.Contact_Number, "", new { *@@class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            *@@Html.LabelFor(model => model.CUSTOMER.Alternate_Contact_Number, "Alternate Contact Number", htmlAttributes: new { *@@class = "control-label col-md-10" })
+            <div class="col-md-10">
+                *@@Html.EditorFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { *@@class = "form-control" } })
+                *@@Html.ValidationMessageFor(model => model.CUSTOMER.Alternate_Contact_Number, "", new { *@@class = "text-danger" })
             </div>
         </div>
     </div>
 
-    <!-- Primary Phone Number &&& Alt Phone  Number-->
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } }) <!--id = "primNum", JQUERY VAL -->
-
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Contact_Number, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Alternate_Contact_Number, "Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Alternate_Contact_Number, "", new { @class = "text-danger" })
-            </div>
-        </div>
-    </div>
-
-    <!-- Email Address -->
+    <!--Email Address
     <div class="form-group">
-        @Html.LabelFor(model => model.CUSTOMER.Email_Address, "Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
+        *@@Html.LabelFor(model => model.CUSTOMER.Email_Address, "Email Address", htmlAttributes: new { *@@class = "control-label col-md-10" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control col-md-10" } })
-            @Html.ValidationMessageFor(model => model.CUSTOMER.Email_Address, "", new { @class = "text-danger" })
+            *@@Html.EditorFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { *@@class = "form-control col-md-10" } })
+            *@@Html.ValidationMessageFor(model => model.CUSTOMER.Email_Address, "", new { *@@class = "text-danger" })
         </div>
     </div>
-
-
+    -->
     <!--Order Details-->
-    <br />
     <h4>Order Details</h4>
     <hr />
 
@@ -130,7 +124,7 @@
                         //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
                     }
 
-                    <td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+                    <td><input type="radio" name="chosenID" value="@item.ProductId"/></td>
                 </tr>
 
             }
@@ -139,11 +133,11 @@
 
     <!-- Ingredient Subsition, Drop Down Box NOTHING IN DB TO USE THIS AT ALL-->
     <div class="form-group">
-        @Html.LabelFor(model => model.Ingredient_Substitution,"Ingredient Substitution", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Ingredient_Substitution, "Ingredient Substitution", htmlAttributes: new { @class = "control-label col-md-10" })
         <div class="col-md-10">
             @foreach (var ingredient in ViewBag.IngredientSub)
             {
-                <div>
+                <div class="col-md-10">
                     @ingredient.Ingredient_Name
                     <input type="radio" name="substitution" value="@ingredient.Ingredient_ID" />
                 </div>
@@ -175,7 +169,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Order_Size_ID, "Order Size", htmlAttributes: new { @class = "control-label col-md-10" })
         <div class="col-md-10">
-            @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control"})
+            @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -189,7 +183,7 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.TextBox("CurrentDate", (object)ViewBag.CurrentDate, htmlAttributes: new { @class = "form-control", disabled="disabled" } )
+                @Html.TextBox("CurrentDate", (object)ViewBag.CurrentDate, htmlAttributes: new { @class = "form-control", disabled = "disabled" })
                 @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -266,13 +260,12 @@
         </div>
     </div>
     -->
-
     <!---TESTING VALIDATE WITH BUTTON
     <input type="button" value="testing" id="test" />-->
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-primary"/>
+            <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </div>
 </div>
@@ -304,22 +297,4 @@
     </script>
 }
 
-    <!---
-        <script>
-            $(document).ready(function () {
-                $('#test').on("click", function () {
-                    var phoneNum1 = document.getElementById("primNum");
-                    console.log("clicked");
-                    if (typeof phoneNum1 !== 'undefined' && phoneNum1 !== null) {
-                        alert("Valid Phone Number");
-                    }
-                    else {
-                        phoneNum1 = document.getElementById("primNum");
-                        alert(phoneNum1);
-                    }
-                });
-            });
-
-        </script>
-    -->
 
