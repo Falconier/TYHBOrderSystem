@@ -74,7 +74,7 @@ namespace TYHBOrderSystem.Controllers
 												{
 																foreach (var day in Dates)
 																{
-																				if (item.PickUp_Due_Date.Contains(day))
+																				if (item.PickUp_Due_Date.Equals(day))
 																				{
 																								ords.Add(item);
 																				}
