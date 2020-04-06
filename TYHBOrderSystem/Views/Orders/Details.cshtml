@@ -4,223 +4,213 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Order Details</h2>
+<h1>Order Confirmation</h1>
 
-<div>
-    <hr />
-    <dl class="row">
-        <!--First Name-->
-        <dt class="col-sm-3">
-            @Html.Label("First Name")
-        </dt>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name)
-        </dd>
+        <h4>Customer Details</h4>
+        <hr />
 
-        <!--Last Name-->
-        <dt class="col-sm-3">
-            @Html.Label("Last Name")
-        </dt>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("First Name", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CUSTOMER.Customer_Last_Name)
-        </dd>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <!--Primary Number-->
-        <dt class="col-sm-3">
-            @Html.Label("Primary Contact Number")
-        </dt>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Customer Allergy Description", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.CUSTOMER.Allergy_Desctiption, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CUSTOMER.Contact_Number)
-        </dd>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Time of Order", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Order_Time, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <!--Alt Number-->
-        <dt class="col-sm-3">
-            @Html.Label("Alternative Contact Number")
-        </dt>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Pick-Up Date", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.PickUp_Time, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CUSTOMER.Alternate_Contact_Number)
-        </dd>
+        <br />
+        <h4>Product Details</h4>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Product Flavor", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.PRODUCT.Product_Flavor, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Product Description", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.PRODUCT.Product_Description, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <!--Email Address-->
-        <dt class="col-sm-3">
-            @Html.Label("Email Address")
-        </dt>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.PRODUCT.Restriction.RestrictionName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Ingredient Subsitution", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CUSTOMER.Email_Address)
-        </dd>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Order Size", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.Display("OrderSizeforView", (string)ViewBag.OrderSizeforView, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Number of Layers", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.ORDER_SIZES.Number_Of_Layers, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <!--Allergy Description-->
-        <dt class="col-sm-3">
-            @Html.Label("Allergy Description")
-        </dt>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Decoration_Comments, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.Additional_Comments, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CUSTOMER.Allergy_Desctiption)
-        </dd>
+        <br />
+        <h4>Employee Information</h4>
+        <hr />
 
-        <!--Order Date mm/dd/yyyy-->
-        <dt class="col-sm-3">
-            @Html.Label("Order Date")
-        </dt>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                @Html.Label("Employee First Name", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                @Html.Label("Employee Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
+                <div class="col-md-10">
+                    @Html.DisplayFor(model => model.EMPLOYEE.Emp_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Order_Date)
-        </dd>
-
-        <!--Order Time-->
-        <dt class="col-sm-3">
-            @Html.Label("Order Time")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Order_Time)
-        </dd>
-
-        <!--PickUp Due Date mm/dd/yy-->
-        <dt class="col-sm-3">
-            @Html.Label("Pick-Up Date")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.PickUp_Due_Date)
-        </dd>
-
-        <!--Pickup Time DATE TIME OFFSET-->
-        <dt class="col-sm-3">
-            @Html.Label("Pick-Up Time")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.PickUp_Time)
-        </dd>
-
-
-        <!--Employee ID-->
-        <dt class="col-sm-3">
-            @Html.Label("Employee Name")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name)
-        </dd>
-
-        <!--Product Flavor Choice-->
-        <dt class="col-sm-3">
-            @Html.Label("Product Flavor")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.PRODUCT.Product_Flavor)
-        </dd>
-
-        <!--Product Description-->
-        <dt class="col-sm-3">
-            @Html.Label("Product Description")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.PRODUCT.Product_Description)
-        </dd>
-
-        <!--Restriction Name-->
-        <dt class="col-sm-3">
-            @Html.Label("Dietary Restriction")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.PRODUCT.Restriction.RestrictionName)
-        </dd>
-
-        <!--Ingredient Substitution-->
-        <dt class="col-sm-3">
-            @Html.Label("Ingredient Subsitution")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Ingredient_Substitution)
-        </dd>
-
-        <!--Order Size-->
-        <dt class="col-sm-3">
-            @Html.Label("Order Size")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ORDER_SIZES.Order_Size)
-        </dd>
-
-        <!--Layer Size-->
-        <dt class="col-sm-3">
-            @Html.Label("Number of Layers")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ORDER_SIZES.Number_Of_Layers)
-        </dd>
-
-        <!--Decoration Comments-->
-        <dt class="col-sm-3">
-            @Html.Label("Decoration Comments")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Decoration_Comments)
-        </dd>
-
-        <!--Additional Comments-->
-        <dt class="col-sm-3">
-            @Html.Label("Additional Comments")
-        </dt>
-
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Additional_Comments)
-        </dd>
-    </dl>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ORDER_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
 
 
-        <!---
-    <dt>
-
-        *@@Html.DisplayNameFor(model => model.Product_Type_ID)
-    </dt>
-
-    <dd>
-        *@@Html.DisplayFor(model => model.Product_Type_ID)
-    </dd>
-    -
-    <dt>
-        *@@Html.DisplayNameFor(model => model.Finishing_ID)
-    </dt>
-
-    <dd>
-        *@@Html.DisplayFor(model => model.Finishing_ID)
-    </dd>
-
-    <dt>
-        *@@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
-    </dt>
-
-    <dd>
-        *@@Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
-    </dd>
-
-    <dt>
-        *@@Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
-    </dt>
-
-    <dd>
-        *@@Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
-    </dd>
-    -->
 
 
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ORDER_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<!---
+<dt>
+
+    *@@Html.DisplayNameFor(model => model.Product_Type_ID)
+</dt>
+
+<dd>
+    *@@Html.DisplayFor(model => model.Product_Type_ID)
+</dd>
+-
+<dt>
+    *@@Html.DisplayNameFor(model => model.Finishing_ID)
+</dt>
+
+<dd>
+    *@@Html.DisplayFor(model => model.Finishing_ID)
+</dd>
+
+<dt>
+    *@@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+</dt>
+
+<dd>
+    *@@Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+</dd>
+
+<dt>
+    *@@Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
+</dt>
+
+<dd>
+    *@@Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
+</dd>
+-->

@@ -30,10 +30,62 @@ namespace TYHBOrderSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Order order = db.Orders.Find(id);
+
             if (order == null)
             {
                 return HttpNotFound();
+            }
+
+            int switchOrderSizeValue = order.PRODUCT.TypeId;
+            switch (switchOrderSizeValue)
+            {
+                case 2:
+                    int tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    string orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} inches";
+                    break;
+
+                case 3:
+                    tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    break;
+
+                case 5:
+                    tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    break;
+
+                case 7:
+                    tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} inches";
+                    break;
+
+                case 10:
+                    string sheetCakeString = "18 x 12";
+                    ViewBag.OrderSizeforView = sheetCakeString.ToString();
+                    break;
+
+                case 11:
+                    tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    break;
+
+                case 12:
+                    tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    break;
+
+                default:
+                    ViewBag.OrderSizeforView = "";
+                    break;
+
             }
             return View(order);
         }
