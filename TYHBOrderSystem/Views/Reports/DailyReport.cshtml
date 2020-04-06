@@ -26,11 +26,9 @@
 								<th>
 												@Html.DisplayNameFor(model => model.Finishing_ID)
 								</th>
-								<!--
 								<th>
-								Html.DisplayNameFor(model => model.Product_Type_ID)
+							     @Html.DisplayNameFor(model => model.PRODUCT)
 								</th>
-								-->
 								<th>
 												@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
 								</th>
@@ -42,13 +40,8 @@
 
 				@if (Model.Count() > 0)
 				{
-
-
-
 								foreach (var item in Model)
 								{
-
-
 												<tr>
 																<td>
 																				@Html.DisplayFor(model => item.Order_Date)
@@ -59,11 +52,9 @@
 																<td>
 																				@Html.DisplayFor(model => item.Finishing_ID)
 																</td>
-																<!--
 																<th>
-																Html.DisplayFor(model => model.Product_Type_ID)
+																    @Html.DisplayFor(model => item.PRODUCT)
 																</th>
-																-->
 																<td>
 																				@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
 																</td>
@@ -75,7 +66,7 @@
 				}
 				else
 				{
-								<h2>NO ORDERS PRESENT</h2>
+								<h2>NO-ORDERS-PRESENT</h2>
 				}
 </table>
 

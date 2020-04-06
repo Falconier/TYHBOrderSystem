@@ -16,7 +16,6 @@ namespace TYHBOrderSystem.Models
         //FK
         public int? Customer_ID { get; set; }
 
-
         //OrderDate
         public string Order_Date { get; set; }
 
@@ -66,5 +65,7 @@ namespace TYHBOrderSystem.Models
         public virtual Product PRODUCT { get; set; }
 
         //Product Category Drop Down List Attempt
+
+        
     }
 }

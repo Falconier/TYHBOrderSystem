@@ -56,30 +56,39 @@ namespace TYHBOrderSystem.Controllers
         {
 
             DateTime currentDate = DateTime.Now;
-            string DateFormat = currentDate.ToString("MM/dd/yyyy");
-            //string weekFormat = currentDate.ToString("MM/dd/yyyy");
-            //need to figure out how to display within range of a week for pickupdate
-            var orders = DB.Orders.Where(o => o.PickUp_Due_Date.Equals(DateFormat ));
+            //string[] Dates = new string[7];
+            //for (int i = 0; i < 7; i++){
+            //    Dates[i] = currentDate.AddDays(i).ToString("MM/dd/yyyy");
+            //}
+            string WeekFormat = currentDate.AddDays(7).ToString("MM/dd/yyyy");
+
+            //Should I return the days as a array then display orders based on date?
+
+            var orders = DB.Orders.Where(o => o.PickUp_Due_Date.Contains(WeekFormat));
             return View(orders);
         }
-        public ActionResult OldOrderData()
+        public ActionResult OldOrderData(string searchString)
         {
 
-            var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
-            return View(orders.ToList());
-        }
-
-        //Hopefully the code below works as well as it does with my test sheet    
-        public async Task<IActionResult> Index(string searchString)
-        {
             var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
             if (!String.IsNullOrEmpty(searchString))
             {
-                orders = DB.Orders.Where(o => o.Equals(searchString));
+                orders = DB.Orders.Where(o => o.CUSTOMER.Customer_First_Name.Contains(searchString));
             }
-
-            return View(await orders.ToListAsync());
+            return View(orders);
         }
+    
+
+      //Hopefully the code below works as well as it does with my test sheet    
+      //  public ActionResult Index(string searchString)
+      //  {
+      //      var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
+      //      if (!String.IsNullOrEmpty(searchString))
+      //      {
+      //          orders = DB.Orders.Where(o => o.Equals(searchString));
+      //      }
+      //      return View(orders.ToList());
+      //  }
 
 
         // POST: Reports/Create

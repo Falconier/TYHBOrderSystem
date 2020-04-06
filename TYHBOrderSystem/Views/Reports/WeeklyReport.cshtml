@@ -22,11 +22,9 @@
 								<th>
 												@Html.DisplayNameFor(model => model.Finishing_ID)
 								</th>
-								<!--
 								<th>
-								Html.DisplayNameFor(model => model.Product_Type_ID)
+								    @Html.DisplayNameFor(model => model.PRODUCT)
 								</th>
-								-->
 								<th>
 												@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
 								</th>
@@ -55,11 +53,9 @@
 																<td>
 																				@Html.DisplayFor(model => item.Finishing_ID)
 																</td>
-																<!--
 																<th>
-																Html.DisplayFor(model => model.Product_Type_ID)
+																    @Html.DisplayFor(model => item.PRODUCT)
 																</th>
-																-->
 																<td>
 																				@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
 																</td>
@@ -72,7 +68,7 @@
 				else
 				//ill put out a more stylized response to no data below in the near future
 				{
-    <h2>NO ORDERS PRESENT</h2>
+    <h2>NO-ORDERS-PRESENT</h2>
 				}
 
 </table>

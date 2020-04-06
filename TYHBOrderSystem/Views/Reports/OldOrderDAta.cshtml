@@ -4,72 +4,97 @@
 @{
 				ViewBag.Title = "OldOrderData";
 }
+
 <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
+<form asp-controller="Data" asp-action="OldOrderData" method="get">
+				<div class="form-row">
+								<div class="form-group col-md-4">
+												SEARCH BY:
+												<div class="form-group col-md-10">
+																@Html.RadioButton("searching", "1", true) Customer First-Name
+																@Html.RadioButton("searching", "2") Customer Last-Name
+																@Html.RadioButton("searching", "3") Product
+																@Html.RadioButton("searching", "4") Order-Date
+																@Html.RadioButton("searching", "5") Pickup-Date
+																@Html.RadioButton("searching", "6") OrderID
+																@Html.RadioButton("searching", "7") FinishingID
+												</div>
+												<p>
+																<input type="text" name="searchString">
+																<input type="submit" class="btn btn-secondary" value="Filter"/>
+												</p>
 
-
-
-<!-- NEED ORDER DATA TO PULL FROM DATABASE-->
-
-<form asp-controller="Data" asp-action="OldoOrderData">
-				<p>
-								Search: <input type="text" name="SearchString">
-								<input type="submit" value="Filter" />
-				</p>
+								</div>
+				</div>
 </form>
-<!--Html.TextBoxFor(m => m.Name, new { class = "form-control" })-->
 
 
-<table id="InformationTable" class="table">
-				<tr>
-								<th>
-												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_Last_Name)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.Order_Date)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.PickUp_Due_Date)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.ORDER_ID)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.Finishing_ID)
-								</th>
-				</tr>
 
-				@foreach (var item in Model)
-				{
 
+<!--ONLY SEARCHES BASED ON CUSTOMER FIRSTNAME!!!
+
+
+	Html.TextBoxFor(m => m.Name, new { class = "form-control" })
+select asp-for="Order_Date" asp-items="Model.Order">
+				Search:
+				<option value="">All</option>
+select>-->
+
+<table class="table">
+				<thread>
 								<tr>
-												<td>
-																@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.Order_Date)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.PickUp_Due_Date)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.ORDER_ID)
-												</td>
-												<td>
-																@Html.DisplayFor(model => item.Finishing_ID)
-												</td>
-
-
+												<th>
+																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_Last_Name)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.PRODUCT)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.Order_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.ORDER_ID)
+												</th>
+												<th>
+																@Html.DisplayNameFor(model => model.Finishing_ID)
+												</th>
 								</tr>
-				}
+				</thread>
+
+				<tbody>
+								@foreach (var item in Model)
+								{
+												<tr>
+																<td>
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.PRODUCT)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.Order_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.ORDER_ID)
+																</td>
+																<td>
+																				@Html.DisplayFor(model => item.Finishing_ID)
+																</td>
+												</tr>
+								}
+				</tbody>
 </table>
 
 
-<!-- SELECT *
-					FROM Orders
-					ORDER BY Order_Date-->
