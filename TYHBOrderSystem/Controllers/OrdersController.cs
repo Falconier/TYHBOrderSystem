@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TYHBOrderSystem.Models;
@@ -21,7 +23,7 @@ namespace TYHBOrderSystem.Controllers
             return View(orders.ToList());
         }
 
-        // GET: Orders/Details/5
+        // GET: Orders/Details/5    
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -194,7 +196,7 @@ namespace TYHBOrderSystem.Controllers
         //Removed Finishing_ID, from BIND
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID, Ingredient_ID, Order_Size_ID")] Order order)
+        public async Task<ActionResult> Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID, Ingredient_ID, Order_Size_ID")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -226,6 +228,26 @@ namespace TYHBOrderSystem.Controllers
 
                 db.Orders.Add(order);
                 db.SaveChanges();
+
+                try
+                {
+                    EmailService ems = new EmailService();
+                    IdentityMessage msg = new IdentityMessage();
+                    ApplicationUser user = new ApplicationUser();
+
+                    msg.Body = "Thanks for placing an order with To Your Health Bakery!\n" +
+                                "Order Details:\n" +
+                                $"{order.ToString()}";
+                    msg.Destination = user.Email;
+                    msg.Subject = "Order Confirmation: To Your Health Bakery";
+
+                    await ems.SendMailAsync(msg);
+                }
+                catch(Exception)
+                {
+                    await Task.FromResult(0);
+                }
+
                 return RedirectToAction("Details", new { id = order.ORDER_ID });
             }
 
