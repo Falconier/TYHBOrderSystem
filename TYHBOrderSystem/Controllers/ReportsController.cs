@@ -61,13 +61,12 @@ namespace TYHBOrderSystem.Controllers
 												{
 																Dates[i] = currentDate.AddDays(i).ToString("MM/dd/yyyy");
 												}
-												string WeekFormat = currentDate.AddDays(7).ToString("MM/dd/yyyy");
 
+												//string WeekFormat = currentDate.AddDays(7).ToString("MM/dd/yyyy");
 												//Should I return the days as a array then display orders based on date?
-
 												//DB.Orders.Where(o => o.PickUp_Due_Date.ToString().Contains(WeekFormat));
-
 												//var orders = DB.Orders.Where(o => o.PickUp_Due_Date.Contains(WeekFormat));
+
 												var orders = DB.Orders.OrderByDescending(o => o.PickUp_Due_Date).ThenByDescending(o => o.CUSTOMER.Customer_Last_Name).Take(250); ;
 												List<Order> ords = new List<Order>();
 												foreach (var item in orders)
@@ -83,7 +82,7 @@ namespace TYHBOrderSystem.Controllers
 
 												ViewBag.Orders = ords.ToList();
 
-												return View(ords);
+												return View();
 								}
 								public ActionResult OldOrderData(string searchString)
 								{
