@@ -286,12 +286,13 @@ namespace TYHBOrderSystem.Controllers
                 {
                     EmailService ems = new EmailService();
                     IdentityMessage msg = new IdentityMessage();
-                   
+                    Customer cust = new Customer();
+                    cust.Customer_ID = order.Customer_ID.GetValueOrDefault();
 
                     msg.Body = "Thanks for placing an order with To Your Health Bakery!\n" +
                                 "Order Details:\n" +
                                 $"{order.ToString()}";
-                    msg.Destination = order.CUSTOMER.Email_Address;
+                    msg.Destination = cust.Email_Address;
                     msg.Subject = "Order Confirmation: To Your Health Bakery";
 
                     await ems.SendMailAsync(msg);
