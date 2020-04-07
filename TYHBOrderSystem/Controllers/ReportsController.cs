@@ -82,15 +82,46 @@ namespace TYHBOrderSystem.Controllers
 
 												ViewBag.Orders = ords.ToList();
 
-												return View();
+												return View(ords);
 								}
-								public ActionResult OldOrderData(string searchString)
+								public ActionResult OldOrderData(string searchString, string searching)
 								{
 
 												var orders = DB.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
 												if (!String.IsNullOrEmpty(searchString))
 												{
-																orders = DB.Orders.Where(o => o.CUSTOMER.Customer_First_Name.Contains(searchString));
+																if (searching == "1"){
+																				orders = DB.Orders.Where(o => o.CUSTOMER.Customer_First_Name.Contains(searchString));
+																}
+																else if (searching == "2"){
+																				orders = DB.Orders.Where(o => o.CUSTOMER.Customer_Last_Name.Contains(searchString));
+																}
+																else if (searching == "3"){
+																				orders = DB.Orders.Where(o => o.Order_Date.Equals(searchString));
+																}
+																else if (searching == "4"){
+																				orders = DB.Orders.Where(o => o.PickUp_Due_Date.Equals(searchString));
+																}
+													//		else if (searching == "5"){
+													//							orders = DB.Orders.Where(o => o.ORDER_ID.Equals(searchString));
+													//			}
+													//			else if (searching == "6")
+													//			{
+													//							orders = DB.Orders.Where(o => o.Employee_ID.Equals(searchString));
+													//			}
+																else if (searching == "7")
+																{
+																				orders = DB.Orders.Where(o => o.EMPLOYEE.Emp_Last_Name.Equals(searchString));
+																}
+																else if (searching == "8")
+																{
+																				orders = DB.Orders.Where(o => o.EMPLOYEE.Emp_First_Name.Equals(searchString));
+																}
+																else if (searching == "9")
+																{
+																				orders = DB.Orders.Where(o => o.PRODUCT.Product_Flavor.Equals(searchString));
+																}
+
 												}
 												return View(orders);
 								}

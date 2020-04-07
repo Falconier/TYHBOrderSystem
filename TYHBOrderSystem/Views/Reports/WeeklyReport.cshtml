@@ -9,69 +9,85 @@
 
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
+<h3> WEEKLY Report</h3>
 
-
-<table id="InformationTable" class="table">
+<table id="InformationTable" class="table table-bordered">
 				<tr>
+
 								<th>
-												@Html.DisplayNameFor(model => model.Order_Date)
+												[Orderplaced-Info]
 								</th>
 								<th>
-												@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+												[Pickup-Info]
 								</th>
 								<th>
-												@Html.DisplayNameFor(model => model.Finishing_ID)
+												[Product-Info]
 								</th>
 								<th>
-								    @Html.DisplayNameFor(model => model.PRODUCT)
+												[Customer-Info]
 								</th>
 								<th>
-												@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
-								</th>
-								<th>
-												@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+												[Employee-Info]
 								</th>
 
 				</tr>
 
-
-
-
 				@if (Model.Count() > 0)
 				{
-
 								foreach (var item in Model)
 								{
-
 												<tr>
 																<td>
-																				@Html.DisplayFor(model => item.Order_Date)
+																				(Order Date)<br />
+																				@Html.DisplayFor(model => item.Order_Date)<br />
+																				(Order Time)<br />
+																				@Html.DisplayFor(model => item.Order_Time)<br />
+																				(Order-ID)<br />
+																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				@Html.DisplayFor(model => item.PickUp_Due_Date)
+																				(Pickup Date)<br />
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)<br />
+																				(Pickup Time)<br />
+																				@Html.DisplayFor(model => item.PickUp_Time)<br />
+																				(Order-ID)<br />
+																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				@Html.DisplayFor(model => item.Finishing_ID)
+																				(Product-ID)<br /> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
+																				(Flavor)<br />
+																				@Html.DisplayFor(model => item.PRODUCT.Product_Flavor)
+																				<br />(Description)<br />
+																				@Html.DisplayFor(model => item.PRODUCT.Product_Description)
+
 																</td>
-																<th>
-																    @Html.DisplayFor(model => item.PRODUCT)
-																</th>
 																<td>
-																				@Html.DisplayFor(model => item.ORDER_SIZES.Product_Type_ID)
-																</td>
-																<td>
+																				(Customer Name)<br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
+																				<br />(Info)<br />
+																				@Html.DisplayFor(model => item.CUSTOMER.Contact_Number)
+																				<br />@Html.DisplayFor(model => item.CUSTOMER.Email_Address)
+																				<br />@Html.DisplayFor(model => item.CUSTOMER.Alternate_Contact_Number)
+
+																</td>
+																<td>
+																				(Employee Name)<br />
+																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_First_Name)
+																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_Last_Name)
+																				<br />(Employee-ID)<br />
+																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 												</tr>
 								}
 				}
 				else
-				//ill put out a more stylized response to no data below in the near future
 				{
-    <h2>NO-ORDERS-PRESENT</h2>
+								<h2>NO-ORDERS-PRESENT</h2>
 				}
-
 </table>
+
+
 <!-- /.box-body
 
 
