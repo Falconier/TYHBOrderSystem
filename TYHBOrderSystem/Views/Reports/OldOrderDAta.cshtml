@@ -6,19 +6,23 @@
 }
 
 <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
+
+
 <form asp-controller="Data" asp-action="OldOrderData" method="get">
 				<div class="form-row">
 								<div class="form-group col-md-4">
 												SEARCH BY:
-												<div class="form-group col-md-10">
-																@Html.RadioButton("searching", "1", true) Customer First-Name
-																@Html.RadioButton("searching", "2") Customer Last-Name
-																@Html.RadioButton("searching", "3") Product
-																@Html.RadioButton("searching", "4") Order-Date
-																@Html.RadioButton("searching", "5") Pickup-Date
-																@Html.RadioButton("searching", "6") OrderID
-																@Html.RadioButton("searching", "7") FinishingID
-												</div>
+																				<div class="form-group col-md-10">
+																								@Html.RadioButton("searching", "1", true) [Customer First-Name]
+																								<br />@Html.RadioButton("searching", "2") [Customer Last-Name]
+																								<br />@Html.RadioButton("searching", "3") [Order-Date]
+																								<br />@Html.RadioButton("searching", "4") [Pickup-Date]
+																		<!--		<br />Html.RadioButton("searching", "5") [Order-ID]
+																								<br />Html.RadioButton("searching", "6") [Employee-ID]-->
+																								<br />@Html.RadioButton("searching", "7") [Employee Last-Name]
+																								<br />@Html.RadioButton("searching", "8") [Employee First-Name]
+																								<br />@Html.RadioButton("searching", "9") [Product Flavor]
+																				</div>
 												<p>
 																<input type="text" name="searchString">
 																<input type="submit" class="btn btn-secondary" value="Filter"/>
@@ -40,61 +44,73 @@ select asp-for="Order_Date" asp-items="Model.Order">
 				<option value="">All</option>
 select>-->
 
-<table class="table">
-				<thread>
+<table class="table table-bordered">
 								<tr>
 												<th>
-																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+																[Orderplaced-Info]
 												</th>
 												<th>
-																@Html.DisplayNameFor(model => model.CUSTOMER.Customer_Last_Name)
+																[Pickup-Info]
 												</th>
 												<th>
-																@Html.DisplayNameFor(model => model.PRODUCT)
+																[Product-Info]
 												</th>
 												<th>
-																@Html.DisplayNameFor(model => model.Order_Date)
+																[Customer-Info]
 												</th>
 												<th>
-																@Html.DisplayNameFor(model => model.PickUp_Due_Date)
-												</th>
-												<th>
-																@Html.DisplayNameFor(model => model.ORDER_ID)
-												</th>
-												<th>
-																@Html.DisplayNameFor(model => model.Finishing_ID)
+																[Employee-Info]
 												</th>
 								</tr>
-				</thread>
 
-				<tbody>
+			
 								@foreach (var item in Model)
 								{
 												<tr>
 																<td>
-																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
-																</td>
-																<td>
-																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
-																</td>
-																<td>
-																				@Html.DisplayFor(model => item.PRODUCT)
-																</td>
-																<td>
-																				@Html.DisplayFor(model => item.Order_Date)
-																</td>
-																<td>
-																				@Html.DisplayFor(model => item.PickUp_Due_Date)
-																</td>
-																<td>
+																				(Order Date)<br />
+																				@Html.DisplayFor(model => item.Order_Date)<br />
+																				(Order Time)<br />
+																				@Html.DisplayFor(model => item.Order_Time)<br />
+																				(Order-ID)<br />
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				@Html.DisplayFor(model => item.Finishing_ID)
+																				(Pickup Date)<br />
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)<br />
+																				(Pickup Time)<br />
+																				@Html.DisplayFor(model => item.PickUp_Time)<br />
+																				(Order-ID)<br />
+																				@Html.DisplayFor(model => item.ORDER_ID)
+																</td>
+																<td>
+																				(Product-ID)<br /> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
+																				(Flavor)<br />
+																				@Html.DisplayFor(model => item.PRODUCT.Product_Flavor)
+																				<br />(Description)<br />
+																				@Html.DisplayFor(model => item.PRODUCT.Product_Description)
+
+																</td>
+																<td>
+																				(Customer Name)<br />
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
+																				<br />(Info)<br />
+																				@Html.DisplayFor(model => item.CUSTOMER.Contact_Number)
+																				<br />@Html.DisplayFor(model => item.CUSTOMER.Email_Address)
+																				<br />@Html.DisplayFor(model => item.CUSTOMER.Alternate_Contact_Number)
+
+																</td>
+																<td>
+																				(Employee Name)<br />
+																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_First_Name)
+																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_Last_Name)
+																				<br />(Employee-ID)<br />
+																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 												</tr>
 								}
-				</tbody>
+	
 </table>
 
 
