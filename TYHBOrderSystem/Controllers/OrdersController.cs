@@ -257,18 +257,25 @@ namespace TYHBOrderSystem.Controllers
                 int tempChosenID = int.Parse(chosenID);
                 Product productChoice = db.Products.Find(tempChosenID);
                 order.PRODUCT = productChoice;
+                if (form["substitution"] != null)
+                {
+                    //Get Ingredient Substitution: Ingredient_ID(INT)
+                    string chosenSubIngredient = form["substitution"];
+                    int tempChosenSubIngredient = int.Parse(chosenSubIngredient);
+                    order.Ingredient_ID = tempChosenSubIngredient;
 
-                //Get Ingredient Substitution: Ingredient_ID(INT)
-                string chosenSubIngredient = form["substitution"];
-                int tempChosenSubIngredient = int.Parse(chosenSubIngredient);
-                order.Ingredient_ID = tempChosenSubIngredient;
-
-                //Get Ingredient_Substitution (String)
-                var chosenIngredientQuery = from i in db.Ingredients
-                                            where i.Ingredient_ID == tempChosenSubIngredient
-                                            select i.Ingredient_Name;
-                string chosenIngredientValue = chosenIngredientQuery.FirstOrDefault().ToString();
-                order.Ingredient_Substitution = chosenIngredientValue;
+                    //Get Ingredient_Substitution (String)
+                    var chosenIngredientQuery = from i in db.Ingredients
+                                                where i.Ingredient_ID == tempChosenSubIngredient
+                                                select i.Ingredient_Name;
+                    string chosenIngredientValue = chosenIngredientQuery.FirstOrDefault().ToString();
+                    order.Ingredient_Substitution = chosenIngredientValue;
+                }
+                else
+                {
+                    order.Ingredient_ID = null;
+                }
+                
 
                 //Order Date
                 DateTime currentDate = DateTime.Now;
