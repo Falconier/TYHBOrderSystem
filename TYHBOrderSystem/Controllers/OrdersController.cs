@@ -278,6 +278,7 @@ namespace TYHBOrderSystem.Controllers
                 DateTimeOffset currentTime = DateTimeOffset.Now;
                 order.Order_Time = currentTime;
 
+               
                 db.Orders.Add(order);
                 db.SaveChanges();
 
@@ -285,12 +286,12 @@ namespace TYHBOrderSystem.Controllers
                 {
                     EmailService ems = new EmailService();
                     IdentityMessage msg = new IdentityMessage();
-                    ApplicationUser user = new ApplicationUser();
+                   
 
                     msg.Body = "Thanks for placing an order with To Your Health Bakery!\n" +
                                 "Order Details:\n" +
                                 $"{order.ToString()}";
-                    msg.Destination = user.Email;
+                    msg.Destination = order.CUSTOMER.Email_Address;
                     msg.Subject = "Order Confirmation: To Your Health Bakery";
 
                     await ems.SendMailAsync(msg);
