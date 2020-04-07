@@ -287,7 +287,7 @@ namespace TYHBOrderSystem.Controllers
                     EmailService ems = new EmailService();
                     IdentityMessage msg = new IdentityMessage();
                     Customer cust = new Customer();
-                    cust.Customer_ID = order.Customer_ID.GetValueOrDefault();
+																				cust = db.Customers.Find(order.Customer_ID);
 
                     msg.Body = "Thanks for placing an order with To Your Health Bakery!\n" +
                                 "Order Details:\n" +
