@@ -287,11 +287,14 @@ namespace TYHBOrderSystem.Controllers
                     EmailService ems = new EmailService();
                     IdentityMessage msg = new IdentityMessage();
                     Customer cust = new Customer();
-																				cust = db.Customers.Find(order.Customer_ID);
+				    cust = db.Customers.Find(order.Customer_ID);
+
+                    var callbackUrl = Url.Action("Details", "Orders", new { id = order.ORDER_ID },
+                                                        protocol: Request.Url.Scheme);
 
                     msg.Body = "Thanks for placing an order with To Your Health Bakery!\n" +
                                 "Order Details:\n" +
-                                $"{order.ToString()}";
+                                "<a href=\"" + callbackUrl + "\">Order Details</a>";
                     msg.Destination = cust.Email_Address;
                     msg.Subject = "Order Confirmation: To Your Health Bakery";
 
