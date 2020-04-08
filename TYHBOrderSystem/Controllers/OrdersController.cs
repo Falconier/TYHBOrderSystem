@@ -38,6 +38,12 @@ namespace TYHBOrderSystem.Controllers
                 return HttpNotFound();
             }
 
+            //Date Time for Order Time
+            DateTimeOffset orderTime = order.Order_Time.GetValueOrDefault();
+            string tempOrderTimeforView = orderTime.ToString("h:mm tt");
+            ViewBag.OrderTimeforView = tempOrderTimeforView;
+
+            //Order Size for View
             int switchOrderSizeValue = order.PRODUCT.TypeId;
             switch (switchOrderSizeValue)
             {
