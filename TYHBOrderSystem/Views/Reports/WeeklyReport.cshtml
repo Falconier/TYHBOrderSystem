@@ -9,25 +9,25 @@
 
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
-<h3> WEEKLY Report</h3>
+<h2> WEEKLY Report</h2>
 
 <table id="InformationTable" class="table table-bordered">
 				<tr>
 
 								<th>
-												[Orderplaced-Info]
+												<h3>[Orderplaced-Info]</h3>
 								</th>
 								<th>
-												[Pickup-Info]
+												<h3>[Pickup-Info]</h3>
 								</th>
 								<th>
-												[Product-Info]
+												<h3>[Product-Info]</h3>
 								</th>
 								<th>
-												[Customer-Info]
+												<h3>[Customer-Info]</h3>
 								</th>
 								<th>
-												[Employee-Info]
+												<h3>[Employee-Info]</h3>
 								</th>
 
 				</tr>
@@ -38,44 +38,46 @@
 								{
 												<tr>
 																<td>
-																				(Order Date)<br />
+																				<b>(Order Date)</b><br />
 																				@Html.DisplayFor(model => item.Order_Date)<br />
-																				(Order Time)<br />
+																				<b>(Order Time)</b><br />
 																				@Html.DisplayFor(model => item.Order_Time)<br />
-																				(Order-ID)<br />
+																				<b>(Order-ID)</b><br />
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				(Pickup Date)<br />
+																				<b>(Pickup Date)</b><br />
 																				@Html.DisplayFor(model => item.PickUp_Due_Date)<br />
-																				(Pickup Time)<br />
+																				<b>(Pickup Time)</b><br />
 																				@Html.DisplayFor(model => item.PickUp_Time)<br />
-																				(Order-ID)<br />
+																				<b>(Order-ID)</b><br />
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				(Product-ID)<br /> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
-																				(Flavor)<br />
+																				<b>(Product-ID)</b><br /> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
+																				<b>(Flavor)</b><br />
 																				@Html.DisplayFor(model => item.PRODUCT.Product_Flavor)
-																				<br />(Description)<br />
-																				@Html.DisplayFor(model => item.PRODUCT.Product_Description)
+																				<br /><b>(Ingredient-Substitution</b><br />
+																				@Html.DisplayFor(model => item.Ingredient_Substitution)
+																				<br /><b>(Dietary-Restriction)</b><br />
+																				@Html.DisplayFor(model => item.PRODUCT.Restriction.RestrictionName)
 
 																</td>
 																<td>
-																				(Customer Name)<br />
+																				<b>(Customer Name)</b><br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
-																				<br />(Info)<br />
+																				<br /><b>(Info)</b><br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Contact_Number)
 																				<br />@Html.DisplayFor(model => item.CUSTOMER.Email_Address)
 																				<br />@Html.DisplayFor(model => item.CUSTOMER.Alternate_Contact_Number)
 
 																</td>
 																<td>
-																				(Employee Name)<br />
+																				<b>(Employee Name)</b><br />
 																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_First_Name)
 																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_Last_Name)
-																				<br />(Employee-ID)<br />
+																				<br /><b>(Employee-ID)</b><br />
 																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 												</tr>
@@ -83,7 +85,7 @@
 				}
 				else
 				{
-								<h2>NO-ORDERS-PRESENT</h2>
+								<h1>NO-ORDERS-PRESENT</h1>
 				}
 </table>
 
