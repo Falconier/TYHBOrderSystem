@@ -10,7 +10,7 @@
 </head>
 
 <h2>Create New Order</h2>
-
+<br/>
 
 @using (Html.BeginForm())
 {
@@ -87,20 +87,20 @@
                 @Html.RadioButton("searching", "2") Keto
                 @Html.RadioButton("searching", "3") Paleo
             </div>
-            <input type="submit" class="btn btn-secondary" value="Search" asp-action="Create" formmethod="get" />
+            <input type="submit" class="btn btn-secondary" value="Search" asp-action="Create" formmethod="get"/>
         </div>
     </div>
 
     <!---Table for Filter Results of 'Radio Buttons'-->
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
             <tr>
                 <!--<th scope="col">Product ID</th-->
                 <!--<th scope="col">TypeID</th>-->
                 <!--<th scope="col">RestrictionID</th>-->
+                <!--<th scope="col">Seasonal</th>-->
                 <th scope="col">Product Flavor</th>
                 <th scope="col">Description</th>
-                <th scope="col">Seasonal</th>
                 <th scope="col">Order Item</th>
             </tr>
         </thead>
@@ -108,25 +108,27 @@
         <tbody>
             @foreach (var item in ViewBag.DietResitrictionSearch)
             {
-                <tr>
-                    <!--<td>*@@item.ProductId</td>-->
-                    <!--<td>*@@item.RestrictionId</td>-->
-                    <td>@item.Product_Flavor</td>
-                    <td>@item.Product_Description</td>
-                    @if (item.Seasonal != false)
-                    {
-                        <td>@item.Seasonal</td>
-                        //if is seasonal change row color of entire item
-                    }
-                    else
-                    {
-                        <td> </td>
-                        //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
-                    }
+                if (item.Seasonal == true)
+                {
+                    <tr style="background-color:#c1d867;">
+                        <!--<td>*@@item.ProductId</td>-->
+                        <!--<td>*@@item.RestrictionId</td>-->
+                        <td>@item.Product_Flavor</td>
+                        <td>@item.Product_Description</td>
+                        <td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+                    </tr>
 
-                    <td><input type="radio" name="chosenID" value="@item.ProductId"/></td>
-                </tr>
-
+                }
+                else
+                {
+                    <tr>
+                        <!--<td>*@@item.ProductId</td>-->
+                        <!--<td>*@@item.RestrictionId</td>-->
+                        <td>@item.Product_Flavor</td>
+                        <td>@item.Product_Description</td>
+                        <td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
