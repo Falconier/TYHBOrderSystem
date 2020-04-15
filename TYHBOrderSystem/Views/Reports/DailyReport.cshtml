@@ -82,6 +82,9 @@
 																				<br /><b>(Employee-ID)</b><br />
 																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
+																<td>
+																				@Html.ActionLink("More Details", "Details", new { id=item.ORDER_ID }) 
+																</td>
 												</tr>
 								}
 				}
