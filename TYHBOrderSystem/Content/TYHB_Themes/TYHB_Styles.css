@@ -1,4 +1,16 @@
-﻿/*/*.sidenav {
+﻿/*
+				Acceptable Colors:
+				#67c1d8
+				#6788d8
+				#d86788
+				#67d8b6
+				#c1d867
+				#7e67d8
+				and any varients of those listed above.
+				*/
+
+
+/*/*.sidenav {
 				height: 100%;
 				width: 160px;
 				position: unset;
