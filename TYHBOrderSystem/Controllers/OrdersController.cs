@@ -42,57 +42,85 @@ namespace TYHBOrderSystem.Controllers
             DateTimeOffset orderTime = order.Order_Time.GetValueOrDefault();
             string tempOrderTimeforView = orderTime.ToString("h:mm tt");
             ViewBag.OrderTimeforView = tempOrderTimeforView;
+            
 
-            //Order Size for View
+            //Order Size for View AND Product Type Category
             int switchOrderSizeValue = order.PRODUCT.TypeId;
             switch (switchOrderSizeValue)
             {
+                case 1:
+                    ViewBag.ProductCategoryforView = "Bread";
+                    break;
+
                 case 2:
                     int tempOrderSize = order.ORDER_SIZES.Order_Size;
                     string orderSizeforView = tempOrderSize.ToString();
                     ViewBag.OrderSizeforView = $"{orderSizeforView} inches";
+                    ViewBag.ProductCategoryforView = "Cake";
                     break;
 
                 case 3:
                     tempOrderSize = order.ORDER_SIZES.Order_Size;
                     orderSizeforView = tempOrderSize.ToString();
                     ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    ViewBag.ProductCategoryforView = "Cookie";
+                    break;
+                case 4:
+                    ViewBag.ProductCategoryforView = "Doughnut";
                     break;
 
                 case 5:
                     tempOrderSize = order.ORDER_SIZES.Order_Size;
                     orderSizeforView = tempOrderSize.ToString();
                     ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    ViewBag.ProductCategoryforView = "Muffin";
+                    break;
+
+                case 6:
+                    ViewBag.ProductCategoryforView = "Other Sweet";
                     break;
 
                 case 7:
                     tempOrderSize = order.ORDER_SIZES.Order_Size;
                     orderSizeforView = tempOrderSize.ToString();
                     ViewBag.OrderSizeforView = $"{orderSizeforView} inches";
+                    ViewBag.ProductCategoryforView = "Pie";
+                    break;
+                case 8:
+                    ViewBag.ProductCategoryforView = "Protien Bar";
+                    break;
+
+                case 9:
+                    ViewBag.ProductCategoryforView = "Savory Item";
                     break;
 
                 case 10:
                     string sheetCakeString = "18 x 12";
                     ViewBag.OrderSizeforView = sheetCakeString.ToString();
+                    ViewBag.ProductCategoryforView = "Sheet Cake";
                     break;
 
                 case 11:
                     tempOrderSize = order.ORDER_SIZES.Order_Size;
                     orderSizeforView = tempOrderSize.ToString();
                     ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    ViewBag.ProductCategoryforView = "Cupcake";
                     break;
 
                 case 12:
                     tempOrderSize = order.ORDER_SIZES.Order_Size;
                     orderSizeforView = tempOrderSize.ToString();
                     ViewBag.OrderSizeforView = $"{orderSizeforView} count";
+                    ViewBag.ProductCategoryforView = "Buns";
                     break;
 
                 default:
                     ViewBag.OrderSizeforView = "";
+                    ViewBag.ProductCategoryforView = "";
                     break;
 
             }
+
             return View(order);
         }
 
