@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using TYHBOrderSystem.Models;
 
 namespace TYHBOrderSystem.Controllers
@@ -371,10 +372,118 @@ namespace TYHBOrderSystem.Controllers
             {
                 return HttpNotFound();
             }
+
+            //Order_Size_ID toList for data mutation for View Display
+            var orderSizeList = db.OrderSizes.ToList();
+            var categoryList = db.Products.ToList();
+            string tempProductID = order.PRODUCT.TypeId.ToString();
+
+
+            //Select List Items for Order Sizes with Layers
+            IEnumerable<SelectListItem> selectListQueryCakes = from o in orderSizeList
+                                                               where o.Number_Of_Layers != 0 && o.Product_Type_ID == tempProductID
+                                                               select new SelectListItem
+                                                               {
+                                                                   Value = o.Order_Size_ID.ToString(),
+                                                                   Text = o.Order_Size.ToString() + " inches" + " - " + o.Number_Of_Layers.ToString() + " layers"
+                                                               };
+
+            IEnumerable<SelectListItem> selectListQueryPie = from o in orderSizeList
+                                                             where o.Number_Of_Layers == 0 && o.Product_Type_ID == tempProductID
+                                                             select new SelectListItem
+                                                             {
+                                                                 Value = o.Order_Size_ID.ToString(),
+                                                                 Text = o.Order_Size.ToString() + " inches"
+                                                             };
+
+            //SelectListItem for Order Sizes without Layers
+            IEnumerable<SelectListItem> selectListQueryDefault = from o in orderSizeList
+                                                                 where o.Number_Of_Layers == 0 && o.Product_Type_ID == tempProductID
+                                                                 select new SelectListItem
+                                                                 {
+                                                                     Value = o.Order_Size_ID.ToString(),
+                                                                     Text = o.Order_Size.ToString() + " count"
+
+                                                                 };
+            IEnumerable<SelectListItem> selectListFlavorCategory = from o in categoryList
+                                                                  where o.TypeId == order.PRODUCT.TypeId && o.RestrictionId == order.PRODUCT.RestrictionId
+                                                                  select new SelectListItem
+                                                                  {
+                                                                      Value = o.TypeId.ToString(),
+                                                                      Text = o.Product_Flavor.ToString()
+                                                                  };
+
+            //Order Size for View and Flavor
+            int switchOrderSizeValue = order.PRODUCT.TypeId;
+            switch (switchOrderSizeValue)
+            {
+                case 1:
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 2:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 3:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 4:
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 5:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
+                    break;
+
+                case 6:
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 7:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryPie, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 8:
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 9:
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 10:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 11:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                case 12:
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    break;
+
+                default:
+                    ViewBag.Order_Size_ID = null;
+                    ViewBag.Product_Flavor = null;
+                    break;
+
+            }
+
+
+            ViewBag.Product_ID = new SelectList(db.ProductTypes, "Id", "Name", order.PRODUCT.TypeId);
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
-            ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);
-            ViewBag.Order_Size_ID = new SelectList(db.OrderSizes, "Order_Size_ID", "Product_Type_ID", order.Order_Size_ID);
+            ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Name", order.Ingredient_ID);
+            
             return View(order);
         }
 
