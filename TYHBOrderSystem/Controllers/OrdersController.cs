@@ -288,10 +288,23 @@ namespace TYHBOrderSystem.Controllers
             if (ModelState.IsValid)
             {
                 //Get Product ID: Create Product Object with chosen product ID, set to 'ORDER'
-                string chosenID = form["chosenID"];
-                int tempChosenID = int.Parse(chosenID);
-                Product productChoice = db.Products.Find(tempChosenID);
-                order.PRODUCT = productChoice;
+                if(form["chosenID"] != null)
+                {
+                    string chosenID = form["chosenID"];
+                    int tempChosenID = int.Parse(chosenID);
+                    Product productChoice = db.Products.Find(tempChosenID);
+                    order.PRODUCT = productChoice;
+                }
+
+                //else
+                //{
+                    //string chosenID = form["itemchoice"];
+                    //int tempChosenID = int.Parse(chosenID);
+                    //string productChoice = db.ProductTypes.Find(tempChosenID).Name;
+                    //Product chosenProduct = db.Products.Find(productChoice);
+                    //order.PRODUCT = chosenProduct;
+                //}
+
                 if (form["substitution"] != null)
                 {
                     //Get Ingredient Substitution: Ingredient_ID(INT)
@@ -478,12 +491,13 @@ namespace TYHBOrderSystem.Controllers
 
             }
 
-
+            
             ViewBag.Product_ID = new SelectList(db.ProductTypes, "Id", "Name", order.PRODUCT.TypeId);
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Name", order.Ingredient_ID);
-            
+           
+
             return View(order);
         }
 
@@ -492,13 +506,43 @@ namespace TYHBOrderSystem.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Product_Type_ID,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
+        public ActionResult Edit(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Ingredient_ID")] Order order)
         {
             if (ModelState.IsValid)
             {
+                //Product ID
+                string chosenProductID = form["Product_ID"];
+                int tempChosenProductID = int.Parse(chosenProductID);
+                Product productChoice = new Product();
+                order.PRODUCT = productChoice;
+                order.PRODUCT.ProductId
+
+                //Product Flavor
+                string chosenProduct = form["Product_Flavor"];
+                int tempChosenTypeID = int.Parse(chosenProduct);
+                
+
+                var chosenProductFlavorquery = from f in db.Products
+                                               where f.TypeId == tempChosenTypeID
+                                               select f.Product_Flavor;
+                string chosenProductFlavorValue = chosenProductFlavorquery.FirstOrDefault().ToString();
+                order.PRODUCT.Product_Flavor = chosenProductFlavorValue;
+
+
+
+                //Order Date
+                DateTime currentDate = DateTime.Now;
+                string orderDate = currentDate.ToString("MM/dd/yyyy");
+                order.Order_Date = orderDate;
+
+                //Order Time
+                DateTimeOffset currentTime = DateTimeOffset.Now;
+                order.Order_Time = currentTime;
+
+
                 db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = order.ORDER_ID });
             }
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
