@@ -14,14 +14,16 @@ namespace TYHBOrderSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Employees
-        public ActionResult Index()
+								// GET: Employees
+								[Authorize(Roles = "Admin")]
+								public ActionResult Index()
         {
             return View(db.Employees.OrderBy(e => e.Emp_Last_Name).ToList());
         }
 
-        // GET: Employees/Details/5
-        public ActionResult Details(int? id)
+								// GET: Employees/Details/5
+								[Authorize(Roles = "Admin")]
+								public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -35,8 +37,9 @@ namespace TYHBOrderSystem.Controllers
             return View(employees);
         }
 
-        // GET: Employees/Create
-        public ActionResult Create()
+								// GET: Employees/Create
+								[Authorize(Roles = "Admin")]
+								public ActionResult Create()
         {
             return View();
         }
@@ -59,8 +62,9 @@ namespace TYHBOrderSystem.Controllers
             return View(employees);
         }
 
-        // GET: Employees/Edit/5
-        public ActionResult Edit(int? id)
+								// GET: Employees/Edit/5
+								[Authorize(Roles = "Admin")]
+								public ActionResult Edit(int? id)
         {
             if (id == null)
             {

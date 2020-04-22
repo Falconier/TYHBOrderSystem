@@ -38,19 +38,19 @@ namespace TYHBOrderSystem.Migrations
 												var userId = userManager.FindByEmail("admin@email.com").Id;
 												userManager.AddToRole(userId, "Admin");
 
-												//Sets Owners (Owner)
-												if (!context.Roles.Any(r => r.Name == "Owner"))
-												{
-																roleManager.Create(new IdentityRole { Name = "Owner" });
-												}
+												////Sets Owners (Owner)
+												//if (!context.Roles.Any(r => r.Name == "Owner"))
+												//{
+												//				roleManager.Create(new IdentityRole { Name = "Owner" });
+												//}
 
-												if (!context.Users.Any(u => u.Email == "Owner@email.com"))
-												{
-																userManager.Create(new ApplicationUser { UserName = "owner@email.com", Email = "owner@email.com", FirstName = "Testing", LastName = "Owner" }, "password");
-												}
+												//if (!context.Users.Any(u => u.Email == "Owner@email.com"))
+												//{
+												//				userManager.Create(new ApplicationUser { UserName = "owner@email.com", Email = "owner@email.com", FirstName = "Testing", LastName = "Owner" }, "password");
+												//}
 
-												var userId2 = userManager.FindByEmail("Owner@email.com").Id;
-												userManager.AddToRole(userId, "Owner");
+												//var userId2 = userManager.FindByEmail("Owner@email.com").Id;
+												//userManager.AddToRole(userId, "Owner");
 
 												//Sets Moderator (Mod)
 												if (!context.Roles.Any(r => r.Name == "Baker"))
