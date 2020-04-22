@@ -17,7 +17,7 @@ namespace TYHBOrderSystem.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var products = db.Products.Include(p => p.Type);
+												var products = db.Products.Include(p => p.Type);
             return View(products.ToList());
         }
 

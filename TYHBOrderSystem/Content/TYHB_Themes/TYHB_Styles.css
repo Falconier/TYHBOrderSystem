@@ -6,31 +6,64 @@
 				#67d8b6 - Teal
 				#c1d867 - TYHB Green
 				#7e67d8 - Purple
+				#68391a - TYHB Brown
 				and any varients of those listed above.
 				*/
 
+/*Orders View Table*/
+table.orderTable {
+				border: 5px solid #C1D867;
+				background-color: #F7FAEC;
+				width: 100%;
+				text-align: left;
+				border-collapse: collapse;
+}
 
-/*/*.sidenav {
-				height: 100%;
-				width: 160px;
-				position: unset;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: #c1d867;
-				overflow-x: hidden;
-				padding-top: 20px;
-}*/
-
-				.sidebar-element
-				{
-								padding: 6px 8px 6px 16px;
-								text-decoration: none;
-								font-size: 25px;
-								color: #000;
-								display: block;
+				table.orderTable td, table.orderTable th {
+								border: 1px solid #AAAAAA;
+								padding: 3px 2px;
 				}
 
-								.sidenav a:hover {
-												color: #808080;
-								}*/
+				table.orderTable tbody td {
+								font-size: 16px;
+								font-weight: bold;
+								color: #68391A;
+				}
+
+				table.orderTable tr:nth-child(even) {
+								background: #ECFAF6;
+				}
+
+				table.orderTable thead {
+								background: #C1D867;
+				}
+
+								table.orderTable thead th {
+												font-size: 19px;
+												font-weight: bold;
+												color: #68391A;
+												text-align: center;
+								}
+
+				table.orderTable tfoot {
+								font-size: 13px;
+								font-weight: bold;
+								color: #FFFFFF;
+								background: #C1D867;
+				}
+
+								table.orderTable tfoot td {
+												font-size: 13px;
+								}
+
+								table.orderTable tfoot .links {
+												text-align: right;
+								}
+
+												table.orderTable tfoot .links a {
+																display: inline-block;
+																background: #68391A;
+																color: #C1D867;
+																padding: 2px 8px;
+																border-radius: 5px;
+												}
