@@ -14,15 +14,17 @@ namespace TYHBOrderSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Products
-        public ActionResult Index()
+								// GET: Products
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Type);
             return View(products.ToList());
         }
 
-        // GET: Products/Details/5
-        public ActionResult Details(int? id)
+								// GET: Products/Details/5
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -36,8 +38,9 @@ namespace TYHBOrderSystem.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
-        public ActionResult Create()
+								// GET: Products/Create
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Create()
         {
             ViewBag.TypeId = new SelectList(db.ProductTypes, "Id", "Name");
 												ViewBag.RestrictionId = new SelectList(db.DietaryRestrictions, "Id", "RestrictionName");
@@ -62,8 +65,9 @@ namespace TYHBOrderSystem.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
-        public ActionResult Edit(int? id)
+								// GET: Products/Edit/5
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -95,8 +99,9 @@ namespace TYHBOrderSystem.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
-        public ActionResult Delete(int? id)
+								// GET: Products/Delete/5
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -110,8 +115,9 @@ namespace TYHBOrderSystem.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
+								// POST: Products/Delete/5
+								[Authorize(Roles = "Admin, Baker")]
+								[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

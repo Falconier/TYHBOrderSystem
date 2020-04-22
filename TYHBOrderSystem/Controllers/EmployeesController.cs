@@ -94,8 +94,9 @@ namespace TYHBOrderSystem.Controllers
             return View(employees);
         }
 
-        // GET: Employees/Delete/5
-        public ActionResult Delete(int? id)
+								// GET: Employees/Delete/5
+								[Authorize(Roles = "Admin")]
+								public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -109,8 +110,9 @@ namespace TYHBOrderSystem.Controllers
             return View(employees);
         }
 
-        // POST: Employees/Delete/5
-        [HttpPost, ActionName("Delete")]
+								// POST: Employees/Delete/5
+								[Authorize(Roles = "Admin")]
+								[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -1,199 +1,201 @@
 ﻿@model TYHBOrderSystem.Models.Order
 
 @{
-    ViewBag.Title = "Details";
+				ViewBag.Title = "Details";
 }
 
 <h1>Order Confirmation</h1>
 
 @using (Html.BeginForm())
 {
-    <div class="form-horizontal">
-        <br/>
-        <h4>Customer Details</h4>
-        <hr />
+				<div class="form-horizontal">
+								<br />
+								<h4>Customer Details</h4>
+								<hr />
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("First Name", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("First Name", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Customer Allergy Description", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.CUSTOMER.Allergy_Desctiption, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Customer Allergy Description", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.CUSTOMER.Allergy_Desctiption, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Time of Order", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.Display("OrderTimeforView", (string)ViewBag.OrderTimeforView, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Time of Order", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.Display("OrderTimeforView", (string)ViewBag.OrderTimeforView, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Pick-Up Date", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.PickUp_Time, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Pick-Up Date", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.PickUp_Time, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <br />
-        <h4>Product Details</h4>
-        <hr />
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Product Category", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.Display("ProductCategoryforView", (string)ViewBag.ProductCategoryforView, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Product Flavor", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.PRODUCT.Product_Flavor, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Product Description", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.PRODUCT.Product_Description, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<br />
+								<h4>Product Details</h4>
+								<hr />
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Product Category", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.Display("ProductCategoryforView", (string)ViewBag.ProductCategoryforView, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Product Flavor", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.PRODUCT.Product_Flavor, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Product Description", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.PRODUCT.Product_Description, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.PRODUCT.Restriction.RestrictionName, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.PRODUCT.Restriction.RestrictionName, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
 
-            @if (Model.Ingredient_ID != null) //Hide if there is not an ingredient sub
-            {
-                <div class="form-group col-md-4">
-                    @Html.Label("Ingredient Subsitution", htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-            }
+												@if (Model.Ingredient_ID != null) //Hide if there is not an ingredient sub
+												{
+																<div class="form-group col-md-4">
+																				@Html.Label("Ingredient Subsitution", htmlAttributes: new { @class = "control-label col-md-10" })
+																				<div class="col-md-10">
+																								@Html.DisplayFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
+																				</div>
+																</div>
+												}
 
-        </div>
+								</div>
 
-        <div class="form-row">
-            @if (ViewBag.OrderSizeforView != null) //Hide if there is not an Order Size 
-            {
-                <div class="form-group col-md-4">
-                    @Html.Label("Order Size", htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-10">
-                        @Html.Display("OrderSizeforView", (string)ViewBag.OrderSizeforView, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-            }
+								<div class="form-row">
+												@if (ViewBag.OrderSizeforView != null) //Hide if there is not an Order Size
+												{
+																<div class="form-group col-md-4">
+																				@Html.Label("Order Size", htmlAttributes: new { @class = "control-label col-md-10" })
+																				<div class="col-md-10">
+																								@Html.Display("OrderSizeforView", (string)ViewBag.OrderSizeforView, new { htmlAttributes = new { @class = "form-control" } })
+																				</div>
+																</div>
+												}
 
-            @if ((string)ViewBag.ProductCategoryforView == "Cake" || (string)ViewBag.ProductCategoryforView == "Sheet Cake") //Hide Num layers if not cake
-            {
-                <div class="form-group col-md-4">
-                    @Html.Label("Number of Layers", htmlAttributes: new { @class = "control-label col-md-10" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(model => model.ORDER_SIZES.Number_Of_Layers, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-            }
+												@if ((string)ViewBag.ProductCategoryforView == "Cake" || (string)ViewBag.ProductCategoryforView == "Sheet Cake") //Hide Num layers if not cake
+												{
+																<div class="form-group col-md-4">
+																				@Html.Label("Number of Layers", htmlAttributes: new { @class = "control-label col-md-10" })
+																				<div class="col-md-10">
+																								@Html.DisplayFor(model => model.ORDER_SIZES.Number_Of_Layers, new { htmlAttributes = new { @class = "form-control" } })
+																				</div>
+																</div>
+												}
 
-        </div>
+								</div>
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.Decoration_Comments, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.Additional_Comments, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.Decoration_Comments, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.Additional_Comments, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
 
-        <br />
-        <h4>Employee Information</h4>
-        <hr />
+								<br />
+								<h4>Employee Information</h4>
+								<hr />
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                @Html.Label("Employee First Name", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                @Html.Label("Employee Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
-                <div class="col-md-10">
-                    @Html.DisplayFor(model => model.EMPLOYEE.Emp_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ORDER_ID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.Label("Employee First Name", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.Label("Employee Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
+																<div class="col-md-10">
+																				@Html.DisplayFor(model => model.EMPLOYEE.Emp_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+																</div>
+												</div>
+								</div>
+				</div>
+				@if (User.IsInRole("Admin") || User.IsInRole("Baker"))
+				{
+								<p>
+												@Html.ActionLink("Edit", "Edit", new { id = Model.ORDER_ID }) |
+												@Html.ActionLink("Back to List", "Index")
+								</p>
+				}
 }
 
 
@@ -202,34 +204,34 @@
 <!---
 <dt>
 
-    *@@Html.DisplayNameFor(model => model.Product_Type_ID)
+				*@@Html.DisplayNameFor(model => model.Product_Type_ID)
 </dt>
 
 <dd>
-    *@@Html.DisplayFor(model => model.Product_Type_ID)
+				*@@Html.DisplayFor(model => model.Product_Type_ID)
 </dd>
 -
 <dt>
-    *@@Html.DisplayNameFor(model => model.Finishing_ID)
+				*@@Html.DisplayNameFor(model => model.Finishing_ID)
 </dt>
 
 <dd>
-    *@@Html.DisplayFor(model => model.Finishing_ID)
+				*@@Html.DisplayFor(model => model.Finishing_ID)
 </dd>
 
 <dt>
-    *@@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+				*@@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
 </dt>
 
 <dd>
-    *@@Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+				*@@Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
 </dd>
 
 <dt>
-    *@@Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
+				*@@Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
 </dt>
 
 <dd>
-    *@@Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
+				*@@Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
 </dd>
 -->

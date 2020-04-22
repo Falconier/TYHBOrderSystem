@@ -17,14 +17,16 @@ namespace TYHBOrderSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Orders
-        public ActionResult Index()
+								// GET: Orders
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.CUSTOMER).Include(o => o.EMPLOYEE).Include(o => o.INGREDIENT).Include(o => o.ORDER_SIZES);
             return View(orders.ToList());
         }
 
-        // GET: Orders/Details/5    
+        // GET: Orders/Details/5
+								[AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -125,8 +127,9 @@ namespace TYHBOrderSystem.Controllers
             return View(order);
         }
 
-        // GET: Orders/Create
-        public ActionResult Create(string searching, string itemchoice)
+								// GET: Orders/Create
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Create(string searching, string itemchoice)
         {
             
             //Product Categories for View
@@ -277,11 +280,12 @@ namespace TYHBOrderSystem.Controllers
         }
 
 
-        // POST: Orders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //Removed Finishing_ID, from BIND
-        [HttpPost]
+								// POST: Orders/Create
+								// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+								// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+								//Removed Finishing_ID, from BIND
+								[Authorize(Roles = "Admin, Baker")]
+								[HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(FormCollection form,[Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID, Ingredient_ID, Order_Size_ID")] Order order)
         {
@@ -360,8 +364,9 @@ namespace TYHBOrderSystem.Controllers
             return View(order);
         }
 
-        // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
+								// GET: Orders/Edit/5
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -487,10 +492,11 @@ namespace TYHBOrderSystem.Controllers
             return View(order);
         }
 
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+								// POST: Orders/Edit/5
+								// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+								// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+								[Authorize(Roles = "Admin, Baker")]
+								[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ORDER_ID,Customer_ID,Order_Date,Order_Time,PickUp_Due_Date,PickUp_Time,Product_Type_ID,Ingredient_Substitution,Decoration_Comments,Additional_Comments,Employee_ID,Order_Size_ID,Finishing_ID,Ingredient_ID")] Order order)
         {
@@ -507,8 +513,9 @@ namespace TYHBOrderSystem.Controllers
             return View(order);
         }
 
-        // GET: Orders/Delete/5
-        public ActionResult Delete(int? id)
+								// GET: Orders/Delete/5
+								[Authorize(Roles = "Admin")]
+								public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -522,8 +529,9 @@ namespace TYHBOrderSystem.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
-        [HttpPost, ActionName("Delete")]
+								// POST: Orders/Delete/5
+								[Authorize(Roles = "Admin")]
+								[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
