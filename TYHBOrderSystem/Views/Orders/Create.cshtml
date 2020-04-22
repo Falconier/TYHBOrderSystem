@@ -5,7 +5,7 @@
 }
 <head>
 				<title>Order Form</title>
-																<link href="~/Assets/dist/css/adminlte.min.css"/>
+				<link href="~/Assets/dist/css/adminlte.min.css" />
 				<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
 				<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 				@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
@@ -94,48 +94,46 @@
 								</div>
 
 								<!---Table for Filter Results of 'Radio Buttons'-->
-								<div class="card-body">
-												<table id="orderTable" class="table orderTable">
-																<thead>
-																				<tr>
-																								<!--<th scope="col">Product ID</th-->
-																								<!--<th scope="col">TypeID</th>-->
-																								<!--<th scope="col">RestrictionID</th>-->
-																								<!--<th scope="col">Seasonal</th>-->
-																								<th>Product Flavor</th>
-																								<th>Description</th>
-																								<th>Order Item</th>
-																				</tr>
-																</thead>
-																<tbody>
-																				@foreach (var item in ViewBag.DietResitrictionSearch)
+								<table id="orderTable" class="table table-bordered dataTable orderTable">
+												<thead>
+																<tr>
+																				<!--<th scope="col">Product ID</th-->
+																				<!--<th scope="col">TypeID</th>-->
+																				<!--<th scope="col">RestrictionID</th>-->
+																				<!--<th scope="col">Seasonal</th>-->
+																				<th>Product Flavor</th>
+																				<th>Description</th>
+																				<th>Order Item</th>
+																</tr>
+												</thead>
+												<tbody>
+																@foreach (var item in ViewBag.DietResitrictionSearch)
+																{
+																				if (item.Seasonal == true)
 																				{
-																								if (item.Seasonal == true)
-																								{
-																												//style = "background-color:#c1d867;"
-																												<tr style = "background-color:#f0c6d2;>
-																																<!--<td>*@@item.ProductId</td>-->
-																																<!--<td>*@@item.RestrictionId</td>-->
-																																<td>@item.Product_Flavor</td>
-																																<td>@item.Product_Description</td>
-																																<td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
-																												</tr>
+																								//style = "background-color:#c1d867;"
+																								<tr style="background-color:#f5d9e1;">
+																												<!--<td>*@@item.ProductId</td>-->
+																												<!--<td>*@@item.RestrictionId</td>-->
+																												<td>@item.Product_Flavor **Seasonal**</td>
+																												<td>@item.Product_Description</td>
+																												<td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+																								</tr>
 
-																								}
-																								else
-																								{
-																												<tr>
-																																<!--<td>*@@item.ProductId</td>-->
-																																<!--<td>*@@item.RestrictionId</td>-->
-																																<td>@item.Product_Flavor</td>
-																																<td>@item.Product_Description</td>
-																																<td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
-																												</tr>
-																								}
 																				}
-																</tbody>
-												</table>
-								</div>
+																				else
+																				{
+																								<tr>
+																												<!--<td>*@@item.ProductId</td>-->
+																												<!--<td>*@@item.RestrictionId</td>-->
+																												<td>@item.Product_Flavor</td>
+																												<td>@item.Product_Description</td>
+																												<td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+																								</tr>
+																				}
+																}
+												</tbody>
+								</table>
 
 								<!-- Ingredient Subsition, Drop Down Box NOTHING IN DB TO USE THIS AT ALL-->
 								<div class="form-group">
@@ -286,32 +284,33 @@
 @section Scripts {
 				@Scripts.Render("~/bundles/jqueryval")
 
-				<script src="~/Scripts/jquery-ui-1.12.1.min.js">if</script>
+				<script src="~/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+				<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 
 				<script>
-																$(function chooseDate() {
+								$(function chooseDate() {
 
-																				$(".datepicker").datepicker({
-																								dateFormat: "mm/dd/yy", //format date (For some reason when doing 'mm-dd-yyyy' it's outputting the year 'twice')
-																								changeMonth: true,
-																								changeYear: true,
-																								yearRange: "-1: +5", //year range, -1 (2019) until 5 years from 2020
-																								showOn: "both",
-																								buttonText: "<i class='fa fa-calendar'></i>" //name in ' ' is file name from bootstrap css
-																				});
-																});
-												$(function () {
-																$('#orderTable').DataTable(
-																				{
-																								'paging': true,
-																								'lengthChange': false,
-																								'pageLength':10,
-																								'searching': true,
-																								'ordering': true,
-																								'info': false,
-																								'autoWidth': true
-																				})
-												});
+												$(".datepicker").datepicker({
+																dateFormat: "mm/dd/yy", //format date (For some reason when doing 'mm-dd-yyyy' it's outputting the year 'twice')
+																changeMonth: true,
+																changeYear: true,
+																yearRange: "-1: +5", //year range, -1 (2019) until 5 years from 2020
+																showOn: "both",
+																buttonText: "<i class='fa fa-calendar'></i>" //name in ' ' is file name from bootstrap css
+												})
+								});
+								$(function () {
+												$('.orderTable').dataTable(
+																{
+																				'paging': true,
+																				'lengthChange': false,
+																				'pageLength': 10,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': false
+																})
+								});
 				</script>
 }
 

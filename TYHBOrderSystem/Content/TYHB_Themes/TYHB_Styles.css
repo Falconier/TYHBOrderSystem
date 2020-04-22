@@ -42,7 +42,7 @@ table.orderTable {
 												font-size: 19px;
 												font-weight: bold;
 												color: #68391A;
-												text-align: center;
+												text-align: left;
 								}
 
 				table.orderTable tfoot {
@@ -64,6 +64,34 @@ table.orderTable {
 																display: inline-block;
 																background: #68391A;
 																color: #C1D867;
-																padding: 2px 8px;
-																border-radius: 5px;
+																padding: 20px 8px;
+																border-radius: 2px;
 												}
+
+#orderTable_filter
+{
+				float:right;
+}
+
+#orderTable_paginate
+{
+				float:right;
+				display:inline-block;
+}
+
+#orderTable_paginate a{
+				font-size: 13px;
+				font-style:inherit;
+				display: inline-block;
+				background: #68391A;
+				color: #C1D867;
+				border-radius: 2px;
+}
+
+				#orderTable_paginate.paginate_button {
+								padding: 20px 8px;
+								border: 10px 10px;
+				}
+
+																				#orderTable_paginate.paginate_button.current {
+																				}
