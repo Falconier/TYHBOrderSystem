@@ -1,76 +1,51 @@
-﻿<aside class=" col-lg-4">
-				<section class="sidebar">
-								<ul>
-												<li class="content-header">
-																Main Navigation
-												</li>
-												@*<li>
-																Todo: add link
-																<a href="">
-																				<i class="fa fa-dashboard"> Dashboard</i>
-																				@*<span>Dashboard</span>
-																</a>
-																								</li>*@
-												<li>
-																<a href="@Url.Action("Create","Orders")">
-																				<i class="fa fa-receipt">
-																								<span>New Order</span>
-																				</i>
-																</a>
-																@*@Html.ActionLink("New Order", "Create", "Orders", htmlAttributes: new { @class = "fa fa-reciept sidebar-element" })*@
-												</li>
-												<li>
-																<a href="@Url.Action("CreateForOrder","Customers")">
-																				<i class="fa fa-user-alt">
-																								<span>New Customer</span>
-																				</i>
-																</a>
-												</li>
-												<li>
-																<a href="@Url.Action("Create","Products")">
-																				<i class="fa fa-receipt">
-																								<span>New Product</span>
-																				</i>
-																</a>
-																@*@Html.ActionLink("New Order", "Create", "Orders", htmlAttributes: new { @class = "fa fa-reciept sidebar-element" })*@
-												</li>
-												<li class="content-header">
-																<i class="fa fa-clipboard-list">
-																				<span>Reports</span>
-																</i>
-												</li>
-												<li>
+﻿
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+				<div class="navTop">
+								<a href="@Url.Action("Create","Orders")">
+												<i class="fa fa-receipt">
+																<span>New Order</span>
+												</i>
+								</a>
+								<a href="@Url.Action("CreateForOrder","Customers")">
+												<i class="fa fa-user-alt">
+																<span>New Customer</span>
+												</i>
+								</a>
+								<a href="@Url.Action("Create","Products")">
+												<i class="fa fa-receipt">
+																<span>New Product</span>
+												</i>
+								</a>
+								<div class="dropdown">
+												<button class="dropbtn">Reports</button>
+												<div class="dropdown-content">
 																<a href="@Url.Action("DailyReport","Reports")">
 																				<i class="fa fa-calendar-day">
 																								<span>Daily Reports</span>
 																				</i>
 																</a>
-												</li>
-												<li>
 																<a href="@Url.Action("WeeklyReport","Reports")">
 																				<i class="fa fa-calendar-week">
 																								<span>Weekly Report</span>
 																				</i>
 																</a>
-												</li>
-												<li>
 																<a href="@Url.Action("Register","Account")">
 																				<i class="fa fa-user-plus">
 																								<span>New Employee</span>
 																				</i>
 																</a>
-												</li>
-												<li class="content-header">
-																<i class="fa fa-archive">
-																				<span>Archives</span>
-																</i>
-												</li>
-												<li>
+												</div>
+								</div>
+								<div class="dropdown">
+												<button class="dropbtn">Archives</button>
+												<div class="dropdown-content">
 																<a href="@Url.Action("OldOrderData","Reports")">Orders</a>
-												</li>
-												<li>
+
 																<a href="@Url.Action("Index","Products")">Products</a>
-												</li>
-								</ul>
-				</section>
-</aside>
+												</div>
+								</div>
+				</div>
+</body>
+
