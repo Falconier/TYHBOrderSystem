@@ -515,7 +515,7 @@ namespace TYHBOrderSystem.Controllers
                 int tempChosenProductID = int.Parse(chosenProductID);
                 Product productChoice = new Product();
                 order.PRODUCT = productChoice;
-                order.PRODUCT.ProductId
+																//order.PRODUCT.ProductId
 
                 //Product Flavor
                 string chosenProduct = form["Product_Flavor"];
