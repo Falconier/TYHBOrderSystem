@@ -242,49 +242,46 @@ table.orderTable {
 
 /*Nav Bar Table*/
 /*this css works it just isnt relating for some reason*/
-#topNav {
+
+
+.navbar {
 				overflow: hidden;
-				background-color: black;
+				background-color: #68391a;
 }
 
-#topNav a {
-				float: left;
-				color: #67c1d8;
-				text-align: center;
-				padding: 14px 16px;
-				text-decoration: none;
-				font-size: 17px;
-}
+				.navbar a {
+								float: left;
+								font-size: 16px;
+								color: #c1d867;
+								text-align: center;
+								padding: 14px 16px;
+								text-decoration: none;
+				}
 
-#dropdown {
+.dropdown {
 				float: left;
 				overflow: hidden;
 }
 
-.dropdown .dropbtn {
-				font-size: 16px;
-				border: none;
-				outline: none;
-				color: #67d8b6;
-				padding: 14px 16px;
-				background-color: inherit;
-				font-family: inherit;
-				margin: 0;
-}
+				.dropdown .dropbtn {
+								font-size: 16px;
+								border: none;
+								outline: none;
+								color: white;
+								padding: 14px 16px;
+								background-color: inherit;
+								font-family: inherit;
+								margin: 0;
+				}
 
-.topNav a:hover, .dropdown:hover .dropbtn {
-				background-color: black;
-}
-
-#topNav a.active {
-				background-color: blue;
-				color: #4CAF50;
-}
+				.navbar a:hover, .dropdown:hover .dropbtn {
+								background-color: #d86788;
+				}
 
 .dropdown-content {
 				display: none;
 				position: absolute;
-				background-color: black;
+				background-color: #68391a;
 				min-width: 160px;
 				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 				z-index: 1;
@@ -300,7 +297,7 @@ table.orderTable {
 				}
 
 								.dropdown-content a:hover {
-												background-color: #68391a;
+												background-color: #d86788;
 								}
 
 .dropdown:hover .dropdown-content {
