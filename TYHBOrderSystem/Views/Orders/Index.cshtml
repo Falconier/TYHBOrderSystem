@@ -1,105 +1,127 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
 
 @{
-    ViewBag.Title = "Index";
+				ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="titlebar">Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+				@Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMPLOYEE.Emp_First_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Order_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Order_Time)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickUp_Due_Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PickUp_Time)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Product_Type_ID)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Ingredient_Substitution)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Decoration_Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Additional_Comments)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Finishing_ID)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CUSTOMER.Customer_First_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMPLOYEE.Emp_First_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.INGREDIENT.Ingredient_Type)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.ORDER_SIZES.Product_Type_ID)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Order_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Order_Time)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PickUp_Due_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PickUp_Time)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Product_Type_ID)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Ingredient_Substitution)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Decoration_Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Additional_Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Finishing_ID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ORDER_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ORDER_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ORDER_ID })
-        </td>
-    </tr>
-}
+<table id="orderTable" class="table table-bordered dataTable orderTable">
+				<thead>
+												<tr>
+																<th>
+																				Customer Name
+																</th>
+																<th>
+																				Employee Name)
+																</th>
+																<th>
+																				Ingredient Type
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Order_Date)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Order_Time)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.PickUp_Due_Date)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.PickUp_Time)
+																</th>
+																@*<th>
+												@Html.DisplayNameFor(model => model.Product_Type_ID)
+								</th>*@
+																<th>
+																				@Html.DisplayNameFor(model => model.Ingredient_Substitution)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Decoration_Comments)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Additional_Comments)
+																</th>
+																<th>
+																				@Html.DisplayNameFor(model => model.Finishing_ID)
+																</th>
+																<th>Management</th>
+												</tr>
+				</thead>
+				@foreach (var item in Model)
+				{
+								<tr>
+												<td>
+																@Html.DisplayFor(modelItem => item.CUSTOMER.Customer_First_Name) @Html.DisplayFor(modelItem => item.CUSTOMER.Customer_Last_Name)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.EMPLOYEE.Emp_First_Name)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.INGREDIENT.Ingredient_Type)
+												</td>
+												@*<td>
+																				@Html.DisplayFor(modelItem => item.ORDER_SIZES.Product_Type_ID)
+																</td>*@
+												<td>
+																@Html.DisplayFor(modelItem => item.Order_Date)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.Order_Time)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.PickUp_Due_Date)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.PickUp_Time)
+												</td>
+												@*<td>
+																				@Html.DisplayFor(modelItem => item.Product_Type_ID)
+																</td>*@
+												<td>
+																@Html.DisplayFor(modelItem => item.Ingredient_Substitution)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.Decoration_Comments)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.Additional_Comments)
+												</td>
+												<td>
+																@Html.DisplayFor(modelItem => item.Finishing_ID)
+												</td>
+												<td>
+																@Html.ActionLink("Edit", "Edit", new { id = item.ORDER_ID }) |
+																@Html.ActionLink("Details", "Details", new { id = item.ORDER_ID }) |
+																@Html.ActionLink("Delete", "Delete", new { id = item.ORDER_ID })
+												</td>
+								</tr>
+				}
 
 </table>
+
+@section Scripts
+{
+
+				@Scripts.Render("~/bundles/jqueryval")
+
+				<script src="~/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+				<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+				<script>
+								$(function () {
+												$('.orderTable').dataTable(
+																{
+																				'paging': true,
+																				'lengthChange': false,
+																				'pageLength': 10,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': false
+																})
+								});
+				</script>
+}
