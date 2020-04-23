@@ -10,7 +10,6 @@
 				and any varients of those listed above.
 				*/
 
-/*Orders View Table*/
 
 .btn {
 				display: inline-block;
@@ -37,6 +36,7 @@
 								color:#000;
 				}
 
+/*Orders View Table*/
 table.orderTable {
 				border: 5px solid #C1D867;
 				background-color: #F7FAEC;
@@ -133,6 +133,87 @@ table.orderTable {
 												color: #000;
 								}
 
+/*Reports Table*/
+/*table.brownTable {
+				border: 3px solid #68391A;
+				background-color: #EFECFA;
+				width: 100%;
+				text-align: center;
+				border-collapse: collapse;
+}
+
+				table.brownTable td, table.brownTable th {
+								border: 1px solid #AAAAAA;
+								padding: 3px 2px;
+				}
+
+				table.brownTable tbody td {
+								font-size: 13px;
+								font-weight: bold;
+				}
+
+				table.brownTable tr:nth-child(even) {
+								background: #ECF7FA;
+				}
+
+				table.brownTable thead {
+								background: #68391A;
+				}
+
+								table.brownTable thead th {
+												font-size: 19px;
+												font-weight: bold;
+												color: #C1D867;
+												text-align: center;
+												border-left: 2px solid #68391A;
+								}
+
+												table.brownTable thead th:first-child {
+																border-left: none;
+												}
+
+				table.brownTable tfoot {
+								font-size: 13px;
+								font-weight: bold;
+								color: #FFFFFF;
+								background: #68391A;
+				}
+
+								table.brownTable tfoot td {
+												font-size: 13px;
+								}
+
+								table.brownTable tfoot .links {
+												text-align: right;
+								}
+
+												table.brownTable tfoot .links a {
+																display: inline-block;
+																background: #C1D867;
+																color: #68391A;
+																padding: 2px 8px;
+																border-radius: 5px;
+												}*/
+
+/*Create View Ingredients list*/
+.subLabel{
+				font-size:19px;
+}
+#ingredientsList {
+				-webkit-column-count: 4;
+				-moz-column-count: 4;
+				column-count: 4;
+				-webkit-column-gap: 25px;
+				-moz-column-gap: 25px;
+				column-gap: 5px;
+				-webkit-column-rule: 3px solid #68391a;
+				-moz-column-rule: 3px solid #68391a;
+				column-rule: 3px solid #68391a;
+				background-color: #c1d867;
+				padding: 10px;
+				border: 5px outset solid #6788D8;
+				border-radius: 20px;
+}
 
 /*Other Styles*/
 .orderBorder {
