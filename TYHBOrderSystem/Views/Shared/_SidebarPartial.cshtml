@@ -5,8 +5,8 @@
 
 
 <body>
-
 				<div class="navbar">
+								<i style="color: #c1d867;">||</i>
 								<a href="@Url.Action("Create","Orders")">
 												<i class="fa fa-receipt">
 																<span>New Order</span>
@@ -22,34 +22,34 @@
 																<span>New Product</span>
 												</i>
 								</a>
-
-								<div class="dropdown">
-												<button class="dropbtn">Reports</button>
-												<div class="dropdown-content">
-																<a href="@Url.Action("DailyReport","Reports")">
-																				<i class="fa fa-calendar-day">
-																								<span>Daily Reports</span>
-																				</i>
-																</a>
-																<a href="@Url.Action("WeeklyReport","Reports")">
-																				<i class="fa fa-calendar-week">
-																								<span>Weekly Report</span>
-																				</i>
-																</a>
-																<a href="@Url.Action("Register","Account")">
-																				<i class="fa fa-user-plus">
-																								<span>New Employee</span>
-																				</i>
-																</a>
-												</div>
-								</div>
-								<div class="dropdown">
-												<button class="dropbtn">Archives</button>
-												<div class="dropdown-content">
-																<a href="@Url.Action("OldOrderData","Reports")">Orders</a>
-																<a href="@Url.Action("Index","Products")">Products</a>
-												</div>
-								</div>
+								<a href="@Url.Action("Register","Account")">
+												<i class="fa fa-user-plus">
+																<span>New Employee</span>
+												</i>
+								</a>
+								<i style="color: #c1d867;">||</i>
+								<a href="@Url.Action("DailyReport","Reports")">
+												<i class="fa fa-calendar-day">
+																<span>Daily Reports</span>
+												</i>
+								</a>
+								<a href="@Url.Action("WeeklyReport","Reports")">
+												<i class="fa fa-calendar-week">
+																<span>Weekly Report</span>
+												</i>
+								</a>
+								<i style="color: #c1d867;">||</i>
+								<a href="@Url.Action("Index","Products")">
+												<i class="fa fa-file">
+																<span>Products</span>
+												</i>
+								</a>
+								<a href="@Url.Action("OldOrderData","Reports")">
+												<i class="fa fa-th-list">
+																<span>Old-Data</span>
+												</i>
+								</a>
+								<i style="color: #c1d867;">||</i>
 				</div>
 </body>
 
