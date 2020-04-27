@@ -129,7 +129,7 @@ namespace TYHBOrderSystem.Migrations
 												if (!context.Ingredients.Any(x => x.Ingredient_ID == 8))
 												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Organic Sugar" }); }
 												if (!context.Ingredients.Any(x => x.Ingredient_ID == 9))
-												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Tapiocca Powdered Sugar" }); }
+												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Tapioca Powdered Sugar" }); }
 												if (!context.Ingredients.Any(x => x.Ingredient_ID == 10))
 												{ context.Ingredients.Add(new Ingredient { Ingredient_Type = "Sugar", Ingredient_Name = "Coconut" }); }
 												if (!context.Ingredients.Any(x => x.Ingredient_ID == 11))
@@ -170,6 +170,10 @@ namespace TYHBOrderSystem.Migrations
 												{ context.OrderSizes.Add(new OrderSizes { Product_Type_ID = "10", Order_Size = 1812, Number_Of_Layers = 2 }); }
 												if (!context.OrderSizes.Any(x => x.Order_Size_ID == 14))
 												{ context.OrderSizes.Add(new OrderSizes { Product_Type_ID = "3", Order_Size = 12, Number_Of_Layers = 0 }); }
+												if (!context.OrderSizes.Any(x => x.Order_Size_ID == 15))
+												{ context.OrderSizes.Add(new OrderSizes { Product_Type_ID = "4", Order_Size = 6, Number_Of_Layers = 0 }); }
+												if (!context.OrderSizes.Any(x => x.Order_Size_ID == 16))
+												{ context.OrderSizes.Add(new OrderSizes { Product_Type_ID = "4", Order_Size = 12, Number_Of_Layers = 0 }); }
 
 												#endregion
 
