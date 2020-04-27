@@ -228,7 +228,7 @@ table.orderTable {
 				color: #68391A;
 				padding: 10px 8px;
 				border: 5px;
-				border-radius: 0px 20px 0px 20px;
+				border-radius: 0px 0px 20px 20px;
 }
 
 .minorTitleBar {
@@ -236,7 +236,7 @@ table.orderTable {
 				color: #fff;
 				padding: 10px 8px;
 				border: 5px;
-				border-radius: 0px 20px 0px 20px;
+				border-radius: 20px 20px 20px 20px;
 }
 
 
