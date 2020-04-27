@@ -45,9 +45,10 @@
 																<th>
 																				@Html.DisplayNameFor(model => model.Additional_Comments)
 																</th>
-																<th>
-																				@Html.DisplayNameFor(model => model.Finishing_ID)
+																<!--<th>
+																				*@@Html.DisplayNameFor(model => model.Finishing_ID)
 																</th>
+																-->
 																<th>Management</th>
 												</tr>
 				</thead>
@@ -90,9 +91,11 @@
 												<td>
 																@Html.DisplayFor(modelItem => item.Additional_Comments)
 												</td>
+												<!--
 												<td>
-																@Html.DisplayFor(modelItem => item.Finishing_ID)
+																*@@Html.DisplayFor(modelItem => item.Finishing_ID)
 												</td>
+												-->
 												<td>
 																@Html.ActionLink("Edit", "Edit", new { id = item.ORDER_ID }) |
 																@Html.ActionLink("Details", "Details", new { id = item.ORDER_ID }) |

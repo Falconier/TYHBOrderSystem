@@ -30,7 +30,7 @@
 								<div class="form-group">
 												@Html.Label("Choose Item Category", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
 												<div class="col-md-10">
-																@Html.DropDownList("itemchoice", new SelectList(ViewBag.ProductCategoryList, "Id", "Name"))
+																@Html.DropDownList("itemchoice", new SelectList(ViewBag.ProductCategoryList, "Value", "Text"))
 												</div>
 								</div>
 
@@ -175,14 +175,14 @@
 								<!-- Employee ID && Customer ID-->
 								<div class="form-row">
 												<div class="form-group col-md-4">
-																@Html.LabelFor(model => model.Employee_ID, "Employee_ID", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																@Html.LabelFor(model => model.Employee_ID, "Employee Name", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
 																<div class="col-md-10">
 																				@Html.DropDownList("Employee_ID", null, htmlAttributes: new { @class = "form-control" })
 																				@Html.ValidationMessageFor(model => model.Employee_ID, "", new { @class = "text-danger" })
 																</div>
 												</div>
 												<div class="form-group col-md-4">
-																@Html.LabelFor(model => model.Customer_ID, "Customer_ID", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																@Html.LabelFor(model => model.Customer_ID, "Customer Name", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
 																<div class="col-md-10">
 																				@Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
 																				@Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })

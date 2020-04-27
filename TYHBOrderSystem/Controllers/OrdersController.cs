@@ -69,6 +69,9 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.ProductCategoryforView = "Cookie";
                     break;
                 case 4:
+                    tempOrderSize = order.ORDER_SIZES.Order_Size;
+                    orderSizeforView = tempOrderSize.ToString();
+                    ViewBag.OrderSizeforView = $"{orderSizeforView} count";
                     ViewBag.ProductCategoryforView = "Doughnut";
                     break;
 
@@ -97,6 +100,7 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.ProductCategoryforView = "Savory Item";
                     break;
 
+                /*
                 case 10:
                     string sheetCakeString = "18 x 12";
                     ViewBag.OrderSizeforView = sheetCakeString.ToString();
@@ -116,6 +120,7 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.OrderSizeforView = $"{orderSizeforView} count";
                     ViewBag.ProductCategoryforView = "Buns";
                     break;
+                */
 
                 default:
                     ViewBag.OrderSizeforView = "";
@@ -130,9 +135,9 @@ namespace TYHBOrderSystem.Controllers
         // GET: Orders/Create
         public ActionResult Create(string searching, string itemchoice)
         {
-            
+
             //Product Categories for View
-            ViewBag.ProductCategoryList = db.ProductTypes.ToList();
+            var productCategoriesList = db.ProductTypes.ToList();
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name");
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name");
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type");
@@ -147,14 +152,25 @@ namespace TYHBOrderSystem.Controllers
             //Order_Size_ID toList for data mutation for View Display
             var orderSizeList = db.OrderSizes.ToList();
 
+            //Select List Product Categories (Not to show, Sheet Cake, Buns, Cupcakes due to lack of 'Product' in DB)
+            IEnumerable<SelectListItem> selectProductCategories = from o in productCategoriesList
+                                                                  where o.Id <= 9
+                                                                  select new SelectListItem
+                                                                  {
+                                                                      Value = o.Id.ToString(),
+                                                                      Text = o.Name.ToString()
+                                                                  };
+            //For View to Show Items (Not to show, Sheet Cake, Buns, Cupcakes due to lack of 'Product' in DB)
+            ViewBag.ProductCategoryList = selectProductCategories;
+
             //Select List Items for Order Sizes with Layers
-            IEnumerable<SelectListItem> selectListQueryCakes = from o in orderSizeList
-                                                          where o.Number_Of_Layers != 0 && o.Product_Type_ID == itemchoice
-                                                          select new SelectListItem
-                                                          {
-                                                              Value = o.Order_Size_ID.ToString(),
-                                                              Text = o.Order_Size.ToString() + " inches" + " - " + o.Number_Of_Layers.ToString() + " layers"
-                                                          };
+            IEnumerable < SelectListItem > selectListQueryCakes = from o in orderSizeList
+                                                                  where o.Number_Of_Layers != 0 && o.Product_Type_ID == itemchoice
+                                                                  select new SelectListItem
+                                                                  {
+                                                                      Value = o.Order_Size_ID.ToString(),
+                                                                      Text = o.Order_Size.ToString() + " inches" + " - " + o.Number_Of_Layers.ToString() + " layers"
+                                                                  };
 
             IEnumerable<SelectListItem> selectListQueryPie = from o in orderSizeList
                                                              where o.Number_Of_Layers == 0 && o.Product_Type_ID == itemchoice
@@ -217,6 +233,7 @@ namespace TYHBOrderSystem.Controllers
                 {
                     int tempChoice = int.Parse(itemchoice);
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
                     return View();
                 }
                 else if(itemchoice == "5")
@@ -251,6 +268,8 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
                     return View();
                 }
+
+                /*
                 else if(itemchoice == "10")
                 {
                     int tempChoice = int.Parse(itemchoice);
@@ -271,7 +290,7 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.DietResitrictionSearch = db.Products.Where(model => model.RestrictionId.Equals(_search)).Where(model => model.TypeId.Equals(tempChoice));
                     ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text"); 
                     return View();
-                }
+                }*/
 
             }
 
@@ -388,13 +407,24 @@ namespace TYHBOrderSystem.Controllers
                 return HttpNotFound();
             }
 
+            //Product Categories for View
+            var productCategoriesList = db.ProductTypes.ToList();
 
-            
             //Order_Size_ID toList for data mutation for View Display
             var orderSizeList = db.OrderSizes.ToList();
             var categoryList = db.Products.ToList();
             string tempProductID = order.PRODUCT.TypeId.ToString();
 
+            //Select List Product Categories (Not to show, Sheet Cake, Buns, Cupcakes due to lack of 'Product' in DB)
+            IEnumerable<SelectListItem> selectProductCategories = from o in productCategoriesList
+                                                                  where o.Id <= 9
+                                                                  select new SelectListItem
+                                                                  {
+                                                                      Value = o.Id.ToString(),
+                                                                      Text = o.Name.ToString()
+                                                                  };
+            //For View to Show Items (Not to show, Sheet Cake, Buns, Cupcakes due to lack of 'Product' in DB)
+            ViewBag.Product_ID = selectProductCategories;
 
             //Select List Items for Order Sizes with Layers
             IEnumerable<SelectListItem> selectListQueryCakes = from o in orderSizeList
@@ -450,6 +480,7 @@ namespace TYHBOrderSystem.Controllers
 
                 case 4:
                     ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
+                    ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
                     break;
 
                 case 5:
@@ -474,6 +505,7 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
                     break;
 
+                /*
                 case 10:
                     ViewBag.Order_Size_ID = new SelectList(selectListQueryCakes, "Value", "Text");
                     ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
@@ -488,6 +520,7 @@ namespace TYHBOrderSystem.Controllers
                     ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
                     ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
                     break;
+                */
 
                 default:
                     ViewBag.Order_Size_ID = null;
@@ -497,7 +530,7 @@ namespace TYHBOrderSystem.Controllers
             }
 
             
-            ViewBag.Product_ID = new SelectList(db.ProductTypes, "Id", "Name", order.PRODUCT.TypeId);
+            //ViewBag.Product_ID = new SelectList(db.ProductTypes, "Id", "Name", order.PRODUCT.TypeId);
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Name", order.Ingredient_ID);
@@ -535,9 +568,14 @@ namespace TYHBOrderSystem.Controllers
                 existingOrder.PRODUCT.Product_Flavor = chosenProductFlavorValue;
                 existingOrder.PRODUCT.TypeId = tempChosenTypeID;
 
-                //Order Size
-                int updatedOrderSize = order.Order_Size_ID.GetValueOrDefault();
-                existingOrder.Order_Size_ID = updatedOrderSize;
+                if(order.Order_Size_ID != null)
+                {
+                    //Order Size
+                    int updatedOrderSize = order.Order_Size_ID.GetValueOrDefault();
+                    existingOrder.Order_Size_ID = updatedOrderSize;
+                }
+
+                
 
                 //Ingredient_ID
                 int updatedIngredientID = order.Ingredient_ID.GetValueOrDefault();

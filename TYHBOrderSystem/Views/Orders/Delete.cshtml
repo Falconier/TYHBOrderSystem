@@ -34,11 +34,11 @@
         <dd>
             @Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
         </dd>
-
+        <!--
         <dt>
-            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+            *@@Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
         </dt>
-
+    -->
         <dd>
             @Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
         </dd>
@@ -74,15 +74,15 @@
         <dd>
             @Html.DisplayFor(model => model.PickUp_Time)
         </dd>
+        <!---
+    <dt>
+        *@@Html.DisplayNameFor(model => model.Product_Type_ID)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Product_Type_ID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Product_Type_ID)
-        </dd>
-
+    <dd>
+        *@@Html.DisplayFor(model => model.Product_Type_ID)
+    </dd>
+    -->
         <dt>
             @Html.DisplayNameFor(model => model.Ingredient_Substitution)
         </dt>
@@ -106,15 +106,15 @@
         <dd>
             @Html.DisplayFor(model => model.Additional_Comments)
         </dd>
-
+    <!--
         <dt>
-            @Html.DisplayNameFor(model => model.Finishing_ID)
+            *@@Html.DisplayNameFor(model => model.Finishing_ID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Finishing_ID)
+            *@@Html.DisplayFor(model => model.Finishing_ID)
         </dd>
-
+    -->
     </dl>
 
     @using (Html.BeginForm()) {
