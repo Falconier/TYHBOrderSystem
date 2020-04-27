@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Deployment.Internal;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -374,7 +376,7 @@ namespace TYHBOrderSystem.Controllers
         }
 
         // GET: Orders/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, string itemchoice)
         {
             if (id == null)
             {
@@ -386,6 +388,8 @@ namespace TYHBOrderSystem.Controllers
                 return HttpNotFound();
             }
 
+
+            
             //Order_Size_ID toList for data mutation for View Display
             var orderSizeList = db.OrderSizes.ToList();
             var categoryList = db.Products.ToList();
@@ -450,6 +454,7 @@ namespace TYHBOrderSystem.Controllers
 
                 case 5:
                     ViewBag.Order_Size_ID = new SelectList(selectListQueryDefault, "Value", "Text");
+                    ViewBag.Product_Flavor = new SelectList(selectListFlavorCategory, "Value", "Text");
                     break;
 
                 case 6:
@@ -510,40 +515,72 @@ namespace TYHBOrderSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Get Order to Update Existing Order
+                var existingOrder = db.Orders.Find(order.ORDER_ID);
+
                 //Product ID
-                string chosenProductID = form["Product_ID"];
-                int tempChosenProductID = int.Parse(chosenProductID);
-                Product productChoice = new Product();
-                order.PRODUCT = productChoice;
-																//order.PRODUCT.ProductId
+                string chosenID = form["Product_ID"];
+                int tempChosenID = int.Parse(chosenID);
+                Product productChoice = db.Products.Find(tempChosenID);
+                existingOrder.PRODUCT = productChoice;
 
                 //Product Flavor
-                string chosenProduct = form["Product_Flavor"];
-                int tempChosenTypeID = int.Parse(chosenProduct);
-                
+                string chosenTypeID = form["Product_Flavor"];
+                int tempChosenTypeID = int.Parse(chosenTypeID);
 
                 var chosenProductFlavorquery = from f in db.Products
                                                where f.TypeId == tempChosenTypeID
                                                select f.Product_Flavor;
                 string chosenProductFlavorValue = chosenProductFlavorquery.FirstOrDefault().ToString();
-                order.PRODUCT.Product_Flavor = chosenProductFlavorValue;
+                existingOrder.PRODUCT.Product_Flavor = chosenProductFlavorValue;
+                existingOrder.PRODUCT.TypeId = tempChosenTypeID;
 
+                //Order Size
+                int updatedOrderSize = order.Order_Size_ID.GetValueOrDefault();
+                existingOrder.Order_Size_ID = updatedOrderSize;
 
+                //Ingredient_ID
+                int updatedIngredientID = order.Ingredient_ID.GetValueOrDefault();
+                existingOrder.Ingredient_ID = updatedIngredientID;
+
+                //Ingredient Substition Name
+                var chosenIngredientSubDesriptionQuery = from f in db.Ingredients
+                                                         where f.Ingredient_ID == updatedIngredientID
+                                                         select f.Ingredient_Name;
+                string chosenIngredientSubDesriptionValue = chosenIngredientSubDesriptionQuery.FirstOrDefault().ToString();
+                existingOrder.Ingredient_Substitution = chosenIngredientSubDesriptionValue;
 
                 //Order Date
                 DateTime currentDate = DateTime.Now;
                 string orderDate = currentDate.ToString("MM/dd/yyyy");
-                order.Order_Date = orderDate;
+                existingOrder.Order_Date = orderDate;
 
                 //Order Time
                 DateTimeOffset currentTime = DateTimeOffset.Now;
-                order.Order_Time = currentTime;
+                existingOrder.Order_Time = currentTime;
+
+                //Pick_Up Date
+                string pickUpDate = order.PickUp_Due_Date;
+                existingOrder.PickUp_Due_Date = pickUpDate;
+
+                //Pick_Up Time
+                string pickUpTime = order.PickUp_Time;
+                existingOrder.PickUp_Time = pickUpTime;
+
+                //Decoration Comments
+                string decComments = order.Decoration_Comments;
+                existingOrder.Decoration_Comments = decComments;
+
+                //Add Comments
+                string addComments = order.Additional_Comments;
+                existingOrder.Additional_Comments = addComments;
 
 
-                db.Entry(order).State = EntityState.Modified;
+                db.Entry(existingOrder).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = order.ORDER_ID });
             }
+
             ViewBag.Customer_ID = new SelectList(db.Customers, "Customer_ID", "Customer_First_Name", order.Customer_ID);
             ViewBag.Employee_ID = new SelectList(db.Employees, "Employee_ID", "Emp_First_Name", order.Employee_ID);
             ViewBag.Ingredient_ID = new SelectList(db.Ingredients, "Ingredient_ID", "Ingredient_Type", order.Ingredient_ID);

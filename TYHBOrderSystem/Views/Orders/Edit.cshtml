@@ -20,10 +20,6 @@
     @Html.HiddenFor(model => model.ORDER_ID)
     @Html.HiddenFor(model=> model.Customer_ID)
     @Html.HiddenFor(model=> model.Employee_ID)
-   
-    
-   
-
 
     <h4>Customer Information</h4>
     <hr />
@@ -90,8 +86,8 @@
         <div class="form-group col-md-4">
             @Html.LabelFor(model => model.PRODUCT.ProductId, "Product Choice", htmlAttributes: new { @class = "control-label col-md-10" })
             <div class="col-md-10">
-                @Html.DropDownList("Product_ID", null, htmlAttributes: new { @class = "form-control", disabled="disabled" })
-                @Html.HiddenFor(model => model.PRODUCT.ProductId)
+                @Html.DropDownList("Product_ID", null, htmlAttributes: new { @class = "form-control", enabled="false"})
+                @Html.HiddenFor(model => model.PRODUCT.TypeId)
                 @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
             </div>
         </div>
