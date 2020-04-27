@@ -1,19 +1,19 @@
-﻿@using PagedList;
-@using PagedList.Mvc;
-@model IPagedList<TYHBOrderSystem.Models.Product>
+﻿@model IEnumerable<TYHBOrderSystem.Models.Product>
 
 @{
 				ViewBag.Title = "Index";
 }
 
 @*<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />*@
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
+<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 
-<h2>Index</h2>
+<h2 class="titleBar">Products List</h2>
+
 <button class="btn btn-block btn-sm btn-outline-primary">
 				@Html.ActionLink("Create New", "Create")
 </button>
-<table id="ProductTable" class="table orderTable">
+<table id="orderTable" class="table table-bordered dataTable orderTable">
 				<tr>
 								<th>
 												Name
@@ -89,4 +89,25 @@
 				}
 
 </table>
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+@section scripts
+{
+				@Scripts.Render("~/bundles/jqueryval")
+
+				<script src="~/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+				<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+				<script>
+								$(function () {
+												$('.orderTable').dataTable(
+																{
+																				'paging': true,
+																				'lengthChange': false,
+																				'pageLength': 10,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': false
+																})
+								});
+				</script>
+}
