@@ -303,3 +303,86 @@ table.orderTable {
 .dropdown:hover .dropdown-content {
 				display: block;
 }
+
+
+/*REPORTS*/
+
+#searchList {
+				
+				background-color: #c1d867;
+				padding: 10px;
+				border: 5px outset solid #6788D8;
+				border-radius: 20px;
+}
+
+#reportHeader {
+				width: 100%;
+				text-align: center;
+				background-color: #c1d867;
+				padding: 10px;
+				border: 5px outset solid #6788D8;
+				border-radius: 20px;
+}
+
+table.reportsTable {
+				border: 5px solid #C1D867;
+				background-color: #F7FAEC;
+				width: 100%;
+				text-align: left;
+				border-collapse: collapse;
+}
+
+				table.reportsTable td, table.reportsTable th {
+								border: 1px solid #AAAAAA;
+								padding: 3px 2px;
+				}
+
+				table.reportsTable tbody td {
+								font-size: 16px;
+								font-weight: bold;
+								color: #68391A;
+				}
+
+				table.reportsTable tr:nth-child(even) {
+								background: #ECFAF6;
+				}
+
+				table.reportsTable thead {
+								background: #C1D867;
+				}
+
+								table.reportsTable thead th {
+												font-size: 19px;
+												font-weight: bold;
+												color: #68391A;
+												text-align: left;
+								}
+
+				table.reportsTable tfoot {
+								font-size: 13px;
+								font-weight: bold;
+								color: #FFFFFF;
+								background: #C1D867;
+				}
+
+								table.reportsTable tfoot td {
+												font-size: 13px;
+								}
+
+								table.reportsTable tfoot .links {
+												text-align: right;
+								}
+
+												table.reportsTable tfoot .links a {
+																display: inline-block;
+																background: #68391A;
+																color: #C1D867;
+																padding: 20px 8px;
+																border-radius: 2px;
+												}
+
+
+
+
+
+

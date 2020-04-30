@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
 
 
+<head>
+				<title>Daily Orders</title>
+				<link href="~/Assets/dist/css/adminlte.min.css" />
+				<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+				<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+				@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
+</head>
+
 @{
 				ViewBag.Title = "Daily Report";
 
@@ -11,9 +19,12 @@
 
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
-<h2> DAILY Report</h2>
 
-<table id="InformationTable" class="table table-bordered">
+<h2 class="titleBar">DAILY Report</h2>
+
+
+
+<table id="reportsTable" class="table table-bordered dataTable orderTable">
 				<tr>
 
 								<th>
@@ -83,7 +94,7 @@
 																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 																<td>
-																				@Html.ActionLink("More Details", "Details", new { id=item.ORDER_ID }) 
+																				@Html.ActionLink("More Details", "Details", new { id = item.ORDER_ID })
 																</td>
 												</tr>
 								}
@@ -95,51 +106,3 @@
 </table>
 
 
-@section Scripts{
-				<script>
-								function sortTable(n) {
-												var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-												table = model.getElementById("InformationTable");
-												switching = true;
-												dir = "asc";
-
-												while (switching) {
-																switching = false;
-																rows = table.rows;
-
-																for (i = 1; i < (rows.length - 1); i++) {
-
-																				shouldSwitch = false;
-
-																				x = rows[i].getElementsByTagName("TD")[n];
-																				y = rows[i + 1].getElementsByTagName("TD")[n];
-
-																				if (dir == "asc") {
-																								if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-																												shouldSwitch = true;
-																												break;
-																												break;
-																								}
-																				} else if (dir == "desc") {
-																								if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-
-																												shouldSwitch = true;
-																												break;
-																								}
-																				}
-																}
-																if (shouldSwitch) {
-
-																				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-																				switching = true;
-																				switchcount++;
-																} else {
-																				if (switchcount == 0 && dir == "asc") {
-																								dir = "desc";
-																								switching = true;
-																				}
-																}
-												}
-								}
-				</script>
-}

@@ -5,12 +5,22 @@
 				ViewBag.Title = "OldOrderData";
 }
 
+<head>
+				<title>Daily Orders</title>
+				<link href="~/Assets/dist/css/adminlte.min.css" />
+				<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+				<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+				@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
+</head>
+
 <link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
 
 
+<h2 class="titleBar"> OLD ORDER DATA</h2>
+
 <form asp-controller="Data" asp-action="OldOrderData" method="get">
 				<div class="form-row">
-								<div class="form-group col-md-4">
+								<div id ="searchList" class="form-group col-md-4">
 												SEARCH BY:
 												<div class="form-group col-md-10">
 																@Html.RadioButton("searching", "1", true) [Customer First-Name]
@@ -44,9 +54,9 @@ select asp-for="Order_Date" asp-items="Model.Order">
 				<option value="">All</option>
 select>-->
 
-<h2> OLD ORDER DATA</h2>
 
-<table id="InformationTable" class="table table-bordered">
+
+<table id="reportsTable" class="table table-bordered dataTable orderTable">
 				<tr>
 
 								<th>
@@ -116,7 +126,7 @@ select>-->
 																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 																<td>
-																				@Html.ActionLink("More Details", "Details", new { id=item.ORDER_ID }) 
+																				@Html.ActionLink("More Details", "Details", new { id = item.ORDER_ID })
 																</td>
 												</tr>
 								}
