@@ -20,7 +20,7 @@
 
 <form asp-controller="Data" asp-action="OldOrderData" method="get">
 				<div class="form-row">
-								<div id ="searchList" class="form-group col-md-4">
+								<div id="searchList" class="form-group col-md-4">
 												SEARCH BY:
 												<div class="form-group col-md-10">
 																@Html.RadioButton("searching", "1", true) [Customer First-Name]
@@ -60,19 +60,19 @@ select>-->
 				<tr>
 
 								<th>
-												<h3>[Orderplaced-Info]</h3>
+												<h3>Orderplaced-Info</h3>
 								</th>
 								<th>
-												<h3>[Pickup-Info]</h3>
+												<h3>Pickup-Info</h3>
 								</th>
 								<th>
-												<h3>[Product-Info]</h3>
+												<h3>Product-Info</h3>
 								</th>
 								<th>
-												<h3>[Customer-Info]</h3>
+												<h3>Customer-Info</h3>
 								</th>
 								<th>
-												<h3>[Employee-Info]</h3>
+												<h3>Employee-Info</h3>
 								</th>
 
 				</tr>
@@ -83,46 +83,46 @@ select>-->
 								{
 												<tr>
 																<td>
-																				<b>(Order Date)</b><br />
+																				<b>Order Date: </b>
 																				@Html.DisplayFor(model => item.Order_Date)<br />
-																				<b>(Order Time)</b><br />
+																				<b>Order Time:</b><br />
 																				@Html.DisplayFor(model => item.Order_Time)<br />
-																				<b>(Order-ID)</b><br />
+																				<b>Order-ID: </b>
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				<b>(Pickup Date)</b><br />
+																				<b>Pickup Date:</b><br />
 																				@Html.DisplayFor(model => item.PickUp_Due_Date)<br />
-																				<b>(Pickup Time)</b><br />
+																				<b>Pickup Time: </b>
 																				@Html.DisplayFor(model => item.PickUp_Time)<br />
-																				<b>(Order-ID)</b><br />
+																				<b>Order-ID: </b>
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				<b>(Product-ID)</b><br /> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
-																				<b>(Flavor)</b><br />
+																				<b>Product-ID: </b> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
+																				<b>Flavor:</b><br />
 																				@Html.DisplayFor(model => item.PRODUCT.Product_Flavor)
-																				<br /><b>(Ingredient-Substitution</b><br />
+																				<br /><b>Ingredient-Substitution:</b><br />
 																				@Html.DisplayFor(model => item.Ingredient_Substitution)
-																				<br /><b>(Dietary-Restriction)</b><br />
+																				<br /><b>Dietary-Restriction: </b>
 																				@Html.DisplayFor(model => item.PRODUCT.Restriction.RestrictionName)
 
 																</td>
 																<td>
-																				<b>(Customer Name)</b><br />
+																				<b>Customer Name:</b><br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
-																				<br /><b>(Info)</b><br />
+																				<br /><b>Info:</b><br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Contact_Number)
 																				<br />@Html.DisplayFor(model => item.CUSTOMER.Email_Address)
 																				<br />@Html.DisplayFor(model => item.CUSTOMER.Alternate_Contact_Number)
 
 																</td>
 																<td>
-																				<b>(Employee Name)</b><br />
+																				<b>Employee Name:</b><br />
 																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_First_Name)
 																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_Last_Name)
-																				<br /><b>(Employee-ID)</b><br />
+																				<br /><b>Employee-ID: </b>
 																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 																<td>
