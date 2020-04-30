@@ -328,13 +328,17 @@ table.reportsTable {
 				border: 5px solid #C1D867;
 				background-color: #F7FAEC;
 				width: 100%;
-				text-align: left;
+				text-align: center;
 				border-collapse: collapse;
 }
 
 				table.reportsTable td, table.reportsTable th {
 								border: 1px solid #AAAAAA;
 								padding: 3px 2px;
+				}
+
+				table.reportsTable. b {
+								color: #68391a;
 				}
 
 				table.reportsTable tbody td {
