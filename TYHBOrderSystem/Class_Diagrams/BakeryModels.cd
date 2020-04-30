@@ -1,76 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TYHBOrderSystem.Models.Customer">
+  <Class Name="TYHBOrderSystem.Models.Customer" Collapsed="true">
     <Position X="9.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAEAAAAAAAIAAAAIAAAAABAAAQABAABAAA=</HashCode>
       <FileName>Models\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.DietaryRestriction">
+  <Class Name="TYHBOrderSystem.Models.DietaryRestriction" Collapsed="true">
     <Position X="3.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Models\DietaryRestriction.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.Employees">
+  <Class Name="TYHBOrderSystem.Models.Employees" Collapsed="true">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAEAAAAAAAAAEAAAAAAAAAAAAAAAIAAQAAAAAAAAAEA=</HashCode>
       <FileName>Models\Employees.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.FinishingsType">
+  <Class Name="TYHBOrderSystem.Models.FinishingsType" Collapsed="true">
     <Position X="5.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Models\FinishingsType.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.Ingredient">
+  <Class Name="TYHBOrderSystem.Models.Ingredient" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAAAAQAgAAAAAAAAAQABAAAAAgAABAAA=</HashCode>
       <FileName>Models\Ingredient.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.Order">
+  <Class Name="TYHBOrderSystem.Models.Order" Collapsed="true">
     <Position X="1.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAIAAAABAEAAAAAAgRBAAAKAQAASIAABAAAACACEA=</HashCode>
       <FileName>Models\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.OrderSizes">
+  <Class Name="TYHBOrderSystem.Models.OrderSizes" Collapsed="true">
     <Position X="1.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAEACAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Models\OrderSizes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.Product">
+  <Class Name="TYHBOrderSystem.Models.Product" Collapsed="true">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>GAAEAAAAAAAAEAgAACAAAAAAAAAAAAAgAQCAAAABAAA=</HashCode>
       <FileName>Models\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.ProductFinishings">
+  <Class Name="TYHBOrderSystem.Models.ProductFinishings" Collapsed="true">
     <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAACAAAAAAAQQAAAAAAAAAAAAAAAAAIAAABAAA=</HashCode>
       <FileName>Models\ProductFinishings.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.ProductType">
+  <Class Name="TYHBOrderSystem.Models.ProductType" Collapsed="true">
     <Position X="3.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ProductType.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TYHBOrderSystem.Models.Vendor">
+  <Class Name="TYHBOrderSystem.Models.Vendor" Collapsed="true">
     <Position X="7.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAACAAAAAAIAAAAIQAAIAAAAAAAAAAAAAAAAgAQAAgA=</HashCode>
