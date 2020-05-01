@@ -1,88 +1,113 @@
-﻿ @model IEnumerable<TYHBOrderSystem.Models.Product>
+﻿@model IEnumerable<TYHBOrderSystem.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+				ViewBag.Title = "Index";
 }
 
-<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
+@*<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />*@
+<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 
-<h2>Index</h2>
-				<button  class="btn btn-block btn-sm btn-outline-primary">
-								@Html.ActionLink("Create New", "Create")
-				</button>
-								<table id="ProductTable" class="table">
-												<tr>
-																<th>
-																				@Html.DisplayNameFor(model => model.Type.Name)
-																</th>
-																<th>
-																				@Html.DisplayNameFor(model => model.RestrictionId)
-																</th>
-																<th>
-																				@Html.DisplayNameFor(model => model.Product_Flavor)
-																</th>
-																<th>
-																				@Html.DisplayNameFor(model => model.Product_Description)
-																</th>
-																@*<th>
+<h2 class="titleBar">Products List</h2>
+
+<button class="btn btn-block btn-sm btn-outline-primary">
+				@Html.ActionLink("Create New", "Create")
+</button>
+ <table id="orderTable" class="table table-bordered dataTable orderTable">
+				<tr>
+								<th>
+												Name
+								</th>
+								<th>
+												Dietary Restriction
+								</th>
+								<th>
+												Product Flavor
+								</th>
+								<th>
+												Product Description
+								</th>
+								@*<th>
 																@Html.DisplayNameFor(model => model.Seasonal)
 												</th>*@
-																<th></th>
-												</tr>
+								<th></th>
+				</tr>
 
-												@foreach (var item in Model)
-												{
-																if (item.Seasonal)
-																{
-																				<tr style="background-color:#f5d9e1">
-																								<td>
-																												@Html.DisplayFor(modelItem => item.Type.Name)
-																								</td>
-																								<td>
-																												@Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
-																								</td>
-																								<td>
-																												@Html.DisplayFor(modelItem => item.Product_Flavor)
-																								</td>
-																								<td>
-																												@Html.DisplayFor(modelItem => item.Product_Description)
-																								</td>
-																								@*<td>
+				@foreach (var item in Model)
+				{
+								if (item.Seasonal)
+								{
+												<tr style="background-color:#f5d9e1">
+																<td>
+																				@Html.DisplayFor(modelItem => item.Type.Name)
+																</td>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
+																</td>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Product_Flavor)
+																</td>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Product_Description)
+																</td>
+																@*<td>
 																								@Html.DisplayFor(modelItem => item.Seasonal)
 																				</td>*@
-																								<td>
-																												@Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-																												@Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
-																												@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
-																								</td>
-																				</tr>
+																<td>
+																				@Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+																				@Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+																				@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+																</td>
+												</tr>
 
-																}
-																else
+								}
+								else
+								{
+												<tr>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Type.Name)
+																</td>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
+																</td>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Product_Flavor)
+																</td>
+																<td>
+																				@Html.DisplayFor(modelItem => item.Product_Description)
+																</td>
+																@*<td>
+																								@Html.DisplayFor(modelItem => item.Seasonal)
+																				</td>*@
+																<td>
+																				@Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+																				@Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+																				@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+																</td>
+												</tr>
+								}
+				}
+
+</table>
+
+@section scripts
+{
+				@Scripts.Render("~/bundles/jqueryval")
+
+				<script src="~/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+				<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+				<script>
+								$(function () {
+												$('.orderTable').dataTable(
 																{
-																<tr>
-																				<td>
-																								@Html.DisplayFor(modelItem => item.Type.Name)
-																				</td>
-																				<td>
-																								@Html.DisplayFor(modelItem => item.Restriction.RestrictionName)
-																				</td>
-																				<td>
-																								@Html.DisplayFor(modelItem => item.Product_Flavor)
-																				</td>
-																				<td>
-																								@Html.DisplayFor(modelItem => item.Product_Description)
-																				</td>
-																				@*<td>
-																				@Html.DisplayFor(modelItem => item.Seasonal)
-																</td>*@
-																				<td>
-																								@Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
-																								@Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
-																								@Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
-																				</td>
-																</tr>
-																				}
-																}
-
-								</table>
+																				'paging': true,
+																				'lengthChange': false,
+																				'pageLength': 10,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': false
+																})
+								});
+				</script>
+}

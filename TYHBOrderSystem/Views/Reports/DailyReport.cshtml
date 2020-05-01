@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
 
 
+<head>
+				<title>Daily Orders</title>
+				<link href="~/Assets/dist/css/adminlte.min.css" />
+				<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+				<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+				@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
+</head>
+
 @{
 				ViewBag.Title = "Daily Report";
 
@@ -11,25 +19,28 @@
 
 
 <!-- NEED ORDER DATA TO PULL FROM DATABASE-->
-<h2> DAILY Report</h2>
 
-<table id="InformationTable" class="table table-bordered">
+<h2 class="titleBar">DAILY Report</h2>
+
+
+
+<table id="reportsTable" class="table table-bordered dataTable orderTable">
 				<tr>
 
 								<th>
-												<h3>[Orderplaced-Info]</h3>
+												<h3>Orderplaced-Info</h3>
 								</th>
 								<th>
-												<h3>[Pickup-Info]</h3>
+												<h3>Pickup-Info</h3>
 								</th>
 								<th>
-												<h3>[Product-Info]</h3>
+												<h3>Product-Info</h3>
 								</th>
 								<th>
-												<h3>[Customer-Info]</h3>
+												<h3>Customer-Info</h3>
 								</th>
 								<th>
-												<h3>[Employee-Info]</h3>
+												<h3>Employee-Info</h3>
 								</th>
 
 				</tr>
@@ -40,50 +51,50 @@
 								{
 												<tr>
 																<td>
-																				<b>(Order Date)</b><br />
+																				<b>Order Date: </b>
 																				@Html.DisplayFor(model => item.Order_Date)<br />
-																				<b>(Order Time)</b><br />
+																				<b>Order Time:</b><br />
 																				@Html.DisplayFor(model => item.Order_Time)<br />
-																				<b>(Order-ID)</b><br />
+																				<b>Order-ID: </b>
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				<b>(Pickup Date)</b><br />
+																				<b>Pickup Date:</b><br />
 																				@Html.DisplayFor(model => item.PickUp_Due_Date)<br />
-																				<b>(Pickup Time)</b><br />
+																				<b>Pickup Time: </b>
 																				@Html.DisplayFor(model => item.PickUp_Time)<br />
-																				<b>(Order-ID)</b><br />
+																				<b>Order-ID: </b>
 																				@Html.DisplayFor(model => item.ORDER_ID)
 																</td>
 																<td>
-																				<b>(Product-ID)</b><br /> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
-																				<b>(Flavor)</b><br />
+																				<b>Product-ID: </b> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
+																				<b>Flavor:</b><br />
 																				@Html.DisplayFor(model => item.PRODUCT.Product_Flavor)
-																				<br /><b>(Ingredient-Substitution</b><br />
+																				<br /><b>Ingredient-Substitution:</b><br />
 																				@Html.DisplayFor(model => item.Ingredient_Substitution)
-																				<br /><b>(Dietary-Restriction)</b><br />
+																				<br /><b>Dietary-Restriction: </b>
 																				@Html.DisplayFor(model => item.PRODUCT.Restriction.RestrictionName)
 
 																</td>
 																<td>
-																				<b>(Customer Name)</b><br />
+																				<b>Customer Name:</b><br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
 																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
-																				<br /><b>(Info)</b><br />
+																				<br /><b>Info:</b><br />
 																				@Html.DisplayFor(model => item.CUSTOMER.Contact_Number)
 																				<br />@Html.DisplayFor(model => item.CUSTOMER.Email_Address)
 																				<br />@Html.DisplayFor(model => item.CUSTOMER.Alternate_Contact_Number)
 
 																</td>
 																<td>
-																				<b>(Employee Name)</b><br />
+																				<b>Employee Name:</b><br />
 																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_First_Name)
 																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_Last_Name)
-																				<br /><b>(Employee-ID)</b><br />
+																				<br /><b>Employee-ID: </b>
 																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
 																</td>
 																<td>
-																				@Html.ActionLink("More Details", "Details", new { id=item.ORDER_ID }) 
+																				@Html.ActionLink("More Details", "Details", new { id = item.ORDER_ID })
 																</td>
 												</tr>
 								}
@@ -95,51 +106,3 @@
 </table>
 
 
-@section Scripts{
-				<script>
-								function sortTable(n) {
-												var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-												table = model.getElementById("InformationTable");
-												switching = true;
-												dir = "asc";
-
-												while (switching) {
-																switching = false;
-																rows = table.rows;
-
-																for (i = 1; i < (rows.length - 1); i++) {
-
-																				shouldSwitch = false;
-
-																				x = rows[i].getElementsByTagName("TD")[n];
-																				y = rows[i + 1].getElementsByTagName("TD")[n];
-
-																				if (dir == "asc") {
-																								if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-																												shouldSwitch = true;
-																												break;
-																												break;
-																								}
-																				} else if (dir == "desc") {
-																								if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-
-																												shouldSwitch = true;
-																												break;
-																								}
-																				}
-																}
-																if (shouldSwitch) {
-
-																				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-																				switching = true;
-																				switchcount++;
-																} else {
-																				if (switchcount == 0 && dir == "asc") {
-																								dir = "desc";
-																								switching = true;
-																				}
-																}
-												}
-								}
-				</script>
-}
