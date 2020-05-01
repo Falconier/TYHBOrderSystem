@@ -1,0 +1,83 @@
+﻿@model TYHBOrderSystem.Models.View_Models.CustomerViewModels
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 class="titleBar">Customer Information</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <!--Firstname &&& LastName-->
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.FirstName, "Customer First Name", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name"} })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.LastName, "Customer Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <!--Contact Numbers-->
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.PrimarymNum, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrimarymNum, new { htmlAttributes = new { @class = "form-control", placeholder = "Primary Contact Number"} })
+                @Html.ValidationMessageFor(model => model.PrimarymNum, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            @Html.LabelFor(model => model.AlternativeNum, "Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AlternativeNum, new { htmlAttributes = new { @class = "form-control", placeholder="Alternate Contact Number" } })
+                @Html.ValidationMessageFor(model => model.AlternativeNum, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <!--Email-->
+    <div class="form-group">
+        @Html.LabelFor(model => model.EmailAddress, "Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EmailAddress,  new { htmlAttributes = new { @class = "form-control col-md-10", placeholder="Email Address" } })
+            @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <!--Allergy Description-->
+    <div class="form-group">
+        @Html.LabelFor(model => model.AllergyDesc, "Allergy Description", htmlAttributes: new { @class = "control-label col-md-10" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.AllergyDesc, 5, 80, new { htmlAttributes = new { @class = "control-text-area"} })
+            @Html.ValidationMessageFor(model => model.AllergyDesc, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create Order" asp-action="CreateForOrder" formmethod="post" class="btn btn-TYHBGreen" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

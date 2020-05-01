@@ -1,0 +1,114 @@
+﻿@model TYHBOrderSystem.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTOMER.Customer_First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTOMER.Customer_First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.Emp_First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.Emp_First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INGREDIENT.Ingredient_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INGREDIENT.Ingredient_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDER_SIZES.Product_Type_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDER_SIZES.Product_Type_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUp_Due_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUp_Due_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUp_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUp_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ingredient_Substitution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ingredient_Substitution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Decoration_Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Decoration_Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Additional_Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Additional_Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finishing_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finishing_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ORDER_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

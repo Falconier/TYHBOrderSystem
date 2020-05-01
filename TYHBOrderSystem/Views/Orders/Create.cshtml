@@ -1,293 +1,243 @@
 ﻿@model TYHBOrderSystem.Models.Order
 
 @{
-    ViewBag.Title = "Create";
+				ViewBag.Title = "Create";
 }
 <head>
-    <title>Order Form</title>
-    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    @*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
+				<title>Order Form</title>
+				<link href="~/Assets/dist/css/adminlte.min.css" />
+				<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+				<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+				@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
 </head>
 
-<h2>Create New Order</h2>
-
+<h2 class="titleBar">Create New Order</h2>
+<br />
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+				@Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+				<div class="form-horizontal">
 
-        <br/>
-        <h4>Customer Information</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+								@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <!--Customer First Name &&& Customer Last Name-->
-      <div class = "form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Customer_First_Name, "First Name", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Customer_First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_First_Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Customer_Last_Name, "Last Name", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Customer_Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Customer_Last_Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
+								<!--Order Details-->
+								<h4 class="minorTitleBar">Order Details</h4>
+								<hr />
 
-        <!-- Primary Phone Number &&& Alt Phone  Number-->
-      <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Contact_Number, "Primary Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Contact_Number, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.CUSTOMER.Alternate_Contact_Number, "Alternate Contact Number", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Alternate_Contact_Number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Alternate_Contact_Number, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
+								<!--- Category Type: Add more descriptive name than 'Categories"-->
+								<div class="form-group">
+												@Html.Label("Choose Item Category", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+												<div class="col-md-10">
+																@Html.DropDownList("itemchoice", new SelectList(ViewBag.ProductCategoryList, "Value", "Text"))
+												</div>
+								</div>
 
-        <!-- Email Address -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.CUSTOMER.Email_Address, "Email Address", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CUSTOMER.Email_Address, new { htmlAttributes = new { @class = "form-control col-md-10" } })
-                @Html.ValidationMessageFor(model => model.CUSTOMER.Email_Address, "", new { @class = "text-danger" })
-            </div>
-        </div>
+								<!-- Dietary Restritions: Format radio button CSS-->
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="form-group col-md-10">
+																				@Html.RadioButton("searching", "1", true) Gluten-Free
+																				@Html.RadioButton("searching", "2") Keto
+																				@Html.RadioButton("searching", "3") Paleo
+																</div>
+																<input type="submit" class="btn btn-TYHBGreen" value="Search" asp-action="Create" formmethod="get" />
+												</div>
+								</div>
 
+								<!---Table for Filter Results of 'Radio Buttons'-->
+								<table id="orderTable" class="table table-bordered dataTable orderTable">
+												<thead>
+																<tr>
+																				<!--<th scope="col">Product ID</th-->
+																				<!--<th scope="col">TypeID</th>-->
+																				<!--<th scope="col">RestrictionID</th>-->
+																				<!--<th scope="col">Seasonal</th>-->
+																				<th>Product Flavor</th>
+																				<th>Description</th>
+																				<th>Order Item</th>
+																</tr>
+												</thead>
+												<tbody>
+																@foreach (var item in ViewBag.DietResitrictionSearch)
+																{
+																				if (item.Seasonal == true)
+																				{
+																								//style = "background-color:#c1d867;"
+																								<tr style="background-color:#f5d9e1;">
+																												<!--<td>*@@item.ProductId</td>-->
+																												<!--<td>*@@item.RestrictionId</td>-->
+																												<td>@item.Product_Flavor **Seasonal**</td>
+																												<td>@item.Product_Description</td>
+																												<td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+																								</tr>
 
-        <!--Order Details-->
-         <br/>
-        <h4>Order Details</h4>
-        <hr/>
+																				}
+																				else
+																				{
+																								<tr>
+																												<!--<td>*@@item.ProductId</td>-->
+																												<!--<td>*@@item.RestrictionId</td>-->
+																												<td>@item.Product_Flavor</td>
+																												<td>@item.Product_Description</td>
+																												<td><input type="radio" name="chosenID" value="@item.ProductId" /></td>
+																								</tr>
+																				}
+																}
+												</tbody>
+								</table>
 
-        <!--- Category Type: Add more descriptive name than 'Categories"-->
-        <div class="form-group">
-            @Html.Label("Choose Item Category", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.DropDownList("itemchoice", new SelectList(ViewBag.ProductCategoryList, "Id", "Name"))
-            </div>
-        </div>
+								<!-- Ingredient Subsition, Drop Down Box NOTHING IN DB TO USE THIS AT ALL-->
+								<div class="form-group">
+												@Html.LabelFor(model => model.Ingredient_Substitution, "Ingredient Substitution", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+												<div id="ingredientsList">
+																@foreach (var ingredient in ViewBag.IngredientSub)
+																{
+																				<p class="col-md-10">
+																								@ingredient.Ingredient_Name
+																								<input type="radio" name="substitution" value="@ingredient.Ingredient_ID" />
+																				</p>
+																}
 
-      <!-- Dietary Restritions: Format radio button CSS-->
-      <div class= "form-row">
-          <div class="form-group col-md-4">
-              @Html.LabelFor(model => model.PRODUCT.Restriction, "Dietary Restriction", htmlAttributes: new { @class = "control-label col-md-10" })
-              <div class="form-group col-md-10">
-                  @Html.RadioButton("searching", "1") Gluten-Free
-                  @Html.RadioButton("searching", "2") Keto
-                  @Html.RadioButton("searching", "3") Paleo
-              </div>
-              <input type="submit" value="search" asp-action="Create" formmethod="get"/>
-          </div>
-      </div>
+																@Html.ValidationMessageFor(model => model.Ingredient_Substitution, "", new { @class = "text-danger" })
+												</div>
+								</div>
 
-        <!---Table for Filter Results of 'Radio Buttons'-->
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <!--<th scope="col">Product ID</th-->
-                    <!--<th scope="col">TypeID</th>-->
-                    <!--<th scope="col">RestrictionID</th>-->
-                    <th scope="col">Product Flavor</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Seasonal</th>
-                    <th scope="col">Order Item</th>
-                </tr>     
-            </thead>
+								<!-- Decoration Comments && Additional Comments-->
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.Decoration_Comments, "Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.TextAreaFor(model => model.Decoration_Comments, 5, 80, htmlAttributes: new { @class = "control-text-area", @style = "resize: none" })
+																				@Html.ValidationMessageFor(model => model.Decoration_Comments, "", new { @class = "text-danger" })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.Additional_Comments, "Additional Comments", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.TextAreaFor(model => model.Additional_Comments, 5, 80, htmlAttributes: new { @class = "control-text-area", @style = "resize: none" })
+																				@Html.ValidationMessageFor(model => model.Additional_Comments, "", new { @class = "text-danger" })
+																</div>
+												</div>
+								</div>
 
-            <tbody>
-                @foreach (var item in ViewBag.DietResitrictionSearch)
-                {
-                    <tr>
-                        <!--<td>*@@item.ProductId</td>-->
-                        <!--<td>*@@item.TypeId</td-->
-                        <!--<td>*@@item.RestrictionId</td>-->
-                        <td>@item.Product_Flavor</td>
-                        <td>@item.Product_Description</td>
-                        @if (item.Seasonal != false)
-                        {
-                            <td>@item.Seasonal</td> //if is seasonal change row color of entire item
-                        }
-                        else
-                        {
-                            <td> </td> //Don't show 'seasonal' if not true (will need to work on changing color of row if 'true' without showing row or col
-                        }
-                        <td>@Html.ActionLink("Order Item", "Create", new { id = item.ProductId })</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+								<!--Primary Key to grab Order_Size_ID-->
+								<div class="form-group">
+												@Html.LabelFor(model => model.Order_Size_ID, "Order Size", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+												<div class="col-md-10">
+																@Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
+																@Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
+												</div>
+								</div>
 
-        <!-- Ingredient Subsition, Drop Down Box NOTHING IN DB TO USE THIS AT ALL-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ingredient_Substitution, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ingredient_Substitution, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ingredient_Substitution, "", new { @class = "text-danger" })
-            </div>
-        </div>
+								<br />
+								<h4 class="minorTitleBar">Order Information</h4>
+								<hr />
 
-        <!-- Decoration Comments && Additional Comments-->
-      <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Decoration_Comments,"Decoration Comments", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Decoration_Comments, 5, 80, htmlAttributes: new { @class = "control-text-area" })
-                @Html.ValidationMessageFor(model => model.Decoration_Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Additional_Comments, "Additional Comments", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Additional_Comments, 5, 80, new { htmlAttributes = new { @class = "control-text-area" } })
-                @Html.ValidationMessageFor(model => model.Additional_Comments, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
+								<!--Order Date: DatePicker JS &&& Order Time-->
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.TextBox("CurrentDate", (object)ViewBag.CurrentDate, htmlAttributes: new { @class = "form-control", disabled = "disabled" })
+																				@Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.Order_Time, "Order Time", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.TextBox("CurrentTime", (object)ViewBag.CurrentTime, htmlAttributes: new { @class = "form-control", disabled = "disabled" })
+																				@Html.ValidationMessageFor(model => model.Order_Time, "", new { @class = "text-danger" })
+																</div>
+												</div>
+								</div>
 
-        <!--Primary Key to grab 'Num_Layers' or Other keys-->
-        <div class="form-group">
-            @Html.LabelFor(model => model.Order_Size_ID, "Order_Size_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Order_Size_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Order_Size_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+								<!-- Pickup Date: DatePicker JS &&& Pick Up Time-->
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.PickUp_Due_Date, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.EditorFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class = "datepicker col-md-10" } })
+																				@Html.ValidationMessageFor(model => model.PickUp_Due_Date, "", new { @class = "text-danger" })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.PickUp_Time, "Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.EditorFor(model => model.PickUp_Time, new { htmlAttributes = new { @class = "form-control" } })
+																				@Html.ValidationMessageFor(model => model.PickUp_Time, "", new { @class = "text-danger" })
+																</div>
+												</div>
+								</div>
 
-        <br/>
-        <h4>Order Information</h4>
-        <hr/>
+								<!-- Employee ID && Customer ID-->
+								<div class="form-row">
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.Employee_ID, "Employee Name", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.DropDownList("Employee_ID", null, htmlAttributes: new { @class = "form-control" })
+																				@Html.ValidationMessageFor(model => model.Employee_ID, "", new { @class = "text-danger" })
+																</div>
+												</div>
+												<div class="form-group col-md-4">
+																@Html.LabelFor(model => model.Customer_ID, "Customer Name", htmlAttributes: new { @class = "control-label col-md-10 subLabel" })
+																<div class="col-md-10">
+																				@Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
+																				@Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+																</div>
+												</div>
+								</div>
 
-      <!--Order Date: DatePicker JS &&& Order Time-->
-      <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Order_Date, "Order Date", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class ="orderdate col-md-10"} })
-                @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Order_Time, "Order Time", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Order_Time, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Order_Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
+								<!---TESTING VALIDATE WITH BUTTON
+								<input type="button" value="testing" id="test" />-->
 
-      <!-- Pickup Date: DatePicker JS &&& Pick Up Time-->
-      <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.PickUp_Due_Date, "Pick Up Date", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PickUp_Due_Date, new { htmlAttributes = new { @class ="datepicker col-md-10"} })
-                @Html.ValidationMessageFor(model => model.PickUp_Due_Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.PickUp_Time, "Pick-Up Time", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PickUp_Time, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PickUp_Time, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
+								<div class="form-group">
+												<div class="col-md-offset-2 col-md-10">
+																<input type="submit" value="Create" class="btn btn-TYHBGreen" />
+												</div>
+								</div>
+				</div>
 
-      <!-- Employee ID && Customer ID-->
-      <div class="form-row">
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Employee_ID, "Employee_ID", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.DropDownList("Employee_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Employee_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            @Html.LabelFor(model => model.Customer_ID, "Customer_ID", htmlAttributes: new { @class = "control-label col-md-10" })
-            <div class="col-md-10">
-                @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-      </div>
-
-        <!-- May not need Finishing_ID, commenting out for not needed for input, may need if table is still in use
-        <div class="form-group">
-            *@@Html.LabelFor(model => model.Finishing_ID, htmlAttributes: new { *@@class = "control-label col-md-2" })
-            <div class="col-md-10">
-                *@@Html.EditorFor(model => model.Finishing_ID, new { htmlAttributes = new { *@@class = "form-control" } })
-                *@@Html.ValidationMessageFor(model => model.Finishing_ID, "", new { *@@class = "text-danger" })
-            </div>
-        </div>
-        -->
-
-        <!-- Ingredient_ID no longer needed, Tables have been removed
-        <div class="form-group">
-            *@@Html.LabelFor(model => model.Ingredient_ID, "Ingredient_ID", htmlAttributes: new { *@@class = "control-label col-md-2" })
-            <div class="col-md-10">
-                *@@Html.DropDownList("Ingredient_ID", null, htmlAttributes: new { *@@class = "form-control" })
-                *@@Html.ValidationMessageFor(model => model.Ingredient_ID, "", new { *@@class = "text-danger" })
-            </div>
-        </div>
-            -->
-
-        <!--INT: Product Type ID specifies the product type for 'filtering'
-            Product_Type_ID Key removed from DB: it is not needed CW 3_16
-        <div class="form-group">
-            *@@Html.LabelFor(model => model.Product_Type_ID, htmlAttributes: new { *@@class = "control-label col-md-2" })
-            <div class="col-md-10">
-                *@@Html.EditorFor(model => model.Product_Type_ID, new { htmlAttributes = new { *@@class = "form-control" } })
-                *@@Html.ValidationMessageFor(model => model.Product_Type_ID, "", new { *@@class = "text-danger" })
-            </div>
-        </div>
-        -->
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@*<div>
+				@Html.ActionLink("Back to List", "Index")
+</div>*@
+
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+				@Scripts.Render("~/bundles/jqueryval")
 
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+				<script src="~/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+				<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 
-    <script>
-        $(function chooseDate() {
+				<script>
+								$(function chooseDate() {
 
-            $(".datepicker").datepicker({
-
-                dateFormat: "mm-dd-yy", //format date (For some reason when doing 'mm-dd-yyyy' it's outputting the year 'twice')
-                changeMonth: true, 
-                changeYear: true, 
-                yearRange: "-1: +5", //year range, -1 (2019) until 5 years from 2020
-                showOn: "both",
-                buttonText: "<i class='fa fa-calendar'></i>" //name in ' ' is file name from bootstrap css
-            });
-        });
-
-    </script>
+												$(".datepicker").datepicker({
+																dateFormat: "mm/dd/yy", //format date (For some reason when doing 'mm-dd-yyyy' it's outputting the year 'twice')
+																changeMonth: true,
+																changeYear: true,
+																yearRange: "-1: +5", //year range, -1 (2019) until 5 years from 2020
+																showOn: "both",
+																buttonText: "<i class='fa fa-calendar'></i>" //name in ' ' is file name from bootstrap css
+												})
+								});
+								$(function () {
+												$('.orderTable').dataTable(
+																{
+																				'paging': true,
+																				'lengthChange': false,
+																				'pageLength': 10,
+																				'searching': true,
+																				'ordering': true,
+																				'info': false,
+																				'autoWidth': false
+																})
+								});
+				</script>
 }
+
+

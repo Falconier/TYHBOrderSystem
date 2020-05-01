@@ -1,0 +1,140 @@
+﻿@model IEnumerable<TYHBOrderSystem.Models.Order>
+
+
+@{
+				ViewBag.Title = "OldOrderData";
+}
+
+<head>
+				<title>Daily Orders</title>
+				<link href="~/Assets/dist/css/adminlte.min.css" />
+				<link href="~/Content/TYHB_Themes/TYHB_Styles.css" rel="stylesheet" />
+				<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+				@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
+</head>
+
+<link rel="stylesheet" href="~/Assets/dist/css/adminlte.min.css" />
+
+
+<h2 class="titleBar"> OLD ORDER DATA</h2>
+
+<form asp-controller="Data" asp-action="OldOrderData" method="get">
+				<div class="form-row">
+								<div id="searchList" class="form-group col-md-4">
+												SEARCH BY:
+												<div class="form-group col-md-10">
+																@Html.RadioButton("searching", "1", true) [Customer First-Name]
+																<br />@Html.RadioButton("searching", "2") [Customer Last-Name]
+																<br />@Html.RadioButton("searching", "3") [Order-Date]
+																<br />@Html.RadioButton("searching", "4") [Pickup-Date]
+																<!--		<br />Html.RadioButton("searching", "5") [Order-ID]
+																						<br />Html.RadioButton("searching", "6") [Employee-ID]-->
+																<br />@Html.RadioButton("searching", "7") [Employee Last-Name]
+																<br />@Html.RadioButton("searching", "8") [Employee First-Name]
+																<br />@Html.RadioButton("searching", "9") [Product Flavor]
+												</div>
+												<p>
+																<input type="text" name="searchString">
+																<input type="submit" class="btn btn-secondary" value="Filter" />
+												</p>
+
+								</div>
+				</div>
+</form>
+
+
+
+
+<!--ONLY SEARCHES BASED ON CUSTOMER FIRSTNAME!!!
+
+
+	Html.TextBoxFor(m => m.Name, new { class = "form-control" })
+select asp-for="Order_Date" asp-items="Model.Order">
+				Search:
+				<option value="">All</option>
+select>-->
+
+
+
+<table id="reportsTable" class="table table-bordered dataTable orderTable">
+				<tr>
+
+								<th>
+												<h3>Orderplaced-Info</h3>
+								</th>
+								<th>
+												<h3>Pickup-Info</h3>
+								</th>
+								<th>
+												<h3>Product-Info</h3>
+								</th>
+								<th>
+												<h3>Customer-Info</h3>
+								</th>
+								<th>
+												<h3>Employee-Info</h3>
+								</th>
+
+				</tr>
+
+				@if (Model.Count() > 0)
+				{
+								foreach (var item in Model)
+								{
+												<tr>
+																<td>
+																				<b>Order Date: </b>
+																				@Html.DisplayFor(model => item.Order_Date)<br />
+																				<b>Order Time:</b><br />
+																				@Html.DisplayFor(model => item.Order_Time)<br />
+																				<b>Order-ID: </b>
+																				@Html.DisplayFor(model => item.ORDER_ID)
+																</td>
+																<td>
+																				<b>Pickup Date:</b><br />
+																				@Html.DisplayFor(model => item.PickUp_Due_Date)<br />
+																				<b>Pickup Time: </b>
+																				@Html.DisplayFor(model => item.PickUp_Time)<br />
+																				<b>Order-ID: </b>
+																				@Html.DisplayFor(model => item.ORDER_ID)
+																</td>
+																<td>
+																				<b>Product-ID: </b> @Html.DisplayFor(model => item.PRODUCT.ProductId)<br />
+																				<b>Flavor:</b><br />
+																				@Html.DisplayFor(model => item.PRODUCT.Product_Flavor)
+																				<br /><b>Ingredient-Substitution:</b><br />
+																				@Html.DisplayFor(model => item.Ingredient_Substitution)
+																				<br /><b>Dietary-Restriction: </b>
+																				@Html.DisplayFor(model => item.PRODUCT.Restriction.RestrictionName)
+
+																</td>
+																<td>
+																				<b>Customer Name:</b><br />
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_First_Name)
+																				@Html.DisplayFor(model => item.CUSTOMER.Customer_Last_Name)
+																				<br /><b>Info:</b><br />
+																				@Html.DisplayFor(model => item.CUSTOMER.Contact_Number)
+																				<br />@Html.DisplayFor(model => item.CUSTOMER.Email_Address)
+																				<br />@Html.DisplayFor(model => item.CUSTOMER.Alternate_Contact_Number)
+
+																</td>
+																<td>
+																				<b>Employee Name:</b><br />
+																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_First_Name)
+																				@Html.DisplayFor(model => item.EMPLOYEE.Emp_Last_Name)
+																				<br /><b>Employee-ID: </b>
+																				@Html.DisplayFor(model => item.EMPLOYEE.Employee_ID)
+																</td>
+																<td>
+																				@Html.ActionLink("More Details", "Details", new { id = item.ORDER_ID })
+																</td>
+												</tr>
+								}
+				}
+				else
+				{
+								<h1>NO-ORDERS-PRESENT</h1>
+				}
+</table>
+
+
