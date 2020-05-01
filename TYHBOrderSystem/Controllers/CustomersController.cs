@@ -15,14 +15,16 @@ namespace TYHBOrderSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Customers
-        public ActionResult Index()
+								// GET: Customers
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Index()
         {
             return View(db.Customers.ToList());
         }
 
-        // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+								// GET: Customers/Details/5
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -36,8 +38,9 @@ namespace TYHBOrderSystem.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Create
-        public ActionResult CreateForOrder()
+								// GET: Customers/Create
+								[Authorize(Roles = "Admin, Baker")]
+								public ActionResult CreateForOrder()
         {
             
 
@@ -93,6 +96,7 @@ namespace TYHBOrderSystem.Controllers
 								#endregion
 
 								// GET: Customers/Edit/5
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -123,8 +127,9 @@ namespace TYHBOrderSystem.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Delete/5
-        public ActionResult Delete(int? id)
+								// GET: Customers/Delete/5
+								[Authorize(Roles = "Admin")]
+								public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -138,8 +143,9 @@ namespace TYHBOrderSystem.Controllers
             return View(customer);
         }
 
-        // POST: Customers/Delete/5
-        [HttpPost, ActionName("Delete")]
+								// POST: Customers/Delete/5
+								[Authorize(Roles = "Admin")]
+								[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -15,6 +15,7 @@ namespace TYHBOrderSystem.Controllers
 								ApplicationDbContext DB = new ApplicationDbContext();
 
 								// GET: Reports
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult Index()
 								{
 												return View();
@@ -22,6 +23,7 @@ namespace TYHBOrderSystem.Controllers
 								}
 
 								// GET: Reports/Details/5
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult Details(int? id)
 								{
 												if (id == null)
@@ -38,11 +40,13 @@ namespace TYHBOrderSystem.Controllers
 
 
 								// GET: Reports/Create
+								[Authorize]
 								public ActionResult Create()
 								{
 												return View();
 								}
 
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult DailyReport()
 								{
 
@@ -52,6 +56,7 @@ namespace TYHBOrderSystem.Controllers
 												return View(orders);
 
 								}
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult WeeklyReport()
 								{
 
@@ -84,6 +89,8 @@ namespace TYHBOrderSystem.Controllers
 
 												return View(ords);
 								}
+
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult OldOrderData(string searchString, string searching)
 								{
 
@@ -141,6 +148,7 @@ namespace TYHBOrderSystem.Controllers
 
 								// POST: Reports/Create
 								[HttpPost]
+								[ValidateAntiForgeryToken]
 								public ActionResult Create(FormCollection collection)
 								{
 												try
@@ -156,6 +164,7 @@ namespace TYHBOrderSystem.Controllers
 								}
 
 								// GET: Reports/Edit/5
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult Edit(int id)
 								{
 												return View();
@@ -163,6 +172,7 @@ namespace TYHBOrderSystem.Controllers
 
 								// POST: Reports/Edit/5
 								[HttpPost]
+								[ValidateAntiForgeryToken]
 								public ActionResult Edit(int id, FormCollection collection)
 								{
 												try
@@ -178,12 +188,16 @@ namespace TYHBOrderSystem.Controllers
 								}
 
 								[HttpPost]
+								[Authorize(Roles = "Admin, Baker")]
+								//This really should have a validation token on it
+								//[ValidateAntiForgeryToken]
 								public string Index(string searchString, bool notUsed)
 								{
 												return "From [HttpPost]Index: filter on " + searchString;
 								}
 
 								// GET: Reports/Delete/5
+								[Authorize(Roles = "Admin, Baker")]
 								public ActionResult Delete(int id)
 								{
 												return View();
@@ -191,6 +205,8 @@ namespace TYHBOrderSystem.Controllers
 
 								// POST: Reports/Delete/5
 								[HttpPost]
+								//This should have one as well
+								//[ValidateAntiForgeryToken]
 								public ActionResult Delete(int id, FormCollection collection)
 								{
 												try
